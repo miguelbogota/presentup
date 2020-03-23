@@ -1,0 +1,12 @@
+<!-- Navigation in the landing page -->
+<div class="landing-page-navigation-container">
+  
+  <!-- Links container -->
+  <div class="landing-page-navigation-content">
+    <!-- Loop to show all the links -->
+    <a class="landing-page-navigation-link" *ngFor="let link of links" [routerLink]="['/' + link.url]" routerLinkActive="landing-page-navigation-link-active" [routerLinkActiveOptions]="{ exact: true }">
+      {{ link.name }}
+    </a>
+  </div>
+
+</div>

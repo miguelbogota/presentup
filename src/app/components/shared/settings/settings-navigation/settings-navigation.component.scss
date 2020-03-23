@@ -1,0 +1,44 @@
+/*-----------------------------------------------------------*/
+/*                   Settings Navigation                     */
+/*-----------------------------------------------------------*/
+
+// Container for the navigation in the settings
+.settings-links-container {
+  // Links
+  .settings-link {
+    display: block;
+    padding: 13px 11px;
+    border: 1px solid var(--white);
+    border-left: 2px solid var(--white);
+    box-sizing: border-box;
+    // Transition effect
+    transition-property: background-color, border-left-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+
+    // Hover effect in the link
+    &:hover {
+      background-color: var(--light);
+    }
+
+    // Link icon
+    &-icon {
+      width: 20px;
+      display: inline-block;
+      margin-right: 9px;
+      font-size: 17px;
+    }
+
+    // Link text
+    &-text {
+      display: inline-block;
+    }
+
+    // Links when active
+    &-active {
+      border-left: 2px solid var(--dark);
+      background-color: var(--light);
+    }
+  }
+}

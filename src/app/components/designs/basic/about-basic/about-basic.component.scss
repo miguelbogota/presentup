@@ -1,0 +1,66 @@
+/*-----------------------------------------------------------*/
+/*                         About                             */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.about-containter {
+  --margin-top: 200px;
+  // Screen change
+  @media only screen and (max-width: 825px) {
+    --margin-top: 40px;
+  }
+}
+
+// About container
+.about-containter {
+  margin: var(--margin-top) 40px 40px;
+
+  // User's name
+  .about-name {
+    font-size: 34px;
+    margin-bottom: 5px;
+    color: var(--gray-dark);
+  }
+
+  // User's title
+  .about-title {
+    margin-bottom: 1em;
+    font-weight: bold;
+    color: var(--gray-dark);
+  }
+
+  // User's descriptions
+  .about-description {
+    margin-bottom: 0.78em;
+    color: var(--gray);
+  }
+
+  // Buttons in the bottom of the about
+  .about-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 17px;
+
+    // Contact button
+    .about-contact-btn {
+      display: inline-block;
+      cursor: pointer;
+      padding: 10px;
+      margin-top: 20px;
+      margin-right: 28px;
+      border-radius: 20px;
+      transition: all 0.2s linear;
+      text-align: center;
+
+      // Effect when hover will change the background color
+      &:hover {
+        background-color: var(--gray-light);
+      }
+
+      // Icon for the button
+      .fas {
+        font-size: 29px;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<!-- Messages container -->
+<div class="messages-containter">
+
+  <!-- Title -->
+  <h3 style="font-size: 26px; margin: 100px 0px 20px; text-align: center;">Mensajes recibidos</h3>
+
+  <!-- Container for all of the chats -->
+  <div class="messages-chat-preview-container">
+    <!-- Loop to show all the chats preview with the chat passed -->
+    <app-chat-preview-basic *ngFor="let chat of chatPreview" [chat]='chat'></app-chat-preview-basic>
+  </div>
+
+</div>

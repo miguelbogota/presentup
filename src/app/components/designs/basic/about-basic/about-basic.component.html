@@ -1,0 +1,20 @@
+<!-- About page -->
+<div class="about-containter">
+
+  <!-- User's name -->
+  <h3 class="about-name">{{ user.name }}</h3>
+  <!-- User's title -->
+  <h4 class="about-title">{{ user.title }}</h4>
+  <!-- User's descriptions loop -->
+  <p class="about-description" *ngFor="let desc of user.descriptions">{{ desc }}</p>
+  <!-- Div for the buttons -->
+  <div class="about-btns">
+    <!-- Contact button -->
+    <a class="about-contact-btn" [routerLink]="['/' + user.uid + '/contact']">
+      <!-- Icon -->
+      <p>Contactar</p>
+      <i class="fas fa-comments" style="color: var(--gray);"></i>
+    </a>
+  </div>
+
+</div>

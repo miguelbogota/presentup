@@ -1,0 +1,26 @@
+<!-- Settings container -->
+<div class="settings-container">
+  <!-- Panel for the links -->
+  <div class="settings-panel">
+
+    <!-- Back button -->
+    <a class="settings-back-btn" [routerLink]="['/id']">
+      <!-- Back button icon -->
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <!-- Settings title -->
+    <h3 class="settings-panel-title">Configuración</h3>
+    <!-- Links container for the diferent links -->
+    <app-settings-navigation></app-settings-navigation>
+
+  </div>
+
+  <!-- Settings inputs and router for the different options -->
+  <div class="settings-inputs-container">
+    <div class="settings-content">
+      <!-- Router -->
+      <ng-container #router></ng-container>
+    </div>
+  </div>
+
+</div>

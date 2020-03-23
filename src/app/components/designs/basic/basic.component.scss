@@ -1,0 +1,41 @@
+/*-----------------------------------------------------------*/
+/*                      Basic Design                         */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.basic-container {
+  --header-height: 100vh;
+  --header-width: 66%;
+  --header-position: fixed;
+  --header-width-offset: 66%;
+  // Screen change
+  @media only screen and (max-width: 825px) {
+    --header-height: 66vh;
+    --header-width: 100%;
+    --header-position: relative;
+    --header-width-offset: 0%;
+  }
+}
+
+// Basic desgin container
+.basic-container {
+
+  // Header container
+  .header-basic {
+    width: var(--header-width);
+    height: var(--header-height);
+    position: var(--header-position);
+    display: block;
+  }
+
+  // container for the content
+  .content-container {
+    display: grid;
+    grid-template-columns: var(--header-width-offset) auto;
+
+    // The content to be shown
+    .app-content {
+      grid-column-start: 2;
+    }
+  }
+}

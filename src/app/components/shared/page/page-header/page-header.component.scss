@@ -1,0 +1,29 @@
+/*-----------------------------------------------------------*/
+/*                     Main Page Header                      */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.landing-page-header-container {
+
+  // Screen change
+  @media only screen and (max-width: 825px) {
+
+  }
+}
+
+// Landing page header container
+.landing-page-header-container {
+  height: 400px;
+  background-color: rgb(236, 68, 68);
+  background-size: cover;
+
+  .title {
+    font-family: 'Poiret One';
+    display: block;
+    font-size: 90px;
+    color: var(--white);
+    padding: 290px 0px 0px 220px;
+    user-select: none;
+  }
+
+}

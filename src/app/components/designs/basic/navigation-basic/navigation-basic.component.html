@@ -1,0 +1,20 @@
+<!-- Navigation's container -->
+<div class="nav-container">
+
+  <!-- Navigation if is not logged will be an ad to create an account -->
+  <button class="nav-content" *ngIf="false">
+    <div class="nav-adv-text" *ngIf="showAdv">
+      <p [routerLink]="['/singup']">Crear cuenta completamente gratis</p>
+    </div>
+    <i class="fas fa-times-circle" style="color: var(--danger);" *ngIf="showAdv" (click)="toggle()"></i>
+    <i class="fas fa-arrow-circle-left" style="color: var(--success);" *ngIf="!showAdv" (click)="toggle()"></i>
+  </button>
+
+  <!-- Navigation if is logged will be a link to the settings -->
+  <button class="nav-content" *ngIf="showSettings">
+    <i class="fas fa-home" style="color: var(--gray);" [routerLink]="['/' + user.uid]"></i>
+    <i class="fas fa-comment" style="color: var(--gray);" [routerLink]="['/' + user.uid + '/messages']"></i>
+    <i class="fas fa-cog" style="color: var(--gray);" [routerLink]="['/settings']"></i>
+  </button>
+
+</div>

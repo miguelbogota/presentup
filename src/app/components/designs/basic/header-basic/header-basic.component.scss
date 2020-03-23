@@ -1,0 +1,25 @@
+/*-----------------------------------------------------------*/
+/*                         Header                            */
+/*-----------------------------------------------------------*/
+
+// Variables for the components
+.header-container {
+  --size: 100%;
+}
+
+// Header container
+.header-container {
+  width: var(--size);
+  height: var(--size);
+
+  // User image
+  .user-img {
+    width: var(--size);
+    height: var(--size);
+
+    // Image configuration
+    background-position: 42% 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

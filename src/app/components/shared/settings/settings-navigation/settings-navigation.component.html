@@ -1,0 +1,11 @@
+<!-- Links for the different routes in the settings -->
+<div class="settings-links-container">
+
+  <a class="settings-link" *ngFor="let link of links" [routerLink]="'/settings/' + link.url" routerLinkActive="settings-link-active">
+    <!-- Icon -->
+    <i class="settings-link-icon fas" [class]="link.icon"></i>
+    <!-- Text -->
+    <div class="settings-link-text">{{ link.name }}</div>
+  </a>
+  
+</div>

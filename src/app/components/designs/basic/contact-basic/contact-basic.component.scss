@@ -1,0 +1,73 @@
+/*-----------------------------------------------------------*/
+/*                        Contact                            */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.contact-container {
+  // Screen change
+  @media only screen and (max-width: 825px) {
+  }
+}
+
+// Contact container
+.contact-container {
+  padding: 150px 20px 20px;
+
+  // Contact form title
+  .contact-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  // Form group of controls
+  .forms-group {
+    padding: 4px;
+    margin-bottom: 12px;
+
+    // Control title
+    label {
+      width: 100%;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    // Group control
+    .form-control {
+      box-sizing: border-box;
+      width: 100%;
+      display: block;
+      border-radius: 5px;
+      background-color: var(--light);
+      border: 1px solid #0000001e;
+      margin-bottom: 5px;
+      padding: 6px 6px;
+      font-size: 16px;
+      color: var(--dark);
+    }
+
+    // All inputs for this forms will have this style
+    input {
+      height: 32px;
+    }
+
+    // Text areas
+    textarea {
+      resize: none;
+      height: 160px;
+    }
+
+    // Text for the input
+    .form-text {
+      width: 100%;
+      display: block;
+      color: var(--gray);
+      font-size: 14px;
+
+      // Error class
+      &.error {
+        color: var(--danger) !important;
+      }
+    }
+  }
+}
