@@ -1,21 +1,19 @@
 import {
-  Component, OnInit, AfterViewInit, Input, ChangeDetectorRef,
-  ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory
+  Component, OnInit, AfterViewInit, ChangeDetectorRef, ComponentFactoryResolver, ViewChild, ViewContainerRef, ComponentFactory
 } from '@angular/core';
-import { IUser } from 'src/app/core/models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/core/services/user.service';
+import { IUser } from 'src/app/core/models/user.model';
 
 // Designs
 import { BasicComponent } from '../../../designs/basic/basic.component';
-import { UserService } from 'src/app/core/services/user.service';
-import { startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-handler-user',
-  templateUrl: './handler-user.component.html',
-  styleUrls: ['./handler-user.component.scss']
+  selector: 'app-handler-user-design',
+  templateUrl: './handler-user-design.component.html',
+  styleUrls: ['./handler-user-design.component.scss']
 })
-export class HandlerUserComponent implements OnInit, AfterViewInit {
+export class HandlerUserDesignComponent implements OnInit, AfterViewInit {
 
   uid: string = null; // Property for the id of the user
   showLoading = true; // Property to know if the page is loading

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HandlerErrorComponent } from './handler-error.component';
+import { HandlerUserDesignComponent } from './handler-user-design.component';
 
-describe('ErrorComponent', () => {
-  let component: HandlerErrorComponent;
-  let fixture: ComponentFixture<HandlerErrorComponent>;
+describe('UserComponent', () => {
+  let component: HandlerUserDesignComponent;
+  let fixture: ComponentFixture<HandlerUserDesignComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HandlerErrorComponent ]
+      declarations: [ HandlerUserDesignComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HandlerErrorComponent);
+    fixture = TestBed.createComponent(HandlerUserDesignComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

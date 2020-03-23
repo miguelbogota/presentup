@@ -6,16 +6,16 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { AnimationsModule } from 'src/app/core/animations/animations.module';
 
 // Components
-import { HandlerErrorComponent } from './handlers/handler-error/handler-error.component';
-import { HandlerUserComponent } from './handlers/handler-user/handler-user.component';
+import { HandlerNotFoundComponent } from './handlers/handler-not-found/handler-not-found.component';
+import { HandlerUserDesignComponent } from './handlers/handler-user-design/handler-user-design.component';
 import { HandlerCropperComponent } from './handlers/handler-cropper/handler-cropper.component';
 import { PageModule } from './page/page.module';
 
 @NgModule({
   declarations: [
     HandlerCropperComponent,
-    HandlerErrorComponent,
-    HandlerUserComponent
+    HandlerNotFoundComponent,
+    HandlerUserDesignComponent
   ],
   imports: [
     CommonModule,
@@ -28,8 +28,8 @@ import { PageModule } from './page/page.module';
   ],
   exports: [
     HandlerCropperComponent,
-    HandlerErrorComponent,
-    HandlerUserComponent
+    HandlerNotFoundComponent,
+    HandlerUserDesignComponent
   ]
 })
 export class SharedModule { }

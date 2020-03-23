@@ -5,8 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageComponent } from './components/shared/page/page.component';
 import { SettingsComponent } from './components/shared/settings/settings.component';
 
-import { HandlerUserComponent } from './components/shared/handlers/handler-user/handler-user.component';
-import { HandlerErrorComponent } from './components/shared/handlers/handler-error/handler-error.component';
+import { HandlerUserDesignComponent } from './components/shared/handlers/handler-user-design/handler-user-design.component';
+import { HandlerNotFoundComponent } from './components/shared/handlers/handler-not-found/handler-not-found.component';
 
 /* Childrens can not be added due to the way routing is handle */
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'signin', component: PageComponent },
   { path: 'signup', component: PageComponent },
   // Navigation to redirect to the error
-  { path: 'error', component: HandlerErrorComponent },
+  { path: 'error', component: HandlerNotFoundComponent },
   // Settings path with its children - Auth in this components
   { path: 'settings', redirectTo: 'settings/account', pathMatch: 'full' }, // No access to the settings directly
   { path: 'settings/account', component: SettingsComponent }, // Account settings
@@ -26,13 +26,13 @@ const routes: Routes = [
   { path: 'settings/subscription', component: SettingsComponent }, // Subscription settings
   { path: 'settings/**', redirectTo: 'settings/account', pathMatch: 'full' }, // In case nothing is found send to the account settings
   // Components and routes below will be handle in the user component due to designs
-  { path: ':id', component: HandlerUserComponent },
-  { path: ':id/contact', component: HandlerUserComponent },
-  { path: ':id/portfolio', component: HandlerUserComponent },
-  { path: ':id/messages', component: HandlerUserComponent }, // Auth in this component
-  { path: ':id/messages/:id', component: HandlerUserComponent },  // Auth in this component
+  { path: ':id', component: HandlerUserDesignComponent },
+  { path: ':id/contact', component: HandlerUserDesignComponent },
+  { path: ':id/portfolio', component: HandlerUserDesignComponent },
+  { path: ':id/messages', component: HandlerUserDesignComponent }, // Auth in this component
+  { path: ':id/messages/:id', component: HandlerUserDesignComponent },  // Auth in this component
   // Error handler in case no navigation available
-  { path: '**', component: HandlerErrorComponent }
+  { path: '**', component: HandlerNotFoundComponent }
 ];
 
 @NgModule({
