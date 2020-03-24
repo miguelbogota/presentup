@@ -4,16 +4,16 @@
 
 // Component's Variables
 .landing-page-navigation-container {
-
+  --display: block;
   // Screen change
   @media only screen and (max-width: 825px) {
-
+    --display: none;
   }
 }
 
 // Landing page container
 .landing-page-navigation-container {
-  display: block;
+  display: var(--display); // Temp. should show a button
   position: fixed;
   z-index: 1000;
   padding: 0px;

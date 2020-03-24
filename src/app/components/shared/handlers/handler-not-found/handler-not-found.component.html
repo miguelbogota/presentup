@@ -1,2 +1,22 @@
-<app-page-navigation></app-page-navigation>
-Page Not Found
+<!-- Container for the not found page -->
+<div class="not-found">
+  <!-- Navigation bar -->
+  <app-page-navigation></app-page-navigation>
+
+  <!-- Error message -->
+  <div class="not-found-content">
+    <!-- Text in the left -->
+    <div class="not-found-content-text">
+      <h3 class="not-found-content-text-error">404</h3>
+      <h4 class="not-found-content-text-title">¡Ve lentamente a <a [routerLink]="['/']">inicio</a>!</h4>
+      <h5 class="not-found-content-text-subtitle">No viste nada...</h5>
+      <a class="not-found-content-text-btn" [routerLink]="['/']">Inicio</a>
+    </div>
+    <!-- Image to the right -->
+    <img class="not-found-content-img" src="assets/svgs/penguin.svg" draggable="false">
+  </div>
+  
+  <!-- Footer -->
+  <app-page-footer></app-page-footer>
+
+</div>
