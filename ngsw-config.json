@@ -40,18 +40,6 @@
       }
     },
     {
-      "name": "fontawesome",
-      "urls": [
-        "https://kit-free.fontawesome.com/**"
-      ],
-      "cacheConfig": {
-        "maxSize": 100,
-        "maxAge": "7d",
-        "strategy": "performance",
-        "timeout": "2s"
-      }
-    },
-    {
       "name": "fonts",
       "urls": [
         "https://fonts.googleapis.com/**"
