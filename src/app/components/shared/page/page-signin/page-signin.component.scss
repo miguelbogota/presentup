@@ -6,13 +6,13 @@
 .signin-container {
   --nav-margin: 82.83px;
 
-  --header-width-offset: 50%;
+  --width-offset: 50%;
   --show-img: visible;
   --form-margin: 10px;
   --width-form: 350px;
   // Screen change
   @media only screen and (max-width: 825px) {
-    --header-width-offset: 0%;
+    --width-offset: 0%;
     --show-img: hidden;
     --form-margin: auto;
   }
@@ -26,15 +26,16 @@
 // Signin page container
 .signin-container {
   margin-top: var(--nav-margin);
-  
+
   // Content for the sign in form
   .signin-content {
     width: 100%;
     max-width: 935px;
-    margin: 0px auto;
     display: grid;
+    margin: 0px auto;
+    min-height: 542px;
     height: calc(100vh - 63.5px - var(--nav-margin));
-    grid-template-columns: var(--header-width-offset) auto;
+    grid-template-columns: var(--width-offset) auto;
 
     // Image banner in the left
     .signin-img-container {
@@ -42,11 +43,10 @@
       align-items: flex-start;
       justify-content: flex-end;
       visibility: var(--show-img);
-      text-align: center;
-      
+
       // Image
       .signin-img {
-        width: 330px;
+        width: 350px;
         margin: 10px;
         user-select: none;
       }
@@ -73,7 +73,7 @@
         // Title
         &-title {
           display: block;
-          font-family: 'Poiret One';
+          font-family: "Poiret One";
           text-align: center;
           font-size: 45px;
           margin-bottom: 30px;
@@ -148,7 +148,6 @@
           cursor: pointer;
           font-size: 13px;
         }
-
       }
 
       // Create account link
@@ -185,7 +184,5 @@
         }
       }
     }
-
   }
-
 }

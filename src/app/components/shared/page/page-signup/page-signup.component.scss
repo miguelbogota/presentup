@@ -1,0 +1,196 @@
+/*-----------------------------------------------------------*/
+/*                         Sign Up                           */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.signup-container {
+  --nav-margin: 82.83px;
+
+  --form-width-offset: 50%;
+  --show-img: visible;
+  --form-margin: 10px;
+  --width-form: 350px;
+  // Screen change
+  @media only screen and (max-width: 825px) {
+    --form-width-offset: 0%;
+    --show-img: hidden;
+    --form-margin: auto;
+  }
+  // Screen change
+  @media only screen and (max-width: 450px) {
+    --form-margin: 0px;
+    --width-form: 100%;
+  }
+}
+
+// sign up page container
+.signup-container {
+  margin-top: var(--nav-margin);
+
+  // Content for the sign un form
+  .signup-content {
+    width: 100%;
+    max-width: 935px;
+    display: grid;
+    margin: 0px auto;
+    min-height: 740px;
+    height: calc(100vh - 63.5px - var(--nav-margin));
+    grid-template-columns: auto var(--form-width-offset);
+
+    // Container for the form
+    .signup-form-container {
+      width: 100%;
+      justify-self: flex-end;
+      text-align: center;
+      max-width: var(--width-form);
+      margin: 10px var(--form-margin);
+
+      // Form
+      .signup-form {
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: var(--gray-light);
+        // Screen change
+        @media only screen and (max-width: 450px) {
+          padding: 20px 10%;
+        }
+
+        // Title
+        &-title {
+          display: block;
+          font-family: "Poiret One";
+          text-align: center;
+          font-size: 45px;
+          margin-bottom: 15px;
+        }
+
+        // Slogan
+        &-slogan {
+          margin-bottom: 30px;
+          font-size: 15px;
+        }
+
+        // Content in the form
+        &-content {
+          margin-bottom: 20px;
+          // Inputs
+          &-input {
+            display: block;
+            width: 100%;
+            height: 35px;
+            font-size: 16px;
+            line-height: 35px;
+            padding: 0px 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+          }
+          // Button
+          &-btn {
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 3px;
+            color: var(--light);
+            background-color: var(--cyan);
+            transition: all 0.1s linear;
+            // Hover effect
+            &:hover {
+              background-color: #17a3b8c1;
+            }
+          }
+        }
+
+        // Divider
+        &-divider {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+          user-select: none;
+          // Lines
+          &-line {
+            display: inline-block;
+            width: 40%;
+            height: 1px;
+            background-color: #464b506f;
+          }
+          // Text
+          &-text {
+            display: inline-block;
+            margin: 0px 8px;
+          }
+        }
+
+        // Other sign in options
+        &-options {
+          display: block;
+          margin-bottom: 27px;
+          &-fb {
+            cursor: pointer;
+            color: var(--cyan);
+          }
+        }
+
+        // Terms and conditions
+        &-terms {
+          display: inline-block;
+          font-size: 13px;
+          // Link in the terms and conditions
+          &-link {
+            cursor: pointer;
+            color: var(--cyan);
+          }
+        }
+      }
+
+      // Already have an account
+      .signup-account {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background-color: var(--gray-light);
+        margin-bottom: 20px;
+        font-size: 15px;
+        // Link to sign in
+        &-link {
+          cursor: pointer;
+          margin-left: 5px;
+          color: var(--cyan);
+        }
+      }
+
+      // Button to install the app
+      .signup-get {
+        display: inline-block;
+        cursor: pointer;
+        font-size: 13px;
+        padding: 10px;
+        border-radius: 3px;
+        color: var(--light);
+        background-color: var(--dark);
+        transition: all 0.1s linear;
+        // Hover effect
+        &:hover {
+          background-color: #343a40c1;
+        }
+      }
+    }
+
+    // Image banner in the left
+    .signup-img-container {
+      visibility: var(--show-img);
+      grid-column-start: 2;
+      overflow: hidden;
+
+      // Image
+      .signup-img {
+        width: 350px;
+        margin: 10px;
+        user-select: none;
+      }
+    }
+  }
+}
