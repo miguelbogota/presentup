@@ -168,7 +168,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.4s ease;
+        transition: transform 0.4s ease;
         // Add more lines
         &::before,
         &::after {
