@@ -13,25 +13,17 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-// import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 // Keys
 import { environment } from '../environments/environment';
-
 // Services
 import { UserService } from './core/services/user.service';
 
-
 // Main components
 import { AppComponent } from './app.component';
-
-// Shared module
+// Shared modules
 import { SharedModule } from './components/shared/shared.module';
-// Module for the page
-import { PageModule } from './components/shared/page/page.module';
-// Module for the settings
-import { SettingsModule } from './components/shared/settings/settings.module';
-// Modules for the animations
 import { AnimationsModule } from './core/animations/animations.module';
 // Modules for the designs
 import { BasicModule } from './components/designs/basic/basic.module';
@@ -54,12 +46,13 @@ import { BasicModule } from './components/designs/basic/basic.module';
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
     AngularFireAuthModule,
+    AngularFireFunctionsModule,
 
-    SharedModule, // Shared
-    PageModule, // Page
-    SettingsModule, // Settings
-    AnimationsModule, // Animations
-    BasicModule // Designs
+    // Modules
+    AnimationsModule,
+    SharedModule,
+    // Designs
+    BasicModule
   ],
   providers: [
     UserService

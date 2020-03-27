@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 // Components
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
-// Components
-
 @NgModule({
   declarations: [
     LoadingSpinnerComponent

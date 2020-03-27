@@ -1,0 +1,81 @@
+/*-----------------------------------------------------------*/
+/*                     Page Not Found                        */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.not-found {
+  --min-height: 500px;
+  --img-size: 420px;
+  --direction: row;
+  --margin-right: 20px;
+  --margin-bottom: 0px;
+  // Screen change
+  @media only screen and (max-width: 825px) {
+    --min-height: 820px;
+    --img-size: 290px;
+    --direction: column;
+    --margin-right: 0px;
+    --margin-bottom: 30px;
+  }
+}
+
+// Container for the not found page
+.not-found {
+  // Message error container
+  &-content {
+    height: calc(100vh - 63.5px);
+    min-height: var(--min-height);
+    display: flex;
+    flex-direction: var(--direction);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    // Text in the screen
+    &-text {
+      user-select: none;
+      display: inline-block;
+      margin-bottom: var(--margin-bottom);
+      margin-right: var(--margin-right);
+
+      // Error message
+      &-error {
+        font-size: 140px;
+        margin-bottom: -20px;
+      }
+      // Title
+      &-title {
+        font-size: 22px;
+        margin-bottom: 9px;
+      }
+      // Subtitle
+      &-subtitle {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      // Back to home page button
+      &-btn {
+        display: inline-block;
+        color: var(--light);
+        padding: 14px 20px;
+        border-radius: 3px;
+        background-color: var(--cyan);
+        transition: all 0.1s linear;
+
+        // Hover effect
+        &:hover {
+          background-color: #17a3b8c1;
+        }
+      }
+    }
+
+    // Image in the screen
+    &-img {
+      user-select: none;
+      display: inline-block;
+      width: 290px;
+    }
+  }
+}

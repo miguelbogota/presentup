@@ -5,12 +5,11 @@
   <ng-container *ngIf="user">
 
     <!-- Floating navigation -->
-    <app-navigation-basic [user]="user"></app-navigation-basic>
+    <app-navigation [user]="user"></app-navigation>
     
     <!-- Header -->
     <div class="header-basic">
-      <app-header-basic [imgUrl]="user.img">
-      </app-header-basic>
+      <app-header [imgUrl]="user.img"></app-header>
     </div>
 
   </ng-container>

@@ -1,0 +1,76 @@
+<div class="signup-container">
+
+  <!-- Navigation bar -->
+  <app-navigation></app-navigation>
+
+  <div class="signup-content">
+
+    <!-- Container for the form -->
+    <div class="signup-form-container">
+      <!-- Sign in form -->
+      <div class="signup-form">
+
+        <!-- Title for the sign in -->
+        <h2 class="signup-form-title">presentup.me</h2>
+
+        <!-- Short description / slogan -->
+        <div class="signup-form-slogan">¡Presentate! Que le mundo te conozca</div>
+
+        <div class="signup-form-content">
+          <form>
+            <!-- Inputs for the sign up -->
+            <input class="signup-form-content-input" type="email" placeholder="Correo electrónico">
+            <input class="signup-form-content-input" type="text" placeholder="Nombre completo">
+            <input class="signup-form-content-input" type="text" placeholder="Usuario">
+            <input class="signup-form-content-input" type="password" placeholder="Contraseña">
+            <input class="signup-form-content-input" type="password" placeholder="Confirmar contraseña">
+            <input class="signup-form-content-btn" type="submit" value="Registrarte">
+          </form>
+        </div>
+
+        <!-- Option divider -->
+        <div class="signup-form-divider">
+          <div class="signup-form-divider-line"></div>
+          <div class="signup-form-divider-text">O</div>
+          <div class="signup-form-divider-line"></div>
+        </div>
+
+        <!-- Other sign up options -->
+        <div class="signup-form-options">
+          <!-- Facebook -->
+          <a class="signup-form-options-fb">Iniciar sesión con Facebook</a>
+        </div>
+
+        <!-- Terms and conditions -->
+        <div class="signup-form-terms">
+          Al registrarte, aceptas nuestras 
+          <a class="signup-form-terms-link">Condiciones</a>, 
+          la Política de datos y 
+          la Política de cookies.
+        </div>
+
+      </div>
+
+      <!-- Create account container -->
+      <div class="signup-account">
+        <p class="signup-account-text">¿Ya tienes una cuenta?</p>
+        <a class="signup-account-link" [routerLink]="['/signin']">Inicia sesión</a>
+      </div>
+
+      <!-- Download the app -->
+      <a class="signup-get">¡Instala la app!</a>
+
+    </div>
+
+    <!-- Image container -->
+    <div class="signup-img-container">
+      <!-- Image to show in the screen -->
+      <img class="signup-img" src="assets/imgs/su-banner.jpg" draggable="false">
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+</div>

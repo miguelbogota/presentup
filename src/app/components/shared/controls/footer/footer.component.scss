@@ -1,0 +1,53 @@
+/*-----------------------------------------------------------*/
+/*                         Footer                            */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.footer-container {
+  // Screen change
+  @media only screen and (max-width: 825px) {
+  }
+}
+
+// Footer container
+.footer-container {
+  padding: 20px;
+  border-top: 1px solid var(--gray-light);
+  background-color: var(--light);
+
+  // Content in the footer
+  .footer-content {
+    display: flex;
+    font-size: 13px;
+    color: var(--gray);
+    
+    // Links container
+    .footer-links-container {
+      margin-left: auto;
+
+      // Footer links
+      .footer-link {
+        display: inline-block;
+        margin: 0px 3px;
+        padding: 5px;
+
+        // Hover effect
+        &:hover {
+          text-decoration: underline;
+          color: var(--dark);
+        }
+      }
+    }
+
+    // Copyright statement
+    .footer-copyright {
+      display: inline-block;
+      margin: 0px 0px 0px 9px;
+      padding: 3px 0px;
+
+      small {
+        font-family: "Segoe UI";
+      }
+    }
+  }
+}

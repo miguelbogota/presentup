@@ -6,11 +6,11 @@ import { IUser } from '../../../core/models/user.model';
 import { Router } from '@angular/router';
 
 // Components
-import { AboutBasicComponent } from './about-basic/about-basic.component';
-import { ContactBasicComponent } from './contact-basic/contact-basic.component';
-import { PortfolioBasicComponent } from './portfolio-basic/portfolio-basic.component';
-import { MessagesBasicComponent } from './messages-basic/messages-basic.component';
-import { ChatBasicComponent } from './messages-basic/chat-basic/chat-basic.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ChatComponent } from './messages/chat/chat.component';
 
 @Component({
   selector: 'app-basic',
@@ -36,23 +36,23 @@ export class BasicComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // Routing
     if (this.router.url.endsWith('/contact')) {
-      const factory = this.resolver.resolveComponentFactory(ContactBasicComponent);
+      const factory = this.resolver.resolveComponentFactory(ContactComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else if (this.router.url.endsWith('/portfolio')) {
-      const factory = this.resolver.resolveComponentFactory(PortfolioBasicComponent);
+      const factory = this.resolver.resolveComponentFactory(PortfolioComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else if (this.router.url.endsWith('/messages')) {
-      const factory = this.resolver.resolveComponentFactory(MessagesBasicComponent);
+      const factory = this.resolver.resolveComponentFactory(MessagesComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else if (this.router.url.includes('/messages/')) {
-      const factory = this.resolver.resolveComponentFactory(ChatBasicComponent);
+      const factory = this.resolver.resolveComponentFactory(ChatComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else {
-      const factory = this.resolver.resolveComponentFactory(AboutBasicComponent);
+      const factory = this.resolver.resolveComponentFactory(AboutComponent);
       const componentRef = this.content.createComponent(factory);
       componentRef.instance.user = this.user;
     }

@@ -1,0 +1,8 @@
+<!-- Structure to handle users pages -->
+<!-- Show loading screen -->
+<div class="loading-user-container" *ngIf="showLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<!-- Component where the view will loaded -->
+<ng-container #content></ng-container>

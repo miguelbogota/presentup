@@ -1,0 +1,18 @@
+<!-- Footer container -->
+<footer class="footer-container">
+
+  <!-- Footer content -->
+  <div class="footer-content">
+
+    <!-- Links container -->
+    <div class="footer-links-container">
+      <!-- Loop to show all the links -->
+      <a class="footer-link" *ngFor="let link of links" [routerLink]="['/' + link.url]">{{ link.name }}</a>
+    </div>
+
+    <!-- Copyright statement -->
+    <p class="footer-copyright"><small>&copy;</small> Presentup.me 2020</p>
+
+  </div>
+
+</footer>

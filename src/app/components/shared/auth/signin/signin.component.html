@@ -1,0 +1,64 @@
+<div class="signin-container">
+
+  <!-- Navigation bar -->
+  <app-navigation></app-navigation>
+
+  <div class="signin-content">
+
+    <!-- Image container -->
+    <div class="signin-img-container">
+      <!-- Image to show in the screen -->
+      <img class="signin-img" src="assets/imgs/si-banner.jpg" draggable="false">
+    </div>
+
+    <!-- Container for the form -->
+    <div class="signin-form-container">
+      <!-- Sign in form -->
+      <div class="signin-form">
+
+        <!-- Title for the sign in -->
+        <h2 class="signin-form-title">presentup.me</h2>
+
+        <div class="signin-form-content">
+          <form>
+            <!-- Inputs for the sign in -->
+            <input class="signin-form-content-input" type="text" placeholder="Usuario">
+            <input class="signin-form-content-input" type="password" placeholder="Contraseña">
+            <input class="signin-form-content-btn" type="submit" value="Inciar sesión">
+          </form>
+        </div>
+
+        <!-- Option divider -->
+        <div class="signin-form-divider">
+          <div class="signin-form-divider-line"></div>
+          <div class="signin-form-divider-text">O</div>
+          <div class="signin-form-divider-line"></div>
+        </div>
+
+        <!-- Other sign in options -->
+        <div class="signin-form-options">
+          <!-- Facebook -->
+          <a class="signin-form-options-fb">Iniciar sesión con Facebook</a>
+        </div>
+
+        <!-- Forgot password option -->
+        <a class="signin-form-forgot" [routerLink]="['/forgot']">¿Olvidaste tu contraseña?</a>
+
+      </div>
+
+      <!-- Create account container -->
+      <div class="signin-new">
+        <p class="signin-new-text">¿No tienes una cuenta?</p>
+        <a class="signin-new-link" [routerLink]="['/signup']">Crear cuenta</a>
+      </div>
+
+      <!-- Download the app -->
+      <a class="signin-get">¡Instala la app!</a>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+</div>
