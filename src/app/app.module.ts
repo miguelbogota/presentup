@@ -19,6 +19,7 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 // Services
 import { UserService } from './core/services/user.service';
+import { NotificationService } from './core/services/notification.service';
 
 // Main components
 import { AppComponent } from './app.component';
@@ -55,7 +56,8 @@ import { BasicModule } from './components/designs/basic/basic.module';
     BasicModule
   ],
   providers: [
-    UserService
+    UserService,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })
