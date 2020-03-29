@@ -1,0 +1,31 @@
+/*-----------------------------------------------------------*/
+/*                     Sign Up - Account                     */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+.signup-account-container {
+  --nav-margin: 82.83px;
+
+  --form-width-offset: 50%;
+  // Screen change
+  @media only screen and (max-width: 825px) {
+    --form-width-offset: 0%;
+  }
+}
+
+// sign up page for the account set up
+.signup-account-container {
+  margin-top: var(--nav-margin);
+  
+  // Content for the sign un form
+  .signup-account-content {
+    width: 100%;
+    max-width: 935px;
+    display: grid;
+    margin: 0px auto;
+    min-height: 600px;
+    height: calc(100vh - 63.5px - var(--nav-margin));
+    grid-template-columns: auto var(--form-width-offset);
+  }
+
+}

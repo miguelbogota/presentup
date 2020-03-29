@@ -21,6 +21,9 @@ const routes: Routes = [
   // Auth pages to the auth component
   { path: 'signin', component: AuthComponent },
   { path: 'signup', component: AuthComponent },
+  { path: 'signup/account', component: AuthComponent },
+  { path: 'signup/appearance', component: AuthComponent },
+  { path: 'signup/subscription', component: AuthComponent },
   { path: 'forgot', component: AuthComponent },
   // Navigation to redirect to the error
   { path: 'error', component: NotFoundComponent },

@@ -31,7 +31,7 @@ export class AuthComponent implements OnInit, AfterViewInit {
       const factory = this.resolver.resolveComponentFactory(SigninComponent);
       const componentRef = this.content.createComponent(factory);
     }
-    else if (this.router.url.endsWith('/signup')) {
+    else if (this.router.url.includes('/signup')) {
       const factory = this.resolver.resolveComponentFactory(SignupComponent);
       const componentRef = this.content.createComponent(factory);
     }

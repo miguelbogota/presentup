@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------*/
-/*                         Sign Up                           */
+/*                     Sign Up - Personal                    */
 /*-----------------------------------------------------------*/
 
 // Component's Variables
-.signup-container {
+.signup-personal-container {
   --nav-margin: 82.83px;
 
   --form-width-offset: 50%;
@@ -23,12 +23,12 @@
   }
 }
 
-// sign up page container
-.signup-container {
+// sign up page container for the personal data set up
+.signup-personal-container {
   margin-top: var(--nav-margin);
 
   // Content for the sign un form
-  .signup-content {
+  .signup-personal-content {
     width: 100%;
     max-width: 935px;
     display: grid;
@@ -38,7 +38,7 @@
     grid-template-columns: auto var(--form-width-offset);
 
     // Container for the form
-    .signup-form-container {
+    .signup-personal-form-container {
       width: 100%;
       justify-self: flex-end;
       text-align: center;
@@ -46,7 +46,7 @@
       margin: 10px var(--form-margin);
 
       // Form
-      .signup-form {
+      .signup-personal-form {
         padding: 20px;
         margin-bottom: 20px;
         background-color: var(--gray-light);
@@ -116,6 +116,14 @@
               cursor: not-allowed;
             }
           }
+          // Loading screen
+          .loading-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
         }
 
         // Divider
@@ -141,10 +149,11 @@
 
         // Other sign in options
         &-options {
-          display: block;
           margin-bottom: 27px;
-          &-fb {
+          &-link {
+            display: block;
             cursor: pointer;
+            margin-bottom: 10px;
             color: var(--cyan);
           }
         }
@@ -162,7 +171,7 @@
       }
 
       // Already have an account
-      .signup-account {
+      .signup-personal-account {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -179,7 +188,7 @@
       }
 
       // Button to install the app
-      .signup-get {
+      .signup-personal-get {
         display: inline-block;
         cursor: pointer;
         font-size: 13px;
@@ -196,13 +205,13 @@
     }
 
     // Image banner in the left
-    .signup-img-container {
+    .signup-personal-img-container {
       visibility: var(--show-img);
       grid-column-start: 2;
       overflow: hidden;
 
       // Image
-      .signup-img {
+      .signup-personal-img {
         width: 350px;
         margin: 10px;
         user-select: none;

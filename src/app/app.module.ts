@@ -17,6 +17,8 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 // Keys
 import { environment } from '../environments/environment';
+// Directives
+
 // Services
 import { UserService } from './core/services/user.service';
 import { NotificationService } from './core/services/notification.service';
