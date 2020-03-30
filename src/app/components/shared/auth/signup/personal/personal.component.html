@@ -1,74 +1,64 @@
 <!-- Sign up container main page -->
-<div class="signup-personal-container">
-
-  <!-- Navigation bar -->
-  <app-navigation></app-navigation>
-
-  <div class="signup-personal-content">
-
+<div class="container">
     <!-- Container for the form -->
-    <div class="signup-personal-form-container">
+    <div class="form-container">
       <!-- Sign in form -->
-      <div class="signup-personal-form">
+      <div class="form">
 
         <!-- Title for the sign in -->
-        <h2 class="signup-personal-form-title">presentup.me</h2>
-
+        <h2 class="title">presentup.me</h2>
         <!-- Short description / slogan -->
-        <div class="signup-personal-form-slogan">¡Presentate! Que le mundo te conozca</div>
+        <div class="slogan">¡Presentate! Que le mundo te conozca</div>
 
         <!-- Inputs for the sign up -->
-        <div class="signup-personal-form-content">
-
+        <div class="form-content">
           <!-- Loading screen for login with providers -->
-          <div class="loading-form" *ngIf="showLoadingSpinnerForm; else loaded">
+          <div class="form-loading" *ngIf="showLoadingSpinnerForm; else loaded">
             <app-loading-spinner></app-loading-spinner>
           </div>
-
+          <!-- Once the date is loaded from the sign up with provider or when the page start will show this -->
           <ng-template #loaded>
-            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="form" (ngSubmit)="onNext()">
 
               <!-- Email input -->
-              <input formControlName="email" class="signup-personal-form-content-input" type="email" placeholder="Correo electrónico">
-              <!-- Email errors -->
-              <small *ngIf="email.errors?.required && name.touched" class="signup-personal-form-content-error">
-                ¡Este campo es requerido!
-              </small>
-              <small *ngIf="email.errors?.email && email.touched" class="signup-personal-form-content-error">
-                ¡Ingresa un correo valido!
-              </small>
+              <div class="form-group">
+                <input formControlName="email" class="form-control" type="email" placeholder="Correo electrónico">
+                <!-- Errors -->
+                <small *ngIf="email.errors?.required && email.touched" class="form-text error">¡Este campo es requerido!</small>
+                <small *ngIf="email.errors?.email && email.touched" class="form-text error">¡Ingresa un correo valido!</small>
+              </div>
 
               <!-- Name input -->
-              <input formControlName="name" class="signup-personal-form-content-input" type="text" placeholder="Nombre completo">
-              <!-- Name errors -->
-              <small *ngIf="name.errors?.required && name.touched" class="signup-personal-form-content-error">
-                ¡Este campo es requerido!
-              </small>
+              <div class="form-group">
+                <input formControlName="name" class="form-control" type="text" placeholder="Nombre completo">
+                <!-- Errors -->
+                <small *ngIf="name.errors?.required && name.touched" class="form-text error">¡Este campo es requerido!</small>
+              </div>
 
               <!-- Button to confir everything -->
-              <input [disabled]="!signupForm.valid" class="signup-personal-form-content-btn" type="submit" value="Registrarte">
+              <button [disabled]="!email.valid || !name.valid" class="form-btn" type="submit">Registrarte</button>
 
             </form>
           </ng-template>
         </div>
 
         <!-- Option divider -->
-        <div class="signup-personal-form-divider">
-          <div class="signup-personal-form-divider-line"></div>
-          <div class="signup-personal-form-divider-text">O</div>
-          <div class="signup-personal-form-divider-line"></div>
+        <div class="form-divider">
+          <div class="form-divider-line"></div>
+          <div class="form-divider-text">O</div>
+          <div class="form-divider-line"></div>
         </div>
 
         <!-- Other sign up options -->
-        <div class="signup-personal-form-options">
-          <!-- Facebook -->
-          <a class="signup-personal-form-options-link" (click)="signupWithGoogle()">Iniciar sesión con Google</a>
+        <div class="form-options">
+          <!-- Google -->
+          <a class="form-options-link" (click)="signupWithGoogle()">Iniciar sesión con Google</a>
         </div>
 
         <!-- Terms and conditions -->
-        <div class="signup-personal-form-terms">
+        <div class="form-terms">
           Al registrarte, aceptas nuestras 
-          <a class="signup-personal-form-terms-link">Condiciones</a>, 
+          <a class="form-terms-link">Condiciones</a>, 
           la Política de datos y 
           la Política de cookies.
         </div>
@@ -76,25 +66,19 @@
       </div>
 
       <!-- Create account container -->
-      <div class="signup-personal-account">
-        <p class="signup-personal-account-text">¿Ya tienes una cuenta?</p>
-        <a class="signup-personal-account-link" [routerLink]="['/signin']">Inicia sesión</a>
+      <div class="existing">
+        <p class="existing-text">¿Ya tienes una cuenta?</p>
+        <a class="existing-link" [routerLink]="['/signin']">Inicia sesión</a>
       </div>
 
       <!-- Download the app -->
-      <a class="signup-personal-get">¡Instala la app!</a>
-
+      <a class="get-app">¡Instala la app!</a>
     </div>
 
     <!-- Image container -->
-    <div class="signup-personal-img-container">
+    <div class="img-container">
       <!-- Image to show in the screen -->
-      <img class="signup-personal-img" src="assets/imgs/sup-banner.jpg" draggable="false">
+      <img class="img" src="assets/imgs/sup-banner.jpg" draggable="false">
     </div>
-
-  </div>
-
-  <!-- Footer -->
-  <app-footer></app-footer>
 
 </div>

@@ -65,12 +65,21 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
     componentRef.instance.user = user; // Pass the params to the component
   }
 
+  // Functions deletes sensitive user information to store it in local
+  deleteSensitiveData(user: IUser): void {
+    delete user.password;
+    delete user.email;
+    delete user.phone;
+  }
+
   // Function refresh the user stored
   storeUser(): void {
     // Get the user from the route uid
     this.userService.getUser(this.uid).subscribe((user: IUser) => {
       // Validate if user exist
       if (user) {
+        // Delete the sensitive user information
+        this.deleteSensitiveData(user);
         // Store currect user waching
         localStorage[this.CACHE_KEY] = JSON.stringify(user);
         // Build component into the view

@@ -1,1 +1,13 @@
-<p>subscription works!</p>
+<form [formGroup]="form" (ngSubmit)="onNext()">
+
+  <!-- Button to confir everything -->
+  <button class="btn" (click)="onBack()">
+    Atras
+  </button>
+
+  <!-- Button to confir everything -->
+  <button class="btn" type="submit">
+    Siguiente
+  </button>
+
+</form>

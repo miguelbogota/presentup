@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { FormGroup, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-personal',
@@ -9,29 +8,17 @@ import { Router } from '@angular/router';
 })
 export class PersonalComponent implements OnInit {
 
-  signupForm: FormGroup; // Form with the data in the sign up page
+  @Input() form: FormGroup; // Form will be passed from the parent
+  @Output() step: EventEmitter<string> = new EventEmitter<string>(); // Sends either the next or back fucntion
   showLoadingSpinnerForm = false; // Show the spnnier while loading data from other providers
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    // Form set up
-    this.signupForm = this.fb.group({
-      email: ['', [ Validators.required, Validators.email ]],
-      name: ['', [ Validators.required ]]
-    });
   }
 
-  // Function handles the on submit form event
-  onSubmit(): void {
-    this.signupForm.markAsTouched(); // Mark as touched to see errors
-    if (this.signupForm.invalid) { return null; } // If the form is invalid do nothing
-    // If form is valid send to set the account page
-    this.router.navigate(['/signup/account']);
-  }
+  // Function handles the on submit form event to continue
+  onNext(): void { this.step.emit('/account'); }
 
   // Function to sign up with Google
   signupWithGoogle() {
@@ -41,7 +28,7 @@ export class PersonalComponent implements OnInit {
   }
 
   // Getters & setters for the form
-  get email() { return this.signupForm.get('email'); }
-  get name() { return this.signupForm.get('name'); }
+  get email(): AbstractControl { return this.form.get('email'); }
+  get name(): AbstractControl { return this.form.get('name'); }
 
 }

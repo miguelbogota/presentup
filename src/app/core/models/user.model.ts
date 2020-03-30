@@ -1,16 +1,23 @@
 // Logged user
 export interface IUser {
-  uid: string;
+  email: string;
   name: string;
+
+  uid: string;
+  password: string;
+  recoveryEmail?: string;
+  phone?: number;
+  birth: Date;
+  gender: string;
+
   title?: string;
   img: string;
   descriptions: string[];
-  email: string;
-  phone?: number;
-  password: string;
   settings: {
     design: string;
+    subscription: string;
   };
+
 }
 
 // Annonimous user
