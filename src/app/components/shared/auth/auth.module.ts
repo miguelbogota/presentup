@@ -17,6 +17,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { PersonalComponent } from './signup/personal/personal.component';
 import { AccountComponent } from './signup/account/account.component';
+import { AboutComponent } from './signup/about/about.component';
 import { SubscriptionComponent } from './signup/subscription/subscription.component';
 import { AppearanceComponent } from './signup/appearance/appearance.component';
 
@@ -30,6 +31,7 @@ import { ForgotComponent } from './forgot/forgot.component';
     SignupComponent,
     PersonalComponent,
     AccountComponent,
+    AboutComponent,
     SubscriptionComponent,
     AppearanceComponent,
 

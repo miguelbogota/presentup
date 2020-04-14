@@ -1,0 +1,17 @@
+<!-- Container for the about form -->
+<div class="containter">
+
+  <form [formGroup]="form" (ngSubmit)="onNext()">
+
+    <!-- Button to go back -->
+    <button class="btn" (click)="onBack()">
+      Atras
+    </button>
+  
+    <!-- Button to confirm everything -->
+    <button class="btn" type="submit">
+      Siguiente
+    </button>
+  
+  </form>
+</div>

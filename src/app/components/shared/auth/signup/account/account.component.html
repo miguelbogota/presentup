@@ -1,88 +1,84 @@
 <!-- Sign up container for account set up -->
-<div class="signup-account">
+<div class="container">
+  <!-- Sign in form -->
+  <div class="form">
 
-  <!-- Content for the sign up -->
-  <div class="content">
-    <!-- Container for the form -->
-    <div class="form-container">
-      <!-- Sign in form -->
-      <div class="form">
-
-        <!-- Title for the sign in -->
-        <h2 class="title">¡Bienvenido {{ fName }}!</h2>
-        <!-- Short description / slogan -->
-        <div class="information">Necesitamos un poco más de información</div>
-        <!-- Inputs for the sign up -->
-        <div class="form-content">
-          <form [formGroup]="form" (ngSubmit)="onNext()">
+    <!-- Title for the sign in -->
+    <h2 class="title">¡Bienvenido {{ fName }}!</h2>
+    <!-- Short description / slogan -->
+    <div class="information">Necesitamos un poco más de información</div>
+    <!-- Inputs for the sign up -->
+    <div class="form-content">
+      <form [formGroup]="form" (ngSubmit)="onNext()">
 
 
-            <div class="form-group">
-              <!-- Username input -->
-              <input formControlName="uid" class="form-control" type="email" placeholder="Nombre de usuario">
-              <!-- Username errors -->
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <!-- Password input -->
-                <input formControlName="pass" class="form-control" type="password" placeholder="Contraseña">
-                <!-- Password errors -->
-              </div>
-              <div class="form-group">
-                <!-- Confirm password input -->
-                <input formControlName="cPass" class="form-control" type="password" placeholder="Confirmar contraseña">
-                <!-- Confirm password errors -->
-              </div>
-              <small class="info">Usa 8 o más caracteres con una combinación de letras, números y símbolos</small>
-            </div>
-
-            <div class="form-group">
-              <select class="form-control">
-                <option>+57</option>
-                <option>+1</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <input class="form-control" type="tel" placeholder="Telefono">
-            </div>
-
-            <div class="form-group">
-              <input class="form-control" type="email" placeholder="Correo de recuperacion">
-            </div>
-
-            <div class="form-group">
-              <select class="form-control">
-                <option>Masculino</option>
-                <option>Femenino</option>
-              </select>
-            </div>
-
-            <!-- Button to confir everything -->
-            <button class="btn" (click)="onBack()">
-              Atras
-            </button>
-
-            <!-- Button to confir everything -->
-            <button class="btn" type="submit">
-              Siguiente
-            </button>
-
-          </form>
+        <div class="form-group">
+          <!-- Username input -->
+          <input formControlName="uid" class="form-control" type="email" placeholder="Nombre de usuario">
+          <!-- Username errors -->
         </div>
 
-      </div>
+        <div class="form-row">
+          <div class="form-group">
+            <!-- Password input -->
+            <input formControlName="pass" class="form-control" type="password" placeholder="Contraseña">
+            <small class="info">Usa 8 o más caracteres con una combinación de letras, números y símbolos</small>
+            <!-- Password errors -->
+          </div>
+          <div class="form-group">
+            <!-- Confirm password input -->
+            <input formControlName="cPass" class="form-control" type="password" placeholder="Confirmar contraseña">
+            <!-- Confirm password errors -->
+          </div>
+        </div>
 
-      <!-- Download the app -->
-      <a class="get">¡Instala la app!</a>
+        <div class="form-row">
+          <!-- Phone area -->
+          <div class="form-group">
+            <select formControlName="area" class="form-control">
+              <option [ngValue]="null" disabled>Selecciona area</option>
+              <option>+57</option>
+            </select>
+          </div>
+          <!-- Phone number -->
+          <div class="form-group">
+            <input formControlName="phone" class="form-control" type="tel" placeholder="Telefono">
+          </div>
+        </div>
 
+        <!-- Alternative email address -->
+        <div class="form-group">
+          <input formControlName="aEmail" class="form-control" type="email" placeholder="Correo de recuperacion">
+        </div>
+
+        <!-- Location -->
+        <div class="form-group">
+          <input formControlName="location" class="form-control" type="text" placeholder="Ubicacion">
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <select formControlName="gender" class="form-control">
+            <option [ngValue]="null" disabled>Selecciona genero</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="btn-row">
+          <!-- Button to confir everything -->
+          <button class="back" (click)="onBack()">Atras</button>
+          <!-- Button to confir everything -->
+          <button class="btn" type="submit">Siguiente</button>
+        </div>
+
+      </form>
     </div>
 
-    <!-- Image container -->
-    <div class="img-container">
-      <!-- Image to show in the screen -->
-      <img class="img" src="assets/imgs/sup-banner.jpg" draggable="false">
-    </div>
   </div>
+
+  <!-- Download the app -->
+  <a class="get">¡Instala la app!</a>
+
 </div>

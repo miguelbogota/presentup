@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'signin', component: AuthComponent },
   { path: 'signup', component: AuthComponent },
   { path: 'signup/account', component: AuthComponent },
+  { path: 'signup/about', component: AuthComponent },
   { path: 'signup/appearance', component: AuthComponent },
   { path: 'signup/subscription', component: AuthComponent },
   { path: 'forgot', component: AuthComponent },

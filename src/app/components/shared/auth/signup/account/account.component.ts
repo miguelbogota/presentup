@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
   }
 
   // Function handles the on submit form event to continue
-  onNext(): void { this.step.emit('/appearance'); }
+  onNext(): void { this.step.emit('/about'); }
   // Function handles the back function
   onBack(): void { this.step.emit(''); }
 
@@ -27,5 +27,10 @@ export class AccountComponent implements OnInit {
   get uid(): AbstractControl { return this.form.get('uid'); }
   get pass(): AbstractControl { return this.form.get('pass'); }
   get cPass(): AbstractControl { return this.form.get('cPass'); }
+  get area(): AbstractControl { return this.form.get('area'); }
+  get phone(): AbstractControl { return this.form.get('phone'); }
+  get aEmail(): AbstractControl { return this.form.get('aEmail'); }
+  get location(): AbstractControl { return this.form.get('location'); }
+  get gender(): AbstractControl { return this.form.get('gender'); }
 
 }

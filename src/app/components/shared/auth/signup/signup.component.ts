@@ -1,4 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ChangeDetectorRef, ComponentFactory, Type, ComponentRef } from '@angular/core';
+import {
+  Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver,
+  ChangeDetectorRef, ComponentFactory, ComponentRef
+} from '@angular/core';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,6 +11,7 @@ import { Location } from '@angular/common';
 import { PersonalComponent } from './personal/personal.component';
 import { AccountComponent } from './account/account.component';
 import { AppearanceComponent } from './appearance/appearance.component';
+import { AboutComponent } from './about/about.component';
 
 
 @Component({
@@ -38,7 +42,12 @@ export class SignupComponent implements OnInit, AfterViewInit {
 
       uid: ['', [ Validators.required ]],
       pass: ['', [ Validators.required ]],
-      cPass: ['', [ Validators.required ]]
+      cPass: ['', [ Validators.required ]],
+      area: [null],
+      phone: [''],
+      aEmail: ['', [ Validators.email ]],
+      location: ['', [ Validators.required ]],
+      gender: [null, [ Validators.required ]],
     });
 
     // Event for when the url is change redirect to the right component
@@ -52,8 +61,16 @@ export class SignupComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    // Validate if the form was already fill to allow other pages
+    // if (this.signupForm.get('email').valid && this.signupForm.get('name').valid) {
     // Build component from the url
     this.buildComponent(this.getComponentName(this.router.url));
+    // }
+    // else {
+    // Build component to start
+    //   this.buildComponent(this.getComponentName('signup'));
+    //   this.location.go('signup'); // Go to the new location
+    // }
     // Left at the end to not detect changed but until the end
     this.cdRef.detectChanges();
   }
@@ -87,6 +104,8 @@ export class SignupComponent implements OnInit, AfterViewInit {
       case 'signup': return this.resolver.resolveComponentFactory(PersonalComponent);
       // Load account
       case 'account': return this.resolver.resolveComponentFactory(AccountComponent);
+      // Load about
+      case 'about': return this.resolver.resolveComponentFactory(AboutComponent);
       // Load appearance
       case 'appearance': return this.resolver.resolveComponentFactory(AppearanceComponent);
       // Load subscription

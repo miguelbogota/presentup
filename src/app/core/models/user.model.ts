@@ -7,6 +7,7 @@ export interface IUser {
   password: string;
   recoveryEmail?: string;
   phone?: number;
+  location: string;
   birth: Date;
   gender: string;
 

@@ -3,159 +3,185 @@
 /*-----------------------------------------------------------*/
 
 // Component's Variables
-.signup-account {
-  --nav-margin: 82.83px;
-
+.container {
   --form-width-offset: 50%;
   --form-margin: 10px;
-  --width-form: 350px;
+  --width-form: 740px;
+  --heigh: calc(100vh - 63.5px - 82.83px - 30px);
   // Screen change
   @media only screen and (max-width: 825px) {
     --form-width-offset: 0%;
     --form-margin: 0px;
-    --width-form: auto;
+    --height: auto;
   }
   // Screen change
   @media only screen and (max-width: 450px) {
-    --form-margin: 0px;
     --width-form: 100%;
   }
 }
 
 // sign up page for the account set up
-.signup-account {
-  margin-top: var(--nav-margin);
+.container {
+  width: 100%;
+  max-width: var(--width-form);
+  padding-top: 10px;
+  margin: 0px auto 20px;
+  text-align: center;
+  display: block;
+  height: var(--height);
 
-  // Content for the sign un form
-  .content {
-    width: 100%;
-    max-width: 935px;
-    display: grid;
-    margin: 0px auto;
-    min-height: 740px;
-    height: calc(100vh - 63.5px - var(--nav-margin));
-    grid-template-columns: auto var(--form-width-offset);
+  // Form
+  .form {
+    padding: 40px;
+    margin: 0px var(--form-margin) 20px;
+    background-color: var(--gray-light);
+    // Screen change
+    @media only screen and (max-width: 450px) {
+      padding: 20px 10%;
+    }
 
-    // Container for the form
-    .form-container {
-      width: 100%;
-      justify-self: flex-end;
-      text-align: center;
-      max-width: var(--width-form);
-      margin: 10px var(--form-margin);
+    // Title
+    .title {
+      display: block;
+      text-align: left;
+      font-size: 22px;
+      margin-bottom: 15px;
+      user-select: none;
+    }
 
-      // Form
-      .form {
-        padding: 20px;
-        margin-bottom: 20px;
-        background-color: var(--gray-light);
-        // Screen change
-        @media only screen and (max-width: 450px) {
-          padding: 20px 10%;
-        }
+    // Information
+    .information {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 15px;
+      user-select: none;
+    }
 
-        // Title
-        .title {
-          display: block;
-          text-align: left;
-          font-size: 22px;
-          margin-bottom: 15px;
-          user-select: none;
-        }
-
-        // Information
-        .information {
-          text-align: left;
-          margin-bottom: 20px;
-          font-size: 15px;
-          user-select: none;
-        }
-
-        // Content in the form
-        .form-content {
-          margin-bottom: 10px;
-          // Inputs
-          .form-control {
-            display: block;
-            width: 100%;
-            height: 35px;
-            font-size: 16px;
-            line-height: 35px;
-            padding: 0px 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-          }
-          .info {
-            display: block;
-            text-align: left;
-            color: var(--gray);
-            font-size: 14px;
-            margin-top: -9px;
-            margin-bottom: 15px;
-            padding: 0px 10px;
-          }
-          // Error message
-          .error {
-            display: block;
-            text-align: left;
-            color: var(--danger);
-            font-size: 14px;
-            margin-top: -9px;
-            margin-bottom: 15px;
-          }
-          // Button
-          .btn {
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            padding: 8px;
-            font-size: 16px;
-            border-radius: 3px;
-            color: var(--light);
-            background-color: var(--cyan);
-            transition: all 0.1s linear;
-            // Hover effect
-            &:hover {
-              background-color: #17a3b8c1;
-            }
-            // Disable
-            &:disabled {
-              background-color: #939393b7;
-              cursor: not-allowed;
-            }
-          }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+      // Screen change
+      @media only screen and (max-width: 825px) {
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+        .info {
+          margin-bottom: 9px !important;
         }
       }
+    }
 
-      // Button to install the app
-      .get {
-        display: inline-block;
+    // Content in the form
+    .form-content {
+      // Inputs
+      .form-control {
+        display: block;
+        width: 100%;
+        height: 35px;
+        font-size: 16px;
+        line-height: 35px;
+        padding: 0px 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+      }
+      .info {
+        display: block;
+        text-align: left;
+        color: var(--gray);
+        font-size: 14px;
+        margin-top: -9px;
+        margin-bottom: 25px;
+        padding: 0px 10px;
+      }
+      // Error message
+      .error {
+        display: block;
+        text-align: left;
+        color: var(--danger);
+        font-size: 14px;
+        margin-top: -9px;
+        margin-bottom: 15px;
+      }
+      .btn-row {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        .btn {
+          width: 100px;
+        }
+        .back {
+          width: 80px;
+          margin-left: auto;
+        }
+      }
+      .back {
         cursor: pointer;
-        font-size: 13px;
-        padding: 10px;
+        display: block;
+        width: 100%;
+        padding: 13px;
+        font-size: 16px;
         border-radius: 3px;
-        color: var(--light);
-        background-color: var(--dark);
+        color: var(--gray);
+        background-color: #ececec;
         transition: all 0.1s linear;
         // Hover effect
         &:hover {
-          background-color: #343a40c1;
+          background-color: #dededeb1;
+        }
+
+      }
+      // Button
+      .btn {
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        padding: 13px;
+        font-size: 16px;
+        border-radius: 3px;
+        color: var(--light);
+        background-color: var(--cyan);
+        transition: all 0.1s linear;
+        // Hover effect
+        &:hover {
+          background-color: #17a3b8c1;
+        }
+        // Disable
+        &:disabled {
+          background-color: #939393b7;
+          cursor: not-allowed;
         }
       }
     }
+  }
 
-    // Image banner in the left
-    .img-container {
-      visibility: var(--show-img);
-      grid-column-start: 2;
-      overflow: hidden;
-
-      // Image
-      .img {
-        width: 350px;
-        margin: 10px;
-        user-select: none;
-      }
+  // Button to install the app
+  .get {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 3px;
+    color: var(--light);
+    background-color: var(--dark);
+    transition: all 0.1s linear;
+    // Hover effect
+    &:hover {
+      background-color: #343a40c1;
     }
+  }
+}
+
+// Image banner in the left
+.img-container {
+  visibility: var(--show-img);
+  grid-column-start: 2;
+  overflow: hidden;
+
+  // Image
+  .img {
+    width: 350px;
+    margin: 10px;
+    user-select: none;
   }
 }

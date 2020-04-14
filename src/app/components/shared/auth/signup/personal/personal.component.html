@@ -1,84 +1,83 @@
 <!-- Sign up container main page -->
 <div class="container">
-    <!-- Container for the form -->
-    <div class="form-container">
-      <!-- Sign in form -->
-      <div class="form">
+  <!-- Container for the form -->
+  <div class="form-container">
+    <!-- Sign in form -->
+    <div class="form">
 
-        <!-- Title for the sign in -->
-        <h2 class="title">presentup.me</h2>
-        <!-- Short description / slogan -->
-        <div class="slogan">¡Presentate! Que le mundo te conozca</div>
-
-        <!-- Inputs for the sign up -->
-        <div class="form-content">
-          <!-- Loading screen for login with providers -->
-          <div class="form-loading" *ngIf="showLoadingSpinnerForm; else loaded">
-            <app-loading-spinner></app-loading-spinner>
-          </div>
-          <!-- Once the date is loaded from the sign up with provider or when the page start will show this -->
-          <ng-template #loaded>
-            <form [formGroup]="form" (ngSubmit)="onNext()">
-
-              <!-- Email input -->
-              <div class="form-group">
-                <input formControlName="email" class="form-control" type="email" placeholder="Correo electrónico">
-                <!-- Errors -->
-                <small *ngIf="email.errors?.required && email.touched" class="form-text error">¡Este campo es requerido!</small>
-                <small *ngIf="email.errors?.email && email.touched" class="form-text error">¡Ingresa un correo valido!</small>
-              </div>
-
-              <!-- Name input -->
-              <div class="form-group">
-                <input formControlName="name" class="form-control" type="text" placeholder="Nombre completo">
-                <!-- Errors -->
-                <small *ngIf="name.errors?.required && name.touched" class="form-text error">¡Este campo es requerido!</small>
-              </div>
-
-              <!-- Button to confir everything -->
-              <button [disabled]="!email.valid || !name.valid" class="form-btn" type="submit">Registrarte</button>
-
-            </form>
-          </ng-template>
+      <!-- Title for the sign in -->
+      <h2 class="title">presentup.me</h2>
+      <!-- Short description / slogan -->
+      <div class="slogan">¡Presentate! Que le mundo te conozca</div>
+      <!-- Inputs for the sign up -->
+      <div class="form-content">
+        <!-- Loading screen for login with providers -->
+        <div class="form-loading" *ngIf="showLoadingSpinnerForm; else loaded">
+          <app-loading-spinner></app-loading-spinner>
         </div>
+        <!-- Once the date is loaded from the sign up with provider or when the page start will show this -->
+        <ng-template #loaded>
+          <form [formGroup]="form" (ngSubmit)="onNext()">
 
-        <!-- Option divider -->
-        <div class="form-divider">
-          <div class="form-divider-line"></div>
-          <div class="form-divider-text">O</div>
-          <div class="form-divider-line"></div>
-        </div>
+            <!-- Email input -->
+            <div class="form-group">
+              <input formControlName="email" class="form-control" type="email" placeholder="Correo electrónico">
+              <!-- Errors -->
+              <small *ngIf="email.errors?.required && email.touched" class="form-text error">¡Este campo es requerido!</small>
+              <small *ngIf="email.errors?.email && email.touched" class="form-text error">¡Ingresa un correo valido!</small>
+            </div>
 
-        <!-- Other sign up options -->
-        <div class="form-options">
-          <!-- Google -->
-          <a class="form-options-link" (click)="signupWithGoogle()">Iniciar sesión con Google</a>
-        </div>
+            <!-- Name input -->
+            <div class="form-group">
+              <input formControlName="name" class="form-control" type="text" placeholder="Nombre completo">
+              <!-- Errors -->
+              <small *ngIf="name.errors?.required && name.touched" class="form-text error">¡Este campo es requerido!</small>
+            </div>
 
-        <!-- Terms and conditions -->
-        <div class="form-terms">
-          Al registrarte, aceptas nuestras 
-          <a class="form-terms-link">Condiciones</a>, 
-          la Política de datos y 
-          la Política de cookies.
-        </div>
+            <!-- Button to confir everything -->
+            <button [disabled]="!email.valid || !name.valid" class="form-btn" type="submit">Registrarte</button>
 
+          </form>
+        </ng-template>
       </div>
 
-      <!-- Create account container -->
-      <div class="existing">
-        <p class="existing-text">¿Ya tienes una cuenta?</p>
-        <a class="existing-link" [routerLink]="['/signin']">Inicia sesión</a>
+      <!-- Option divider -->
+      <div class="form-divider">
+        <div class="form-divider-line"></div>
+        <div class="form-divider-text">O</div>
+        <div class="form-divider-line"></div>
       </div>
 
-      <!-- Download the app -->
-      <a class="get-app">¡Instala la app!</a>
+      <!-- Other sign up options -->
+      <div class="form-options">
+        <!-- Google -->
+        <a class="form-options-link" (click)="signupWithGoogle()">Iniciar sesión con Google</a>
+      </div>
+
+      <!-- Terms and conditions -->
+      <div class="form-terms">
+        Al registrarte, aceptas nuestras
+        <a class="form-terms-link">Condiciones</a>,
+        la Política de datos y
+        la Política de cookies.
+      </div>
+
     </div>
 
-    <!-- Image container -->
-    <div class="img-container">
-      <!-- Image to show in the screen -->
-      <img class="img" src="assets/imgs/sup-banner.jpg" draggable="false">
+    <!-- Create account container -->
+    <div class="existing">
+      <p class="existing-text">¿Ya tienes una cuenta?</p>
+      <a class="existing-link" [routerLink]="['/signin']">Inicia sesión</a>
     </div>
+
+    <!-- Download the app -->
+    <a class="get-app">¡Instala la app!</a>
+  </div>
+
+  <!-- Image container -->
+  <div class="img-container">
+    <!-- Image to show in the screen -->
+    <img class="img" src="assets/imgs/sup-banner.jpg" draggable="false">
+  </div>
 
 </div>

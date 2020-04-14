@@ -8,11 +8,13 @@
   --show-img: visible;
   --form-margin: 10px;
   --width-form: 350px;
+  --width-img: 350px;
   // Screen change
   @media only screen and (max-width: 825px) {
-    --form-width-offset: 0%;
+    --form-width-offset: 0px;
     --show-img: hidden;
     --form-margin: auto;
+    --width-img: 0px;
   }
   // Screen change
   @media only screen and (max-width: 450px) {
@@ -26,10 +28,8 @@
   width: 100%;
   display: grid;
   max-width: 935px;
-  margin: 0px auto;
-  margin: 0px auto;
-  min-height: 740px;
-  height: calc(100vh - 63.5px - var(--nav-margin));
+  margin: 0px auto 20px;
+  min-height: calc(100vh - 63.5px - 82.83px - 20px);
   grid-template-columns: auto var(--form-width-offset);
 
   // Container for the form
@@ -97,7 +97,7 @@
             color: var(--danger);
           }
         }
-      
+
         // Button
         .form-btn {
           width: 100%;
@@ -206,7 +206,7 @@
   // Image banner in the left
   .img-container {
     margin: 10px;
-    width: 350px;
+    width: var(--width-img);
     overflow: hidden;
     grid-column-start: 2;
     justify-self: flex-start;
