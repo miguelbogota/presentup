@@ -5,12 +5,31 @@
 
 ## What is presentup.me?
 
-presentup.me it seeks to present who you are and what you do to your customers by interacting with them from the same place in an ecological way providing comfort to its users and their clients by making communication between them easy and giving them advantages in a increasingly growing market.
+presentup.me seeks to present who you are and what you do to your clients by interacting with them in the same place, doing so in an ecological way providing comfort to its users and their clients by making communication between them easy and giving them advantages in a increasingly growing market.
 
 ## Features
 
 * [Angular 9](https://angular.io/) - The web framework used
 * [Firebase](https://firebase.google.com/) - The database used
+
+## To Do
+
+- [ ] Generate the designs for the differents pages in the platform
+   - [ ] Home
+   - [ ] Features
+   - [ ] Pricing
+   - [ ] Privacy
+   - [ ] Terms & Conditions
+   - [ ] Sign In
+   - [ ] Sign Up
+   - [ ] Forgot Password
+   - [ ] Settings
+   - [ ] Not Found
+- [ ] Generate the design of the components to be used
+   - [ ] Navigation
+   - [ ] Header
+   - [ ] Footer
+   - [ ] Image Cropper
 
 ## Author
 
