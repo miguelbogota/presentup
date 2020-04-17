@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ILink } from 'src/app/core/models/link.model';
 
 @Component({
   selector: 'app-navigation',
@@ -8,18 +7,21 @@ import { ILink } from 'src/app/core/models/link.model';
 })
 export class NavigationComponent implements OnInit {
 
-  // Routes to show in navigation
-  links: ILink[] = [
-    { name: 'Inicio', url: '' },
-    { name: 'Precio', url: 'pricing' },
-    { name: 'Caracteristicas', url: 'features' },
-    { name: 'Iniciar Sesión', url: 'signin'  },
-    { name: 'Crear Cuenta', url: 'signup'  }
-  ];
+  // Properties for the navigation small screen to not overlap
+  account = false;
+  menu = false;
+  imgUrl = 'https://cdn.clipart.email/1020ed863fac31edad415031dcb0eb65_mimmic-fashion-jewelry-rings-necklaces-bracelets-earrings_512-512.png';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // Function to change the menus if the other one is open
+  toggleAction(nav: string) {
+    if (nav === 'menu') { this.account = false; }
+    else if (nav === 'account') { this.menu = false; }
+    else { this.menu = false; this.account = false; }
   }
 
 }

@@ -1,75 +1,10 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$presentup-primary: mat-palette($mat-indigo);
-$presentup-accent: mat-palette($mat-pink, A200, A100, A400);
-
-// The warn palette is optional (defaults to red).
-$presentup-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$presentup-theme: mat-light-theme($presentup-primary, $presentup-accent, $presentup-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($presentup-theme);
-
-// Import fonts
-@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
-
-// Import varibles
+// All the imports to keep everything organized
 @import 'variables';
+@import 'fonts';
+@import 'material';
+@import 'reset';
 
-/*-----------------------------------------------------------*/
-/*                          Reset                            */
-/*-----------------------------------------------------------*/
-
-/* Defautls and reset */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea, button, select, option {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  outline: none;
-  font: inherit;
-  font-family: 'Bahnschrift Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  vertical-align: baseline;
-  color: var(--dark);
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul, li {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after, q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
 
 /*-----------------------------------------------------------*/
 /*                         Global                            */
@@ -78,7 +13,10 @@ table {
 /* Minimun width the app can go */
 html { min-width: 320px; }
 /* Max width to make a little smaller */
-.container { max-width: 940px; }
+.container {
+  max-width: 1260px;
+  margin: 0px auto;
+}
 
 #notifications-container {
   position: fixed;

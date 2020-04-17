@@ -1,22 +1,53 @@
 <!-- Navigation container -->
-<nav class="nav-container">
+<nav class="nav">
+  <!-- Page container -->
+  <div class="container">
+    <!-- Nav content -->
+    <div class="nav-container">
 
-  <!-- This will be the toggler to show th menu in the responsive screen -->
-  <input class="nav-toggler" type="checkbox" />
-  <!-- Hamburger button -->
-  <div class="nav-ham">
-    <!-- Hamburger lines -->
-    <div></div>
-  </div>
-
-  <!-- Menu -->
-  <div class="nav-menu">
-    <!-- The links container -->
-    <div class="nav-links">
-      <a class="nav-link" *ngFor="let link of links" [routerLink]="['/' + link.url]" routerLinkActive="nav-link-active" [routerLinkActiveOptions]="{ exact: true }">
-        {{ link.name }}
+      <!-- Brand link with image -->
+      <a class="nav-brand" [routerLink]="['/']" (click)="toggleAction('reset')">
+        <img src="assets/svgs/presentup/brand-light.svg" alt="presentup.me logo brand">
       </a>
+
+      <!-- This will be the toggler to show the menu in the responsive screen -->
+      <input class="nav-toggler-menu" type="checkbox" [(ngModel)]="menu" (change)="toggleAction('menu')" />
+      <!-- Hamburger button -->
+      <div class="nav-ham-menu">
+        <!-- Hamburger lines -->
+        <div></div>
+      </div>
+      
+      <!-- Menu -->
+      <div class="nav-menu">
+        <!-- The links container -->
+        <div class="nav-links">
+          <a class="nav-link" [routerLink]="['/pricing']" routerLinkActive="nav-link-active">Precios</a>
+          <a class="nav-link" [routerLink]="['/features']" routerLinkActive="nav-link-active">Caracteristicas</a>
+        </div>
+      </div>
+
+      <!-- This will be the toggler to show the menu in the responsive screen for the account -->
+      <input class="nav-toggler-account" type="checkbox"  [(ngModel)]="account" (change)="toggleAction('account')" />
+      <!-- Hamburger button -->
+      <div class="nav-ham-account" [style.background-image]="'url(' + imgUrl + ')'"></div>
+
+      <!-- Account -->
+      <div class="nav-account">
+
+        <!-- If not logged will show options to signin or signup -->
+        <div class="nav-unauth">
+          <a class="nav-link" [routerLink]="['/signin']" routerLinkActive="nav-link-active">Iniciar Sesión</a>
+          <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="nav-link-active">Crear Cuenta</a>
+        </div>
+
+        <!-- If is already logged will show the user data -->
+        <div class="nav-auth">
+
+        </div>
+
+      </div>
+      
     </div>
   </div>
-
 </nav>

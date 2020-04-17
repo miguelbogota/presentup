@@ -44,7 +44,7 @@
     .form {
       padding: 20px;
       margin-bottom: 20px;
-      background-color: var(--gray-light);
+      background-color: var(--light);
       // Screen change
       @media only screen and (max-width: 450px) {
         padding: 20px 10%;
@@ -177,7 +177,7 @@
       margin-bottom: 20px;
       align-items: center;
       justify-content: center;
-      background-color: var(--gray-light);
+      background-color: var(--light);
       // Link to sign in
       &-link {
         cursor: pointer;
