@@ -1,0 +1,16 @@
+<!-- This will be the toggler to show the links in the responsive screen -->
+<input class="nav-toggler" type="checkbox" [(ngModel)]="menuState" (change)="toggleAction()" />
+<!-- Hamburger button -->
+<div class="nav-ham">
+  <!-- Hamburger lines -->
+  <div></div>
+</div>
+
+<!-- links -->
+<div class="nav-menu">
+  <!-- The links container -->
+  <div class="nav-links">
+    <a class="nav-link" [routerLink]="['/pricing']" routerLinkActive="nav-link-active">Precios</a>
+    <a class="nav-link" [routerLink]="['/features']" routerLinkActive="nav-link-active">Caracteristicas</a>
+  </div>
+</div>

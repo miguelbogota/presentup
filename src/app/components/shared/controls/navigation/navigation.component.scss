@@ -4,342 +4,63 @@
 
 // Component's Variables
 .nav {
-  --display-toggler-menu: none;
-  --margin: 8px;
-  // Navigation effects
-  --button-size: 55px;
-  --menu-speed: 0.01s;
-  --link-speed: 0.667s;
+  --brand-size: 20px;
+  --margin: 0px 15px 0px 0px;
+  --account-right: auto;
   // Screen change
   @media only screen and (max-width: 830px) {
-    --display-toggler-menu: flex;
+    --margin: 0px auto;
+    --account-right: 0px;
   }
 }
 
 // Navigation container
 .nav {
-  /* ----------------------------------- Bigger Screens ----------------------------------- */
-  top: 0px;
   width: 100%;
   z-index: 1000;
   position: fixed;
+  top: 0px;
   background-color: var(--white);
 
   // Page container
   .container {
+
     // Container for the navigation bar
     .nav-container {
       display: flex;
       flex-direction: row;
-      height: var(--button-size);
-      margin: 0px var(--margin);
       align-items: center;
+      padding: 10px;
 
       // Brand link
       .nav-brand {
         z-index: 1200;
         display: flex;
-        margin-right: 15px;
+        height: var(--brand-size);
+        margin: var(--margin);
+        // Brand image as the logo
         img {
-          height: 23px;
+          height: 100%;
+        }
+        order: 0;
+        // CHange order in small screen
+        @media only screen and (max-width: 830px) {
+          order: 1;
         }
       }
 
-      // Toggler to show and hide the navigation in small screens
-      .nav-toggler-menu {
-        visibility: hidden;
-        position: absolute;
-        display: var(--display-toggler-menu);
-      }
-      // Hamburger button to click
-      .nav-ham-menu {
-        visibility: hidden;
-        position: absolute;
-        display: var(--display-toggler-menu);
-      }
-
-      // Container for all the links
-      .nav-menu {
-        display: flex;
-        overflow: hidden;
-        align-items: flex-start;
-        justify-content: flex-start;
-        transition-property: right, visibility;
-        transition-duration: var(--menu-speed);
-        transition-timing-function: linear;
-
-        // Links container
-        .nav-links {
-          // Individual link
-          .nav-link {
-            cursor: pointer;
-            margin: 0px 3px;
-            padding: 12px 5px;
-            color: var(--dark);
-            align-self: center;
-            display: inline-block;
-            transition-property: opacity, margin-left;
-            transition-duration: var(--link-speed);
-            transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
-            transition-delay: var(--menu-speed);
-
-            // Active state
-            &-active {
-              font-weight: 600;
-            }
-          }
+       // Menu for the links section
+      .nav-links {
+        order: 1;
+        // CHange order in small screen
+        @media only screen and (max-width: 830px) {
+          order: 0;
         }
       }
-
-      // Toggler to show and hide the navigation in small screens
-      .nav-toggler-account {
-        visibility: hidden;
-        position: absolute;
-        display: var(--display-toggler-menu);
-      }
-      // Hamburger button to click
-      .nav-ham-account {
-        visibility: hidden;
-        position: absolute;
-        display: var(--display-toggler-menu);
-      }
-
-      // Container for the account
+      // Menu for the account section
       .nav-account {
-        display: flex;
-        margin-left: auto;
-        overflow: hidden;
-        align-items: flex-start;
-        justify-content: flex-end;
-        transition-property: left, visibility;
-        transition-duration: var(--menu-speed);
-        transition-timing-function: linear;
-
-        // Links if the user is not authenticated
-        .nav-unauth {
-          // Individual link
-          .nav-link {
-            cursor: pointer;
-            margin: 0px 3px;
-            padding: 12px 5px;
-            color: var(--dark);
-            align-self: center;
-            display: inline-block;
-            transition-property: opacity, margin-right;
-            transition-duration: var(--link-speed);
-            transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
-            transition-delay: var(--menu-speed);
-
-            // Active state
-            &-active {
-              font-weight: 600;
-            }
-          }
-        }
-      }
-    }
-
-    /* ----------------------------------- Smaller Screens ----------------------------------- */
-    @media only screen and (max-width: 830px) {
-      border: none;
-
-      // Container for the navigation bar
-      .nav-container {
-        // Brand link
-        .nav-brand {
-          margin: 0px auto;
-        }
-
-        // Toggler to show and hide the navigation in small screens
-        .nav-toggler-menu {
-          z-index: 1100;
-          top: 0px;
-          left: var(--margin);
-          visibility: visible;
-          cursor: pointer;
-          width: var(--button-size);
-          height: var(--button-size);
-          opacity: 0;
-
-          // Convert to an X on click and rotate
-          &:checked {
-            & + .nav-ham-menu > div {
-              transform: rotate(135deg);
-              // Conver to an X
-              &::before,
-              &::after {
-                top: 0px;
-                transform: rotate(90deg);
-              }
-            }
-            // Hover effect when is checked
-            &:hover {
-              & + .nav-ham-menu > div {
-                transform: rotate(225deg);
-              }
-            }
-
-            // Activate menu on click
-            & ~ .nav-menu {
-              visibility: visible;
-              right: 0px;
-              // Links effect
-              .nav-links {
-                .nav-link {
-                  margin-left: 30px;
-                }
-              }
-            }
-          }
-        }
-
-        // Hamburger button to click
-        .nav-ham-menu {
-          z-index: 1050;
-          top: 0px;
-          left: var(--margin);
-          visibility: visible;
-          width: var(--button-size);
-          height: var(--button-size);
-          padding: 10px;
-          box-sizing: border-box;
-          align-items: center;
-          justify-content: center;
-
-          // Lines in the ham-burger-menu
-          div {
-            position: relative;
-            width: 100%;
-            height: 2px;
-            background-color: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.4s ease;
-            // Add more lines
-            &::before,
-            &::after {
-              content: "";
-              position: absolute;
-              z-index: 1050;
-              top: -10px;
-              width: 100%;
-              height: 2px;
-              background-color: var(--dark);
-            }
-            &::after {
-              top: 10px;
-            }
-          }
-        }
-
-        // Links container
-        .nav-menu {
-          position: fixed;
-          background-color: var(--light);
-          top: 0px;
-          right: 100vw;
-          visibility: hidden;
-          width: 100vw;
-          height: 100vh;
-
-          // Links container inside the menu
-          .nav-links {
-            margin-top: 65px;
-
-            // All the links in the menu
-            .nav-link {
-              display: block;
-              text-align: left;
-              margin: 0px 0px 10px 10px;
-            }
-          }
-        }
-
-        // Toggler to show and hide the navigation in small screens
-        .nav-toggler-account {
-          z-index: 1100;
-          top: 0px;
-          right: var(--margin);
-          visibility: visible;
-          cursor: pointer;
-          border-radius: 50%;
-          width: var(--button-size);
-          height: var(--button-size);
-          opacity: 0;
-
-          // Convert to an X on click and rotate
-          &:checked {
-            & + .nav-ham-account > div {
-              transform: rotate(135deg);
-              // Conver to an X
-              &::before,
-              &::after {
-                top: 0px;
-                transform: rotate(90deg);
-              }
-            }
-            // Hover effect when is checked
-            &:hover {
-              & + .nav-ham-menu > div {
-                transform: rotate(225deg);
-              }
-            }
-
-            // Activate menu on click
-            & ~ .nav-account {
-              visibility: visible;
-              left: 0px;
-              // Links effect
-              .nav-unauth {
-                .nav-link {
-                  margin-right: 30px;
-                }
-              }
-            }
-          }
-        }
-
-        // Hamburger button to click
-        .nav-ham-account {
-          z-index: 1050;
-          top: 0px;
-          right: var(--margin);
-          visibility: visible;
-          width: calc(var(--button-size) - 16px);
-          height: calc(var(--button-size) - 16px);
-          margin: 8px;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          border-radius: 50%;
-          box-sizing: border-box;
-          align-items: center;
-          justify-content: center;
-        }
-
-        // Links container
-        .nav-account {
-          position: fixed;
-          background-color: var(--light);
-          top: 0px;
-          left: 100vw;
-          visibility: hidden;
-          width: 100vw;
-          height: 100vh;
-
-          // Links container inside the menu
-          .nav-unauth {
-            margin-top: 65px;
-
-            // All the links in the menu
-            .nav-link {
-              display: block;
-              text-align: left;
-              margin: 0px 10px 10px 0px;
-            }
-          }
-        }
+        margin-left: var(--account-right);
+        order: 2;
       }
     }
   }

@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 // Components
 import { NavigationComponent } from './navigation/navigation.component';
+import { NavLinksComponent } from './navigation/nav-links/nav-links.component';
+import { NavAccountComponent } from './navigation/nav-account/nav-account.component';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CropperComponent } from './cropper/cropper.component';
@@ -12,6 +15,9 @@ import { CropperComponent } from './cropper/cropper.component';
 @NgModule({
   declarations: [
     NavigationComponent,
+    NavLinksComponent,
+    NavAccountComponent,
+
     HeaderComponent,
     FooterComponent,
     CropperComponent

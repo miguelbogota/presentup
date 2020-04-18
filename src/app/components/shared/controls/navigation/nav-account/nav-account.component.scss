@@ -1,0 +1,255 @@
+/*-----------------------------------------------------------*/
+/*                   Navigation Account                      */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+:host {
+  --display-toggler-menu: none;
+  --margin: 8px;
+  // Navigation effects
+  --button-size: 40px;
+  --menu-speed: 0.15s;
+  --link-speed: 0.667s;
+  // Screen change
+  @media only screen and (max-width: 830px) {
+    --display-toggler-menu: flex;
+  }
+}
+
+/* ----------------------------------- Bigger Screens ----------------------------------- */
+// If the user hasn't logged will show this
+.nav-unauth {
+  position: relative;
+
+  // Toggler to show and hide the navigation in small screens
+  .nav-toggler {
+    visibility: hidden;
+    position: absolute;
+    display: var(--display-toggler-menu);
+  }
+  // Hamburger button to click
+  .nav-ham {
+    visibility: hidden;
+    position: relative;
+    display: var(--display-toggler-menu);
+  }
+
+  // Container for the account
+  .nav-account {
+    display: flex;
+    margin-left: auto;
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: flex-end;
+    transition-property: left, opacity, visibility;
+    transition-duration: var(--menu-speed);
+    transition-timing-function: ease-in-out;
+
+    // Links if the user is not authenticated
+    .nav-links {
+      // Individual link
+      .nav-link {
+        cursor: pointer;
+        margin: 0px 3px;
+        padding: 12px 5px;
+        color: var(--dark);
+        align-self: center;
+        position: relative;
+        display: inline-block;
+        transition-property: opacity, right;
+        transition-duration: var(--link-speed);
+        transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
+        transition-delay: var(--menu-speed);
+
+        // Active state
+        &-active {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  /* ----------------------------------- Smaller Screens ----------------------------------- */
+  @media only screen and (max-width: 830px) {
+    // Toggler to show and hide the navigation in small screens
+    .nav-toggler {
+      z-index: 1100;
+      visibility: visible;
+      cursor: pointer;
+      border-radius: 50%;
+      width: var(--button-size);
+      height: var(--button-size);
+      opacity: 0;
+
+      // Convert to an X on click and rotate
+      &:checked {
+        // Activate menu on click
+        & ~ .nav-account {
+          visibility: visible;
+          opacity: 1;
+
+          // Links effect
+          .nav-links {
+            .nav-link {
+              right: 0px;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+
+    // Hamburger button to click
+    .nav-ham {
+      z-index: 1050;
+      visibility: visible;
+      width: calc(var(--button-size) - 6px);
+      height: calc(var(--button-size) - 6px);
+      margin: 3px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // Links container
+    .nav-account {
+      position: absolute;
+      background-color: var(--white);
+      top: 52px;
+      right: -10px;
+      visibility: hidden;
+      width: 280px;
+      box-shadow: 0px 0px 22px 0px #0000001c;
+      opacity: 0;
+      // Screen change
+      @media only screen and (max-width: 450px) {
+        width: calc(100vw - 20px);
+      }
+
+      // Links container inside the menu
+      .nav-links {
+        padding: 20px 10px;
+
+        // All the links in the menu
+        .nav-link {
+          display: block;
+          text-align: left;
+          margin: 0px 0px 10px 0px;
+          right: -14px;
+          opacity: 0;
+
+          &:last-child {
+            margin: 0px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// If the user is logged will show this
+.nav-auth {
+  position: relative;
+  // Toggler to show and hide the navigation in small screens
+  .nav-toggler {
+    z-index: 1100;
+    visibility: visible;
+    cursor: pointer;
+    border-radius: 50%;
+    width: var(--button-size);
+    height: var(--button-size);
+    opacity: 0;
+    position: absolute;
+    display: flex;
+
+    // Convert to an X on click and rotate
+    &:checked {
+      // Activate menu on click
+      & ~ .nav-account {
+        visibility: visible;
+        opacity: 1;
+        // Links effect
+        .nav-links {
+          .nav-link {
+            right: 0px;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  // Hamburger button to click
+  .nav-ham {
+    z-index: 1050;
+    visibility: visible;
+    width: calc(var(--button-size) - 6px);
+    height: calc(var(--button-size) - 6px);
+    margin: 3px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+  }
+
+  // Links container
+  .nav-account {
+    position: absolute;
+    background-color: var(--white);
+    top: 52px;
+    right: -10px;
+    visibility: hidden;
+    width: 280px;
+    display: flex;
+    margin-left: auto;
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: flex-end;
+    transition-property: left, opacity, visibility;
+    transition-duration: var(--menu-speed);
+    transition-timing-function: ease-in-out;
+    box-shadow: 0px 0px 22px 0px #0000001c;
+    opacity: 0;
+    // Screen change
+    @media only screen and (max-width: 450px) {
+      width: calc(100vw - 20px);
+    }
+
+    // Links container inside the menu
+    .nav-links {
+      padding: 20px 10px;
+
+      // All the links in the menu
+      .nav-link {
+        display: block;
+        text-align: right;
+        margin: 0px 0px 10px 0px;
+        opacity: 0;
+        right: -14px;
+        cursor: pointer;
+        margin: 0px 3px;
+        padding: 12px 5px;
+        color: var(--dark);
+        align-self: center;
+        position: relative;
+        transition-property: opacity, right;
+        transition-duration: var(--link-speed);
+        transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
+        transition-delay: var(--menu-speed);
+
+        &:last-child {
+          margin: 0px !important;
+        }
+      }
+    }
+  }
+}

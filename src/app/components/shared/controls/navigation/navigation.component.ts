@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IUser } from 'src/app/core/models/user.model';
 
 @Component({
   selector: 'app-navigation',
@@ -8,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   // Properties for the navigation small screen to not overlap
-  account = false;
-  menu = false;
-  imgUrl = 'https://cdn.clipart.email/1020ed863fac31edad415031dcb0eb65_mimmic-fashion-jewelry-rings-necklaces-bracelets-earrings_512-512.png';
+  showAccountMenu = false;
+  showLinksMenu = false;
+
+  userImgUrl = 'https://firebasestorage.googleapis.com/v0/b/miguelporfolio.appspot.com/o/logo.jpeg?alt=media&token=80a3a9e0-1f5c-4f6b-a889-1633afaa719c';
+
+  user: IUser = {
+    id: '234857398478',
+    email: 'miguelbogota.rico@gmail.com',
+    name: 'Miguel Rico',
+    uid: 'miguelbogota',
+    password: '1234',
+    location: 'Colombia',
+    birth: new Date(),
+    gender: 'Male',
+
+    img: this.userImgUrl,
+    descriptions: ['Hola'],
+    settings: {
+      design: 'basic',
+      subscription: 'free'
+    }
+  };
 
   constructor() { }
 
@@ -18,10 +38,19 @@ export class NavigationComponent implements OnInit {
   }
 
   // Function to change the menus if the other one is open
-  toggleAction(nav: string) {
-    if (nav === 'menu') { this.account = false; }
-    else if (nav === 'account') { this.menu = false; }
-    else { this.menu = false; this.account = false; }
+  toggle(nav: string) {
+    if (nav === 'links') {
+      this.showLinksMenu = true;
+      this.showAccountMenu = false;
+    }
+    else if (nav === 'account') {
+      this.showLinksMenu = false;
+      this.showAccountMenu = true;
+    }
+    else {
+      this.showLinksMenu = false;
+      this.showAccountMenu = false;
+    }
   }
 
 }

@@ -1,0 +1,172 @@
+/*-----------------------------------------------------------*/
+/*                     Navigation Links                      */
+/*-----------------------------------------------------------*/
+
+// Component's Variables
+:host {
+  --display-toggler-links: none;
+  --margin: 8px;
+  // Navigation effects
+  --button-size: 40px;
+  --links-speed: 0.01s;
+  --link-speed: 0.667s;
+  // Screen change
+  @media only screen and (max-width: 830px) {
+    --display-toggler-links: flex;
+  }
+}
+
+/* ----------------------------------- Bigger Screens ----------------------------------- */
+// In a bigger screen toggler will not be shown
+// Toggler checkbox
+.nav-toggler {
+  visibility: hidden;
+  position: absolute;
+  display: var(--display-toggler-links);
+}
+// Hamburger menu
+.nav-ham {
+  visibility: hidden;
+  position: relative;
+  display: var(--display-toggler-links);
+}
+
+// Container for all the links
+.nav-menu {
+  display: flex;
+  overflow: hidden;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition-property: right, visibility;
+  transition-duration: var(--links-speed);
+  transition-timing-function: linear;
+
+  // Links container
+  .nav-links {
+    // Individual link
+    .nav-link {
+      cursor: pointer;
+      margin: 0px 3px;
+      padding: 12px 5px;
+      color: var(--dark);
+      position: relative;
+      align-self: center;
+      display: inline-block;
+      transition-delay: var(--links-speed);
+      transition-duration: var(--link-speed);
+      transition-property: opacity, left;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.29, 0.99);
+
+      // Active state
+      &-active {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/* ----------------------------------- Smaller Screens ----------------------------------- */
+@media only screen and (max-width: 830px) {
+  // Toggler to show and hide the navigation in small screens
+  .nav-toggler {
+    opacity: 0;
+    z-index: 1100;
+    cursor: pointer;
+    visibility: visible;
+    width: var(--button-size);
+    height: var(--button-size);
+
+    // Convert to an X on click and rotate
+    &:checked {
+      & + .nav-ham > div {
+        transform: rotate(135deg);
+        // Conver to an X
+        &::before,
+        &::after {
+          top: 0px;
+          transform: rotate(90deg);
+        }
+      }
+      // Hover effect when is checked
+      &:hover {
+        & + .nav-ham > div {
+          transform: rotate(225deg);
+        }
+      }
+
+      // Activate links on click
+      & ~ .nav-menu {
+        visibility: visible;
+        right: 0px;
+        // Links effect
+        .nav-links {
+          .nav-link {
+            left: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  // Hamburger button to click
+  .nav-ham {
+    z-index: 1050;
+    visibility: visible;
+    width: var(--button-size);
+    height: var(--button-size);
+    padding: 8px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+
+    // Lines in the ham-burger-links
+    div {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background-color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.4s ease;
+      // Add more lines
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 1050;
+        top: -5px;
+        width: 100%;
+        height: 2px;
+        background-color: var(--dark);
+      }
+      &::after {
+        top: 5px;
+      }
+    }
+  }
+
+  // Links container
+  .nav-menu {
+    top: 0px;
+    right: 100vw;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    visibility: hidden;
+    background-color: var(--light);
+
+    // Links container inside the links
+    .nav-links {
+      margin-top: 65px;
+
+      // All the links in the links
+      .nav-link {
+        display: block;
+        text-align: left;
+        margin: 0px 0px 00px 10px;
+        left: 10px;
+      }
+    }
+  }
+}
