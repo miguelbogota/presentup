@@ -10,7 +10,7 @@
     ]
   },
   "hosting": {
-    "public": "dist/presentup",
+    "public": "dist/presentup-me",
     "ignore": [
       "firebase.json",
       "**/.*",
