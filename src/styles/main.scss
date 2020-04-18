@@ -4,19 +4,31 @@
 @import 'material';
 @import 'reset';
 
-@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
+/*-----------------------------------------------------------*/
+/*                       Main Styles                         */
+/*-----------------------------------------------------------*/
+
+/* Minimun width the app can go */
+html {
+  min-width: 320px;
+}
+
+/* Max width to make a little smaller */
+.container {
+  $max-width: 1260px; /* Max width the container will go to */
+  $margin: 10px; /* Margin to be apply with the screen is smaller */
+
+  max-width: $max-width;
+  margin: 0px auto;
+  /* Margin will be apply if the screen is lesser than the mex width */
+  @media only screen and (max-width: calc(#{$max-width} + calc(#{$margin} * 2))) {
+    margin: 0px $margin;
+  }
+}
 
 /*-----------------------------------------------------------*/
 /*                         Global                            */
 /*-----------------------------------------------------------*/
-
-/* Minimun width the app can go */
-html { min-width: 320px; }
-/* Max width to make a little smaller */
-.container {
-  max-width: 1260px;
-  margin: 0px auto;
-}
 
 #notifications-container {
   position: fixed;
