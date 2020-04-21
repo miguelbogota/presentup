@@ -6,15 +6,15 @@
     <div class="nav-container">
 
       <!-- Brand link with image -->
-      <a class="nav-brand" [routerLink]="['/']" (click)="toggle('reset')">
+      <a class="nav-brand" [routerLink]="['/']">
         <img src="assets/svgs/presentup/brand-light.svg" alt="presentup.me logo brand">
       </a>
 
       <!-- Menu with all the links for the pages -->
-      <app-nav-links class="nav-links" [menuState]="showLinksMenu" (menuChanged)="toggle($event)"></app-nav-links>
+      <app-nav-links class="nav-links"></app-nav-links>
 
       <!-- Menu with all the account related stuff -->
-      <app-nav-account class="nav-account" [user]="user" [menuState]="showAccountMenu" (menuChanged)="toggle($event)"></app-nav-account>
+      <app-nav-account  class="nav-account" [user]="user" (sendSignOut)="signOut()"></app-nav-account>
       
     </div>
   </div>

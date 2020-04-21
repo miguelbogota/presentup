@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-nav-links',
@@ -8,16 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NavLinksComponent implements OnInit {
 
   @Input() menuState: boolean; // Property for the state of the menu
-  @Output() menuChanged: EventEmitter<string> = new EventEmitter<string>(); // Sends the actual state of the menu
 
-  constructor() { }
+  // Listener checking if the user clicks outside component to close the menu
+  @HostListener('document:click', ['$event'])
+  clickout(e) { if(!this.eRef.nativeElement.contains(e.target) && this.menuState) { this.menuState = false; } }
+
+  constructor(
+    private eRef: ElementRef
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  // Function send an event to parent when the menu is toggle
-  toggleAction() {
-    this.menuChanged.emit('links');
   }
 
 }

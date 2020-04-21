@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AnimationsModule } from 'src/app/core/animations/animations.module';
 
 // Components
 import { NavigationComponent } from './navigation/navigation.component';
@@ -25,7 +26,8 @@ import { CropperComponent } from './cropper/cropper.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    AnimationsModule
   ],
   exports: [
     NavigationComponent,

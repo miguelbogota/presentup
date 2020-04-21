@@ -2,7 +2,7 @@
 <div class="nav-unauth" *ngIf="!user; else logged">
   
   <!-- This will be the toggler to show the menu in the responsive screen for the account -->
-  <input class="nav-toggler" type="checkbox"  [(ngModel)]="menuState" (change)="toggleAction()" />
+  <input class="nav-toggler" type="checkbox"  [(ngModel)]="menuState" />
   <!-- Hamburger button -->
   <div class="nav-ham" [style.background-image]="'url(' + defaultImgUrl + ')'"></div>
 
@@ -22,7 +22,7 @@
   <div class="nav-auth">
 
     <!-- This will be the toggler to show the menu in the responsive screen for the account -->
-    <input class="nav-toggler" type="checkbox"  [(ngModel)]="menuState" (change)="toggleAction()" />
+    <input class="nav-toggler" type="checkbox"  [(ngModel)]="menuState" />
     <!-- Hamburger button -->
     <div class="nav-ham" [style.background-image]="'url(' + user.img + ')'"></div>
 
@@ -30,9 +30,10 @@
     <div class="nav-account">
       <!-- If not logged will show options to signin or signup -->
       <div class="nav-links">
-        <a class="nav-link" [routerLink]="['/miguelbogota']">Perfil</a>
-        <a class="nav-link" [routerLink]="['/miguelbogota/messages']">Mensajes</a>
+        <a class="nav-link" [routerLink]="['/' + user.username]">Perfil</a>
+        <a class="nav-link" [routerLink]="['/' + user.username + '/messages']">Mensajes</a>
         <a class="nav-link" [routerLink]="['/settings']">Configuración</a>
+        <a class="nav-link" [routerLink]="['/']" (click)="signOut()">Cerrar sesión</a>
       </div>
     </div>
   </div>

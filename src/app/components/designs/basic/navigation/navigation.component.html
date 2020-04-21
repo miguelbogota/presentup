@@ -12,8 +12,8 @@
 
   <!-- Navigation if is logged will be a link to the settings -->
   <button class="nav-content" *ngIf="showSettings">
-    <i class="fas fa-home" style="color: var(--gray);" [routerLink]="['/' + user.uid]"></i>
-    <i class="fas fa-comment" style="color: var(--gray);" [routerLink]="['/' + user.uid + '/messages']"></i>
+    <i class="fas fa-home" style="color: var(--gray);" [routerLink]="['/' + user.username]"></i>
+    <i class="fas fa-comment" style="color: var(--gray);" [routerLink]="['/' + user.username + '/messages']"></i>
     <i class="fas fa-cog" style="color: var(--gray);" [routerLink]="['/settings']"></i>
   </button>
 

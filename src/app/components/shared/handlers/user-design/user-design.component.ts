@@ -15,7 +15,7 @@ import { BasicComponent } from 'src/app/components/designs/basic/basic.component
 })
 export class UserDesignComponent implements OnInit, AfterViewInit {
 
-  uid: string = null; // Property for the id of the user
+  username: string = null; // Property for the id of the user
   showLoading = true; // Property to know if the page is loading
   CACHE_KEY = 'userLoaded'; // Nane where the user will be stored
 
@@ -32,7 +32,7 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
   ) {
     // Get the id from the route
     this.route.paramMap.subscribe(p => {
-      this.uid = p.get('id'); // Store id from the route
+      this.username = p.get('username'); // Store id from the route
     });
   }
 
@@ -43,7 +43,7 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
     // Validate if there's any user in local
     if (localStorage[this.CACHE_KEY] != null) {
       // Validate is the same user than the url
-      if (JSON.parse(localStorage[this.CACHE_KEY]).uid === this.uid) {
+      if (JSON.parse(localStorage[this.CACHE_KEY]).username === this.username) {
         // Show cuser from local
         this.buildComponent(JSON.parse(localStorage[this.CACHE_KEY]) as IUser);
       }
@@ -67,7 +67,6 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
 
   // Functions deletes sensitive user information to store it in local
   deleteSensitiveData(user: IUser): void {
-    delete user.password;
     delete user.email;
     delete user.phone;
   }
@@ -75,7 +74,7 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
   // Function refresh the user stored
   storeUser(): void {
     // Get the user from the route uid
-    this.userService.getUser(this.uid).subscribe((user: IUser) => {
+    this.userService.getUserWithProperty('username', this.username).subscribe((user: IUser) => {
       // Validate if user exist
       if (user) {
         // Delete the sensitive user information

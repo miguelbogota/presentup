@@ -4,8 +4,7 @@ export interface IUser {
   email: string;
   name: string;
 
-  uid: string;
-  password: string;
+  username: string;
   recoveryEmail?: string;
   phone?: number;
   location: string;

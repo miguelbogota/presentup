@@ -36,11 +36,11 @@ const routes: Routes = [
   { path: 'settings/subscription', component: SettingsComponent }, // Subscription settings
   { path: 'settings/**', redirectTo: 'settings/account', pathMatch: 'full' }, // In case nothing is found send to the account settings
   // Components and routes below will be handle in the user component due to designs
-  { path: ':id', component: UserDesignComponent },
-  { path: ':id/contact', component: UserDesignComponent },
-  { path: ':id/portfolio', component: UserDesignComponent },
-  { path: ':id/messages', component: UserDesignComponent }, // Auth in this component
-  { path: ':id/messages/:id', component: UserDesignComponent },  // Auth in this component
+  { path: ':username', component: UserDesignComponent },
+  { path: ':username/contact', component: UserDesignComponent },
+  { path: ':username/portfolio', component: UserDesignComponent },
+  { path: ':username/messages', component: UserDesignComponent }, // Auth in this component
+  { path: ':username/messages/:id', component: UserDesignComponent },  // Auth in this component
   // Error handler in case no navigation available
   { path: '**', component: NotFoundComponent }
 ];
