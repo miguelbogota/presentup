@@ -45,7 +45,7 @@ import { BasicModule } from './components/designs/basic/basic.module';
 
     // Firebase
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    AngularFireModule.initializeApp(environment.firebase, 'Portfolio'),
+    AngularFireModule.initializeApp(environment.firebase, 'presentup-me'),
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
     AngularFireAuthModule,

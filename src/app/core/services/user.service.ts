@@ -11,49 +11,57 @@ import 'firebase/firestore';
 export class UserService {
 
   private collectionName = 'users'; // Property for the collections name
-  userCollection: AngularFirestoreCollection; // Collection with the users
+  private collection: AngularFirestoreCollection<IUser>; // Collection with the users
 
   // Contructor with dependency injection
   constructor(
     private afs: AngularFirestore
   ) {
-    this.userCollection = this.afs.collection(this.collectionName); // Store collection
+    this.collection = this.afs.collection(this.collectionName); // Store collection
+  }
+
+  // Function saves a user in the db
+  createUser(user: IUser): Promise<void> {
+    const id = user.id; // Store id before deleting it
+    delete user.id; // Delete user id since is unnecesary in the db
+    return this.collection.doc(id).set(user); // Upload the user to the db
   }
 
   // Return all the users in the db
   getUsers(): Observable<IUser[]> {
     // Return an observable with all the users
-    return this.userCollection.snapshotChanges().pipe(
-      // Map each user to have the uid
-      map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as IUser;
-        data.uid = a.payload.doc.id;
-        return data;
-      }))
-    );
+    return this.collection
+      .valueChanges({ idField: 'id' });
   }
 
-  // Returns only one user by uid
-  getUser(uid: string): Observable<IUser> {
-    // Return one user with the uid
-    return this.userCollection.doc(uid).snapshotChanges().pipe(
-      // Map the user to have the uid
-      map(a => {
-        // If users exists return it with uid
-        if (a.payload.exists) {
-          const data = a.payload.data() as IUser;
-          data.uid = a.payload.id;
-          return data;
-        }
-        // Otherwise return null
-        else { return null; }
-      })
-    );
+  // Returns only one user by id
+  getUserWithId(id: string): Observable<IUser> {
+    // Return one user with the id
+    return this.collection.doc(id)
+      .snapshotChanges()
+        .pipe(
+          // Map the user to have the id
+          map(a => {
+            return {
+              ...a.payload.data() as IUser,
+              id: a.payload.id
+            };
+          })
+        );
   }
 
-  // Function deletes an user by uid
-  deleteUser(uid: string): void {
-    this.userCollection.doc(uid).delete(); // Delete user
+  // Returns only one user by a property in the object
+  getUserWithProperty(type: string, property: any): Observable<IUser> {
+    // Return one user with the custom property
+    return this.afs.collection<IUser>(this.collectionName, ref => ref.where(type, '==', property))
+      .valueChanges({ idField: 'id' })
+        // Return the first element since will only have one
+        .pipe(map(b => b[0]));
+  }
+
+  // Function deletes an user by id
+  deleteUser(id: string): Promise<void> {
+    return this.collection.doc(id).delete(); // Delete user
   }
 
 }
