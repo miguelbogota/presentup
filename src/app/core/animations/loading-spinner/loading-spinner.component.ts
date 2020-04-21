@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoadingSpinnerComponent implements OnInit {
 
   @Input() color = 'var(--dark)'; // Color for the component
+  @Input() size = '80px'; // Size of the component
 
   constructor() { }
 

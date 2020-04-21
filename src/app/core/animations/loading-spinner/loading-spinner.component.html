@@ -1,6 +1,6 @@
-<div class="lds-ring">
-  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent'}"></div>
-  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent'}"></div>
-  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent'}"></div>
-  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent'}"></div>
+<div class="lds-ring" [ngStyle]="{'width': size, 'height': size}">
+  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent', 'border-width': 'calc(' + size + ' * 0.1)'}"></div>
+  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent', 'border-width': 'calc(' + size + ' * 0.1)'}"></div>
+  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent', 'border-width': 'calc(' + size + ' * 0.1)'}"></div>
+  <div [ngStyle]="{'border-color': color + 'transparent transparent transparent', 'border-width': 'calc(' + size + ' * 0.1)'}"></div>
 </div>
