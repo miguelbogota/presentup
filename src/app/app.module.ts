@@ -17,19 +17,14 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 // Keys
 import { environment } from '../environments/environment';
-// Directives
-
-// Services
-import { UserService } from './core/services/user.service';
-import { NotificationService } from './core/services/notification.service';
-
 // Main components
 import { AppComponent } from './app.component';
-// Shared modules
-import { SharedModule } from './components/shared/shared.module';
-import { AnimationsModule } from './core/animations/animations.module';
-// Modules for the designs
-import { BasicModule } from './components/designs/basic/basic.module';
+// Modules from the app
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { LandingModule } from './modules/landing/landing.module';
+import { ProfileModule } from './modules/profile/profile.module';
+import { SettingsModule } from './modules/settings/settings.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +37,6 @@ import { BasicModule } from './components/designs/basic/basic.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
     // Firebase
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebase, 'presentup-me'),
@@ -50,16 +44,14 @@ import { BasicModule } from './components/designs/basic/basic.module';
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireFunctionsModule,
-
     // Modules
-    AnimationsModule,
+    CoreModule,
     SharedModule,
-    // Designs
-    BasicModule
+    LandingModule,
+    ProfileModule,
+    SettingsModule
   ],
   providers: [
-    UserService,
-    NotificationService
   ],
   bootstrap: [AppComponent]
 })
