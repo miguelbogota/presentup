@@ -1,5 +1,6 @@
 import {
-  Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ChangeDetectorRef, ComponentFactory
+  Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef,
+  ComponentFactoryResolver, ChangeDetectorRef, ComponentFactory, ComponentRef
 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
@@ -15,12 +16,14 @@ import { BasicComponent } from 'src/app/components/designs/basic/basic.component
 })
 export class UserDesignComponent implements OnInit, AfterViewInit {
 
+  USER_CACHE = '9jK9uhkJ0LY0MYNfYTOTtpWsi4l2'; // Nane where the user will be stored
   username: string = null; // Property for the id of the user
+  user: IUser; // Property to store the user that is being watched
+  component: ComponentRef<any>; // This will be the component to be build
   showLoading = true; // Property to know if the page is loading
-  CACHE_KEY = 'userLoaded'; // Nane where the user will be stored
 
   // Insert the component in this container
-  @ViewChild('content', { read: ViewContainerRef }) content: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef }) container: ViewContainerRef;
 
   // Constructor with dependency injection
   constructor(
@@ -40,53 +43,47 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.user = this.getStoredUSer(); // Store user from the local storage
     // Validate if there's any user in local
-    if (localStorage[this.CACHE_KEY] != null) {
-      // Validate is the same user than the url
-      if (JSON.parse(localStorage[this.CACHE_KEY]).username === this.username) {
-        // Show cuser from local
-        this.buildComponent(JSON.parse(localStorage[this.CACHE_KEY]) as IUser);
-      }
-      // If user is other one search in db
-      else { this.storeUser(); }
+    if (this.user) {
+      // Show user from localStorage
+      this.buildComponent(this.user);
     }
-    // If there's no user search in db
-    else { this.storeUser(); }
     // Stop animation
     this.showLoading = false;
     // Left at the end to not detect changed but until the end
     this.cdRef.detectChanges();
+
+    // Keep listening for changes in the server
+    this.userService.getUserWithProperty('username', this.username).subscribe((user: IUser) => {
+      // If there's an user change update it in sessionStorage
+      if (user) {
+        // If the user locally is diferrent from the one in the server update it
+        if (JSON.stringify(user) !== JSON.stringify(this.user)) {
+          // If there's already an user locally component has to be destroy to update the new changes
+          if (this.user) { this.destroyComponent(); }
+          this.storeUser(user); // Save user in localStorage
+          this.user = this.getStoredUSer(); // Asign data from localStorage to user
+          this.buildComponent(this.user); // build component with new information
+        }
+      }
+      // If it does not exist send to error
+      else { this.router.navigate(['/error'], { skipLocationChange: true }); }
+      // Assign user once again to display changes
+      this.user = this.getStoredUSer();
+    });
   }
 
   // Function creates the design component
   buildComponent(user: IUser): void {
-    const factory = this.getDesign(user.settings.design); // Component to show the user
-    const componentRef = this.content.createComponent(factory); // Create component
-    componentRef.instance.user = user; // Pass the params to the component
+    const design = this.getDesign(user.settings.design); // Component to show the user
+    this.component = this.container.createComponent(design); // Create component
+    this.component.instance.user = this.user; // Pass the params to the component
   }
 
-  // Functions deletes sensitive user information to store it in local
-  deleteSensitiveData(user: IUser): void {
-    delete user.email;
-    delete user.phone;
-  }
-
-  // Function refresh the user stored
-  storeUser(): void {
-    // Get the user from the route uid
-    this.userService.getUserWithProperty('username', this.username).subscribe((user: IUser) => {
-      // Validate if user exist
-      if (user) {
-        // Delete the sensitive user information
-        this.deleteSensitiveData(user);
-        // Store currect user waching
-        localStorage[this.CACHE_KEY] = JSON.stringify(user);
-        // Build component into the view
-        this.buildComponent(JSON.parse(localStorage[this.CACHE_KEY]) as IUser);
-      }
-      // If it does not exist send to error
-      else { this.router.navigate(['/error'], { skipLocationChange: true });  }
-    });
+  // Function destroys the component with the design
+  destroyComponent(): void {
+    this.component.destroy();
   }
 
   // Function retrieves the component with the user settings
@@ -98,6 +95,26 @@ export class UserDesignComponent implements OnInit, AfterViewInit {
       // Defaul will be basic design
       default: return this.resolver.resolveComponentFactory(BasicComponent);
     }
+  }
+
+  // Function stores the user in the localStorage
+  private storeUser(user: IUser): void {
+    localStorage.setItem(this.USER_CACHE, JSON.stringify(user));
+  }
+
+  // Get user from the localStorage
+  private getStoredUSer(): IUser {
+    // Check if there's a user in the storage
+    const theresUser = localStorage.getItem(this.USER_CACHE) != null;
+    // Check inf the username is the same
+    const isSameUsername = theresUser ? (JSON.parse(localStorage.getItem(this.USER_CACHE)) as IUser)?.username === this.username : null;
+    // Return user or null
+    return theresUser && isSameUsername ? JSON.parse(localStorage.getItem(this.USER_CACHE)) as IUser : null;
+  }
+
+  // Function deletes the user from the localStorage
+  private deleteStoredUser(): void {
+    localStorage.removeItem(this.USER_CACHE);
   }
 
 }
