@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NotificationService } from './services/notification/notification.service';
 import { UserService } from './http/user/user.service';
 import { AuthService } from './authentication/auth.service';
+import { ApiService } from './http/api.service';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { AuthService } from './authentication/auth.service';
   ],
   providers: [
     NotificationService,
+    ApiService,
     UserService,
     AuthService
   ]

@@ -6,10 +6,10 @@ import { IUser } from 'src/app/shared/models/user.model';
 import { Router } from '@angular/router';
 
 // Components
-import { SettingsAccountComponent } from './pages/settings-account/settings-account.component';
-import { SettingsAppearanceComponent } from './pages/settings-appearance/settings-appearance.component';
-import { SettingsStatisticsComponent } from './pages/settings-statistics/settings-statistics.component';
-import { SettingsSubscriptionComponent } from './pages/settings-subscription/settings-subscription.component';
+import { AccountComponent } from './account/account.component';
+import { AppearanceComponent } from './appearance/appearance.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 @Component({
   selector: 'app-settings',
@@ -35,19 +35,19 @@ export class SettingsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // Routing
     if (this.router.url.endsWith('settings/account')) {
-      const factory = this.resolver.resolveComponentFactory(SettingsAccountComponent);
+      const factory = this.resolver.resolveComponentFactory(AccountComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else if (this.router.url.endsWith('settings/appearance')) {
-      const factory = this.resolver.resolveComponentFactory(SettingsAppearanceComponent);
+      const factory = this.resolver.resolveComponentFactory(AppearanceComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else if (this.router.url.endsWith('settings/statistics')) {
-      const factory = this.resolver.resolveComponentFactory(SettingsStatisticsComponent);
+      const factory = this.resolver.resolveComponentFactory(StatisticsComponent);
       const componentRef = this.content.createComponent(factory);
     }
     else if (this.router.url.endsWith('settings/subscription')) {
-      const factory = this.resolver.resolveComponentFactory(SettingsSubscriptionComponent);
+      const factory = this.resolver.resolveComponentFactory(SubscriptionComponent);
       const componentRef = this.content.createComponent(factory);
     }
     // Left at the end to not detect changed but until the end

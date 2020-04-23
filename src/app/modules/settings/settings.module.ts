@@ -1,36 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 // Components
 import { SettingsComponent } from './settings.component';
-import { SettingsAccountComponent } from './pages/settings-account/settings-account.component';
-import { SettingsAppearanceComponent } from './pages/settings-appearance/settings-appearance.component';
-import { SettingsStatisticsComponent } from './pages/settings-statistics/settings-statistics.component';
-import { SettingsSubscriptionComponent } from './pages/settings-subscription/settings-subscription.component';
-import { SettingsNavigationComponent } from './components/settings-navigation/settings-navigation.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AccountComponent } from './account/account.component';
+import { AppearanceComponent } from './appearance/appearance.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 @NgModule({
   declarations: [
     SettingsComponent,
-    SettingsAccountComponent,
-    SettingsAppearanceComponent,
-    SettingsStatisticsComponent,
-    SettingsSubscriptionComponent,
-    SettingsNavigationComponent
+    NavigationComponent,
+    AccountComponent,
+    AppearanceComponent,
+    StatisticsComponent,
+    SubscriptionComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  entryComponents: [
-    SettingsComponent
-  ],
-  exports: [
-    SettingsComponent
+    RouterModule
   ]
 })
 export class SettingsModule { }
