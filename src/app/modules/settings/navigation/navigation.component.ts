@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ElementRef  } from '@angular/core';
 import { ILink } from 'src/app/shared/models/link.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { ILink } from 'src/app/shared/models/link.model';
 })
 export class NavigationComponent implements OnInit {
 
+  @Input() menuState: boolean; // Property for the state of the menu
+
   // Routes and links to show in the side panel
   links: ILink[] = [
     { name: 'Cuenta', url: 'account', icon: 'fa-user' },
@@ -16,7 +18,13 @@ export class NavigationComponent implements OnInit {
     { name: 'Suscripción', url: 'subscription', icon: 'fa-credit-card'  }
   ];
 
-  constructor() { }
+  // Listener checking if the user clicks outside component to close the menu
+  @HostListener('document:click', ['$event'])
+  clickout(e: any) { if(!this.eRef.nativeElement.contains(e.target) && this.menuState) { this.menuState = false; } }
+
+  constructor(
+    private eRef: ElementRef
+  ) { }
 
   ngOnInit(): void {
   }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // Components
 import { SettingsComponent } from './settings.component';
@@ -20,6 +21,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule
   ]
 })

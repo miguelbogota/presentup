@@ -1,26 +1,7 @@
-<!-- Settings container -->
-<div class="settings-container">
-  <!-- Panel for the links -->
-  <div class="settings-panel">
-
-    <!-- Back button -->
-    <a class="settings-back-btn" [routerLink]="['/id']">
-      <!-- Back button icon -->
-      <i class="fas fa-chevron-left"></i>
-    </a>
-    <!-- Settings title -->
-    <h3 class="settings-panel-title">Configuración</h3>
-    <!-- Links container for the diferent links -->
-    <app-navigation></app-navigation>
-
-  </div>
-
-  <!-- Settings inputs and router for the different options -->
-  <div class="settings-inputs-container">
-    <div class="settings-content">
-      <!-- Router -->
-      <ng-container #router></ng-container>
-    </div>
-  </div>
-
+<!-- Navigation bar will be in all the settings pages -->
+<app-navigation class="navigation"></app-navigation>
+<!-- Settings content will be display either in the left or after the navigation bar -->
+<div class="content">
+  <!-- Show the pages -->
+  <router-outlet></router-outlet>
 </div>
