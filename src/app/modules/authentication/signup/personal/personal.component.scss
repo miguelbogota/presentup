@@ -28,8 +28,8 @@
   width: 100%;
   display: grid;
   max-width: 935px;
-  margin: 0px auto 20px;
-  min-height: calc(100vh - 63.5px - 82.83px - 20px);
+  margin: 68.83px auto 20px;
+  min-height: calc(100vh - 63.5px - 68.83px - 30px);
   grid-template-columns: auto var(--form-width-offset);
 
   // Container for the form

@@ -6,7 +6,7 @@ export interface IUser {
 
   username: string;
   recoveryEmail?: string;
-  phone?: number;
+  phone?: string;
   location: string;
   birth: Date;
   gender: string;
@@ -20,6 +20,44 @@ export interface IUser {
     subscription: string;
   };
 }
+
+// Function returns an empty user
+export const newUser = (): IUser => {
+  return {
+    uid: '',
+    email: '',
+    name: '',
+    username: '',
+    recoveryEmail: '',
+    phone: '',
+    location: '',
+    birth: new Date(),
+    gender: '',
+    title: '',
+    img: '',
+    descriptions: [],
+    design: '',
+    settings: {
+      subscription: ''
+    }
+  };
+};
+
+// Interface represent a user in the formx
+export interface IUserForm  {
+  user?: IUser;
+  password?: string;
+  confirmPassword?: string;
+}
+
+// Function return a new user form blank
+export const newUserForm = (): IUserForm => {
+  return {
+    user: newUser(),
+    password: '',
+    confirmPassword: ''
+  };
+};
 
 // Annonimous user
 export interface IAnonymousUser {

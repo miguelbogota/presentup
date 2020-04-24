@@ -1,5 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, AbstractControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {  AbstractControl, Validators, FormBuilder } from '@angular/forms';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { SignupState } from '../signup.state';
+import { SetSignupForm } from '../signup.actions';
+import { IUserForm } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-account',
@@ -8,29 +14,90 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 })
 export class AccountComponent implements OnInit {
 
-  @Input() form: FormGroup; // Form will be passed from the parent
-  @Output() step: EventEmitter<string> = new EventEmitter<string>(); // Sends either the next or back fucntion
+  firstName: string; // Name of the user
 
-  constructor() { }
+  // User passed from the state in the app
+  @Select(SignupState) signupState: Observable<IUserForm>;
+  // Form for the component
+  signupForm = this.fb.group({
+    user: this.fb.group({
+      username: ['', [ Validators.required ]],
+      phone: [''],
+      recoveryEmail: ['', [ Validators.email ]],
+      location: ['', [ Validators.required ]],
+      gender: [null, [ Validators.required ]]
+    }),
+    password: ['', [ Validators.required ]],
+    confirmPassword: ['', [ Validators.required ]]
+  });
+
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.stateChanges();
+    this.updateState();
   }
 
-  // Function handles the on submit form event to continue
-  onNext(): void { this.step.emit('/about'); }
-  // Function handles the back function
-  onBack(): void { this.step.emit(''); }
+  submit() {
+    this.router.navigate(['/signup']);
+  }
 
-  // Getter gets only the first name
-  get fName(): string { return this.form.get('name').value.split(' ')[0]; }
+  // Function updates the state in the store
+  private updateState(): void {
+    // The state will update with the changes of the form
+    this.signupForm.valueChanges.subscribe((u: IUserForm) => {
+      this.store.dispatch([new SetSignupForm(u)]);
+    });
+  }
+
+  // Funtion check if the values can be updated or not
+  private validateChanges<T>(value: T, control: AbstractControl): void {
+    // Diferents check for the values
+    const isDifferent = value && control && value !== control.value;
+    // Update the controls if they've been changed
+    if (isDifferent) {  this.updateControl(value, control); }
+  }
+
+  // Functions validates the current form with the state
+  private stateChanges() {
+    this.signupState.subscribe((u: IUserForm) => {
+      this.firstName = u.user.name ? u.user.name.split(' ')[0] : ''; // Get first name
+      // Update the form with data
+      this.validateChanges(u.user.username, this.username);
+      this.validateChanges(u.password, this.password);
+      this.validateChanges(u.confirmPassword, this.confirmPassword);
+      this.validateChanges(u.user.phone, this.phone);
+      this.validateChanges(u.user.recoveryEmail, this.recoveryEmail);
+      this.validateChanges(u.user.location, this.location);
+      this.validateChanges(u.user.gender, this.gender);
+    });
+  }
+
+  // Function update a control
+  private updateControl<T>(value: T, control: AbstractControl): void {
+    control.setValue(value); // Set value to the control
+    /**
+     * Functioning will be, if you leave a page and return later the state
+     * will be loaded and mark everything as touched as a heads up in all the
+     * differents fields that are unfilled. This can be change with the line
+     * commented below and only make the ones touched as touched leaving the
+     * others as they were originally.
+     */
+    // control.markAllAsTouched(); // Mark control as touched
+    this.signupForm.markAllAsTouched(); // Mark The whole form as touched
+  }
+
   // Getters & setters for the form
-  get uid(): AbstractControl { return this.form.get('uid'); }
-  get pass(): AbstractControl { return this.form.get('pass'); }
-  get cPass(): AbstractControl { return this.form.get('cPass'); }
-  get area(): AbstractControl { return this.form.get('area'); }
-  get phone(): AbstractControl { return this.form.get('phone'); }
-  get aEmail(): AbstractControl { return this.form.get('aEmail'); }
-  get location(): AbstractControl { return this.form.get('location'); }
-  get gender(): AbstractControl { return this.form.get('gender'); }
+  get username(): AbstractControl { return this.signupForm.get('user.username'); }
+  get password(): AbstractControl { return this.signupForm.get('password'); }
+  get confirmPassword(): AbstractControl { return this.signupForm.get('confirmPassword'); }
+  get phone(): AbstractControl { return this.signupForm.get('user.phone'); }
+  get recoveryEmail(): AbstractControl { return this.signupForm.get('user.recoveryEmail'); }
+  get location(): AbstractControl { return this.signupForm.get('user.location'); }
+  get gender(): AbstractControl { return this.signupForm.get('user.gender'); }
 
 }

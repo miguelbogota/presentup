@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <!-- Sign up container main page -->
 <div class="container">
   <!-- Container for the form -->
@@ -12,31 +13,33 @@
       <!-- Inputs for the sign up -->
       <div class="form-content">
         <!-- Loading screen for login with providers -->
-        <div class="form-loading" *ngIf="showLoadingSpinnerForm; else loaded">
+        <div class="form-loading" *ngIf="false; else loaded">
           <app-roller></app-roller>
         </div>
         <!-- Once the date is loaded from the sign up with provider or when the page start will show this -->
         <ng-template #loaded>
-          <form [formGroup]="form" (ngSubmit)="onNext()">
+          <form [formGroup]="signupForm" (ngSubmit)="submit()">
+            <ng-container formGroupName="user">
 
-            <!-- Email input -->
-            <div class="form-group">
-              <input formControlName="email" class="form-control" type="email" placeholder="Correo electrónico">
-              <!-- Errors -->
-              <small *ngIf="email.errors?.required && email.touched" class="form-text error">¡Este campo es requerido!</small>
-              <small *ngIf="email.errors?.email && email.touched" class="form-text error">¡Ingresa un correo valido!</small>
-            </div>
+              <!-- Email input -->
+              <div class="form-group">
+                <input formControlName="email" class="form-control" type="email" placeholder="Correo electrónico">
+                <!-- Errors -->
+                <small *ngIf="email.errors?.required && email.touched" class="form-text error">¡Este campo es requerido!</small>
+                <small *ngIf="email.errors?.email && email.touched" class="form-text error">¡Ingresa un correo valido!</small>
+              </div>
+              
+              <!-- Name input -->
+              <div class="form-group">
+                <input formControlName="name" class="form-control" type="text" placeholder="Nombre completo">
+                <!-- Errors -->
+                <small *ngIf="name.errors?.required && name.touched" class="form-text error">¡Este campo es requerido!</small>
+              </div>
 
-            <!-- Name input -->
-            <div class="form-group">
-              <input formControlName="name" class="form-control" type="text" placeholder="Nombre completo">
-              <!-- Errors -->
-              <small *ngIf="name.errors?.required && name.touched" class="form-text error">¡Este campo es requerido!</small>
-            </div>
-
-            <!-- Button to confir everything -->
-            <button [disabled]="!email.valid || !name.valid" class="form-btn" type="submit">Registrarte</button>
-
+              <!-- Button to confir everything -->
+              <button [disabled]="!email.valid || !name.valid" class="form-btn" type="submit">Registrarte</button>
+              
+            </ng-container>
           </form>
         </ng-template>
       </div>
@@ -51,7 +54,7 @@
       <!-- Other sign up options -->
       <div class="form-options">
         <!-- Google -->
-        <a class="form-options-link" (click)="signupWithGoogle()">Iniciar sesión con Google</a>
+        <a class="form-options-link">Iniciar sesión con Google</a>
       </div>
 
       <!-- Terms and conditions -->
@@ -81,3 +84,4 @@
   </div>
 
 </div>
+<app-footer></app-footer>

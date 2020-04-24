@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-subscription',
@@ -8,20 +7,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class SubscriptionComponent implements OnInit {
 
-  @Input() form: FormGroup; // Form will be passed from the parent
-  @Output() step: EventEmitter<string> = new EventEmitter<string>(); // Sends either the next or back fucntion
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  // Function handles the on submit form event to continue
-  onNext(): void {
-    console.log('finished!')
-  }
-
-  // Function handles the back function
-  onBack(): void { this.step.emit('/appearance'); }
 
 }

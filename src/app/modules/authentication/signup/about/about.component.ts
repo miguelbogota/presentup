@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, AbstractControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -8,17 +7,9 @@ import { FormGroup, AbstractControl } from '@angular/forms';
 })
 export class AboutComponent implements OnInit {
 
-  @Input() form: FormGroup; // Form will be passed from the parent
-  @Output() step: EventEmitter<string> = new EventEmitter<string>(); // Sends either the next or back fucntion
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
-  // Function handles the on submit form event to continue
-  onNext(): void { this.step.emit('/appearance'); }
-  // Function handles the back function
-  onBack(): void { this.step.emit('/account'); }
 
 }

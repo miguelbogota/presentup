@@ -25,7 +25,8 @@
   width: 100%;
   max-width: var(--width-form);
   padding-top: 10px;
-  margin: 0px auto 20px;
+  margin: 68.83px auto 20px;
+  min-height: calc(100vh - 63.5px - 68.83px - 30px);
   text-align: center;
   display: block;
   height: var(--height);
