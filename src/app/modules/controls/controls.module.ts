@@ -7,6 +7,7 @@ import { CropperComponent } from './cropper/cropper.component';
 import { NavigationComponent } from '../controls/navigation/navigation.component';
 import { NavLinksComponent } from '../controls/navigation/nav-links/nav-links.component';
 import { NavAccountComponent } from '../controls/navigation/nav-account/nav-account.component';
+import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from '../controls/header/header.component';
 import { FooterComponent } from '../controls/footer/footer.component';
 
@@ -16,6 +17,7 @@ import { FooterComponent } from '../controls/footer/footer.component';
     NavigationComponent,
     NavLinksComponent,
     NavAccountComponent,
+    MenuComponent,
     HeaderComponent,
     FooterComponent
   ],
@@ -28,6 +30,7 @@ import { FooterComponent } from '../controls/footer/footer.component';
   exports: [
     CropperComponent,
     NavigationComponent,
+    MenuComponent,
     HeaderComponent,
     FooterComponent
   ]

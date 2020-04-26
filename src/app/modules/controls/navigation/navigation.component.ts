@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { IUser } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/core/authentication/auth.service';
+import { ILink } from 'src/app/shared/models/link.model';
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +12,28 @@ export class NavigationComponent implements OnInit {
 
   private SESSION_CACHE = 'GlQ4vkLJFtWg8aj94lz0kfdRT7x1'; // Property id to store the user in the sessionStorage
   user: IUser; // Current user signed in the platform
+  width: number = window.innerWidth;
+  // Links to show in the menu
+  links: ILink[] = [
+    { name: 'Inicio', url: '/' },
+    { name: 'Precios', url: '/pricing' },
+    { name: 'Caracteristicas', url: '/features' }
+  ];
+  account: ILink[] = [
+    { name: 'Iniciar sesión', url: '/signin' },
+    { name: 'Crear cuenta', url: '/signup' }
+  ];
+  logged: ILink[] = [
+    { name: 'Ver perfil', url: '/' + (this.getStoredUSer() ? this.getStoredUSer().username : '') },
+    { name: 'Configuración', url: '/settings' },
+    { name: 'Cerrar sesión', color: 'var(--red)', id: 'sign-out' }
+  ];
+  // Default image if user is not logged
+  defaultImgUrl = 'https://cdn.clipart.email/1020ed863fac31edad415031dcb0eb65_mimmic-fashion-jewelry-rings-necklaces-bracelets-earrings_512-512.png';
+
+  // Add responsive
+  @HostListener('window:resize', ['$event'])
+  onResize(event) { this.width = window.innerWidth; }
 
   constructor(
     private authService: AuthService
@@ -26,6 +49,16 @@ export class NavigationComponent implements OnInit {
       // Assign user once again to display changes
       this.user = this.getStoredUSer();
     });
+  }
+
+  // Function gets the event from the clicked link and if is the sign out run the funtion
+  getClickEvent(e: any) {
+    const target = e.currentTarget;
+    const idAttr = target.attributes.id;
+    const value = idAttr ? idAttr.nodeValue : null;
+    if (value === 'sign-out') {
+      this.signOut();
+    }
   }
 
   // Button to sign out

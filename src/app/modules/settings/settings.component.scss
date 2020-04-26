@@ -2,7 +2,6 @@
 :host {
   // Component's Variables
   --offset: 280px;
-  --menu-size: 280px;
   // Screen change
   @media only screen and (max-width: 830px) {
     --offset: 0%;
@@ -12,12 +11,7 @@
   grid-template-columns: var(--offset) auto;
   // Navigation bar
   .navigation {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    &:hover {
-      background-color: var(--light);
-    }
+    margin: 10px;
   }
   // The content to be shown in the settings
   .content {
