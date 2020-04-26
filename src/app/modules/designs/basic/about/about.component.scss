@@ -1,66 +1,76 @@
-/*-----------------------------------------------------------*/
-/*                         About                             */
-/*-----------------------------------------------------------*/
-
 // Component's Variables
-.about-containter {
-  --margin-top: 200px;
+:host {
   // Screen change
-  @media only screen and (max-width: 825px) {
-    --margin-top: 40px;
+  @media only screen and (max-width: 830px) {
   }
 }
 
 // About container
-.about-containter {
-  margin: var(--margin-top) 40px 40px;
+:host {
+  display: block;
+  padding: 200px 40px 40px;
+  // Smaller screens
+  @media only screen and (max-width: 830px) {
+    padding: 25px 25px 40px;
+  }
 
   // User's name
-  .about-name {
-    font-size: 34px;
-    margin-bottom: 5px;
+  .name {
+    font-size: 2rem;
+    line-height: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 0.3rem;
     color: var(--gray-dark);
   }
 
   // User's title
-  .about-title {
-    margin-bottom: 1em;
-    font-weight: bold;
+  .title {
+    margin-bottom: 0.8rem;
+    font-weight: 400;
     color: var(--gray-dark);
+    font-size: 1.3rem;
+    line-height: 1.6rem;
   }
 
   // User's descriptions
-  .about-description {
-    margin-bottom: 0.78em;
-    color: var(--gray);
+  .description {
+    margin-bottom: 1.1rem;
+    color: var(--gray-dark);
+    line-height: 1.4rem;
+    font-size: 1.05rem;
+    font-weight: 300;
   }
 
-  // Buttons in the bottom of the about
-  .about-btns {
+  // Contact button
+  .contact-btn {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 17px;
-
-    // Contact button
-    .about-contact-btn {
-      display: inline-block;
-      cursor: pointer;
-      padding: 10px;
-      margin-top: 20px;
-      margin-right: 28px;
-      border-radius: 20px;
-      transition: all 0.2s linear;
-      text-align: center;
-
-      // Effect when hover will change the background color
-      &:hover {
-        background-color: var(--gray-light);
-      }
-
-      // Icon for the button
-      .fas {
-        font-size: 29px;
-      }
+    padding: 11px;
+    cursor: pointer;
+    margin-top: 2rem;
+    border-radius: 2px;
+    transition: all 0.2s linear;
+    background-color: #2fbacf;
+    justify-content: center;
+    color: var(--light);
+    font-weight: 300;
+    font-size: 1.1rem;
+    
+    // Effect when hover will change the background color
+    &:hover {
+      background-color: var(--cyan);
     }
+    // Icon for the button
+    &-icon {
+      margin-right: 0.6rem;
+      font-size: inherit;
+      color: inherit !important;
+    }
+    // Text for the button
+    &-text {
+      font-weight: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
   }
 }

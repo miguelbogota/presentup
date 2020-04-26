@@ -24,18 +24,13 @@
   // Navigation if is and ad
   .nav-content {
     padding: 5px;
-    border-radius: 25px;
+    border-radius: 2px;
     display: flex;
     transition: all 0.18s linear;
-    background-color: #ffffff8f;
-    border: 1px solid #ffffff56;
-
-    // Effect when hover will change the background color
-    &:hover {
-      border: 1px solid #ffffff56;
-      box-shadow: 2px 6px 22px #0000001c;
-    }
-
+    background-color: #ffffffdc;
+    border: 1px solid #00000011;
+    box-shadow: 0px 0px 10px 0px #0000001c;
+    
     // Ad text
     .nav-adv-text {
       cursor: pointer;
@@ -51,7 +46,8 @@
       margin-right: 3px;
       transition: all 0.18s linear;
       padding: 10px;
-      border-radius: 50px;
+      border-radius: 5px;
+      color: var(--gray-dark) !important;
 
       // Effect when hover will change the background color
       &:hover {
