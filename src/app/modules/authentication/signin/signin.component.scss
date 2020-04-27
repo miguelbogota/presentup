@@ -1,17 +1,11 @@
-/*-----------------------------------------------------------*/
-/*                         Sign In                           */
-/*-----------------------------------------------------------*/
-
 // Component's Variables
-.signin-container {
-  --nav-margin: 82.83px;
-
+:host {
   --width-offset: 50%;
   --show-img: visible;
   --form-margin: 10px;
   --width-form: 350px;
   // Screen change
-  @media only screen and (max-width: 825px) {
+  @media only screen and (max-width: 830px) {
     --width-offset: 0%;
     --show-img: hidden;
     --form-margin: auto;
@@ -22,185 +16,183 @@
     --width-form: 100%;
   }
 }
+// Content for the sign in form
+:host {
+  width: 100%;
+  max-width: 935px;
+  display: grid;
+  padding: 10px 0px;
+  margin: 0px auto;
+  grid-template-columns: var(--width-offset) auto;
+  @media only screen and (max-width: 830px) {
+    padding: 10px 0px 50px;
+  }
 
-// Signin page container
-.signin-container {
-  margin-top: var(--nav-margin);
+  // Image banner in the left
+  .img-container {
+    margin: 10px;
+    width: 350px;
+    grid-column-start: 1;
+    justify-self: flex-end;
+    visibility: var(--show-img);
+    @media only screen and (max-width: 830px) {
+      display: none;
+    }
+    // Image
+    .img {
+      width: 100%;
+      user-select: none;
+    }
+  }
 
-  // Content for the sign in form
-  .signin-content {
+  // Container for the form
+  .form-container {
     width: 100%;
-    max-width: 935px;
-    display: grid;
-    margin: 0px auto;
-    min-height: 542px;
-    height: calc(100vh - 63.5px - var(--nav-margin));
-    grid-template-columns: var(--width-offset) auto;
+    text-align: center;
+    max-width: var(--width-form);
+    margin: 10px var(--form-margin);
+    grid-column-start: 2;
 
-    // Image banner in the left
-    .signin-img-container {
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-end;
-      visibility: var(--show-img);
+    // Form
+    .form {
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: var(--light);
+      // Screen change
+      @media only screen and (max-width: 450px) {
+        padding: 20px 10%;
+      }
 
-      // Image
-      .signin-img {
-        width: 350px;
-        margin: 10px;
+      // Title
+      &-title {
+        display: block;
+        font-family: "Poiret One";
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 30px;
         user-select: none;
       }
-    }
 
-    // Container for the form
-    .signin-form-container {
-      width: 100%;
-      text-align: center;
-      max-width: var(--width-form);
-      margin: 10px var(--form-margin);
-      grid-column-start: 2;
+      // Loading screen
+      &-loading {
+        padding: 76.595px 0px 92.615px;
+        display: block;
+      }
 
-      // Form
-      .signin-form {
-        padding: 20px;
+      // Content in the form
+      &-content {
         margin-bottom: 20px;
-        background-color: var(--light);
-        // Screen change
-        @media only screen and (max-width: 450px) {
-          padding: 20px 10%;
-        }
-
-        // Title
-        &-title {
+        // Inputs
+        &-input {
           display: block;
-          font-family: "Poiret One";
-          text-align: center;
-          font-size: 45px;
-          margin-bottom: 30px;
-          user-select: none;
+          width: 100%;
+          height: 35px;
+          font-size: 16px;
+          line-height: 35px;
+          padding: 0px 10px;
+          margin-bottom: 15px;
+          box-sizing: border-box;
         }
-
-        // Content in the form
-        &-content {
-          margin-bottom: 20px;
-          // Inputs
-          &-input {
-            display: block;
-            width: 100%;
-            height: 35px;
-            font-size: 16px;
-            line-height: 35px;
-            padding: 0px 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-          }
-          // Display error message
-          .errorMessage {
-            color: var(--red);
-            font-size: 13px;
-            margin-bottom: 15px;
-            text-align: left;
-          }
-          // Button
-          &-btn {
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            padding: 8px;
-            font-size: 16px;
-            border-radius: 3px;
-            color: var(--light);
-            background-color: var(--cyan);
-            transition: all 0.1s linear;
-            // Hover effect
-            &:hover {
-              background-color: #17a3b8c1;
-            }
-            // Disable
-            &:disabled {
-              cursor: not-allowed;
-              background-color: #939393b7;
-            }
-          }
-        }
-
-        // Divider
-        &-divider {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 20px;
-          user-select: none;
-          // Lines
-          &-line {
-            display: inline-block;
-            width: 40%;
-            height: 1px;
-            background-color: #464b506f;
-          }
-          // Text
-          &-text {
-            display: inline-block;
-            margin: 0px 8px;
-          }
-        }
-
-        // Other sign in options
-        &-options {
-          display: block;
-          margin-bottom: 27px;
-          &-fb {
-            cursor: pointer;
-            color: var(--cyan);
-          }
-        }
-
-        // Forgot password link
-        &-forgot {
-          display: inline-block;
-          cursor: pointer;
+        // Display error message
+        &-error {
+          color: var(--red);
           font-size: 13px;
+          margin-bottom: 15px;
+          text-align: left;
         }
-
-        // Loading screen
-        .form-loading {
-          padding: 76.595px 0px 92.615px;
+        // Button
+        &-btn {
+          cursor: pointer;
           display: block;
+          width: 100%;
+          padding: 8px;
+          font-size: 16px;
+          border-radius: 3px;
+          color: var(--light);
+          background-color: var(--cyan);
+          transition: all 0.1s linear;
+          // Hover effect
+          &:hover {
+            background-color: #17a3b8c1;
+          }
+          // Disable
+          &:disabled {
+            cursor: not-allowed;
+            background-color: #939393b7;
+          }
         }
       }
 
-      // Create account link
-      .signin-new {
+      // Divider
+      &-divider {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
-        background-color: var(--light);
-        text-align: center;
         margin-bottom: 20px;
-        font-size: 15px;
-        // Link to create the new account
-        &-link {
+        user-select: none;
+        // Lines
+        &-line {
+          display: inline-block;
+          width: 40%;
+          height: 1px;
+          background-color: #464b506f;
+        }
+        // Text
+        &-text {
+          display: inline-block;
+          margin: 0px 8px;
+        }
+      }
+
+      // Other sign in options
+      &-options {
+        display: block;
+        margin-bottom: 27px;
+        &-fb {
           cursor: pointer;
-          margin-left: 5px;
           color: var(--cyan);
         }
       }
 
-      // Button to install the app
-      .signin-get {
+      // Forgot password link
+      &-forgot {
         display: inline-block;
         cursor: pointer;
         font-size: 13px;
-        padding: 10px;
-        border-radius: 3px;
-        color: var(--light);
-        background-color: var(--dark);
-        transition: all 0.1s linear;
-        // Hover effect
-        &:hover {
-          background-color: #343a40c1;
-        }
+      }
+    }
+
+    // Create account link
+    .new-account {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: var(--light);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 15px;
+      // Link to create the new account
+      &-link {
+        cursor: pointer;
+        margin-left: 5px;
+        color: var(--cyan);
+      }
+    }
+
+    // Button to install the app
+    .get-app {
+      display: inline-block;
+      cursor: pointer;
+      font-size: 13px;
+      padding: 10px;
+      border-radius: 3px;
+      color: var(--light);
+      background-color: var(--dark);
+      transition: all 0.1s linear;
+      // Hover effect
+      &:hover {
+        background-color: #343a40c1;
       }
     }
   }

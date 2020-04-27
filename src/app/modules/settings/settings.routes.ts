@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+// Guards
+import { SignedGuard } from 'src/app/core/guards/auth/signed.guard';
 // Components
 import { SettingsComponent } from './settings.component';
 import { AccountComponent } from './account/account.component';
@@ -10,6 +12,7 @@ export const SettingsRoutes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+    canActivate: [SignedGuard],
     children: [
       { path: '', redirectTo: 'account', pathMatch: 'full' }, // No access to the settings directly
       { path: 'account', component: AccountComponent }, // Account settings

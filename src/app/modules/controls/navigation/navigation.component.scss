@@ -1,9 +1,5 @@
-/*-----------------------------------------------------------*/
-/*                      Navigation Bar                       */
-/*-----------------------------------------------------------*/
-
 // Component's Variables
-.nav {
+:host {
   --brand-size: 20px;
   --margin: 0px 15px 0px 0px;
   --account-right: auto;
@@ -15,16 +11,17 @@
 }
 
 // Navigation container
-.nav {
+:host {
   width: 100%;
+  display: block;
   z-index: 1000;
   position: fixed;
   top: 0px;
   background-color: var(--white);
+  box-sizing: border-box;
 
-  // Page container
+  // Main container
   .container {
-
     // Container for the navigation bar
     .nav-container {
       display: flex;
@@ -48,7 +45,7 @@
         }
       }
 
-       // Menu for the links section
+      // Menu for the links section
       .nav-links {
         order: 1;
         // CHange order in small screen

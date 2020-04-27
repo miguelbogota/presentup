@@ -1,15 +1,11 @@
-/*-----------------------------------------------------------*/
-/*                     Sign Up - Account                     */
-/*-----------------------------------------------------------*/
-
 // Component's Variables
-.container {
+:host {
   --form-width-offset: 50%;
   --form-margin: 10px;
   --width-form: 740px;
   --heigh: calc(100vh - 63.5px - 82.83px - 30px);
   // Screen change
-  @media only screen and (max-width: 825px) {
+  @media only screen and (max-width: 830px) {
     --form-width-offset: 0%;
     --form-margin: 0px;
     --height: auto;
@@ -21,24 +17,24 @@
 }
 
 // sign up page for the account set up
-.container {
+:host {
   width: 100%;
-  max-width: var(--width-form);
-  padding-top: 10px;
-  margin: 68.83px auto 20px;
-  min-height: calc(100vh - 63.5px - 68.83px - 30px);
-  text-align: center;
   display: block;
-  height: var(--height);
+  max-width: 935px;
+  margin: 0px auto;
+  padding: 10px 0px 50px;
+  text-align: center;
 
   // Form
   .form {
-    padding: 40px;
-    margin: 0px var(--form-margin) 20px;
+    max-width: 460px;
+    padding: 27px;
+    border-radius: 2px;
+    margin: 10px auto 20px;
     background-color: var(--light);
     // Screen change
     @media only screen and (max-width: 450px) {
-      padding: 20px 10%;
+      padding: 27px 15px;
     }
 
     // Title
@@ -61,15 +57,18 @@
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
+      grid-row-gap: 0xp;
+      grid-column-gap: 20px;
       // Screen change
-      @media only screen and (max-width: 825px) {
+      @media only screen and (max-width: 830px) {
         grid-template-columns: 1fr;
         grid-gap: 0px;
-        .info {
-          margin-bottom: 9px !important;
-        }
       }
+    }
+    // Area should be smaller
+    .area {
+      grid-template-columns: 60px 1fr;
+      grid-column-gap: 20px !important;
     }
 
     // Content in the form
@@ -90,17 +89,20 @@
         text-align: left;
         color: var(--gray);
         font-size: 14px;
-        margin-top: -9px;
         margin-bottom: 25px;
         padding: 0px 10px;
+        grid-column-end: span 2;
+        @media only screen and (max-width: 830px) {
+          grid-column-end: span 1 !important;
+          margin-bottom: 9px !important;
+        }
       }
       // Error message
       .error {
         display: block;
         text-align: left;
-        color: var(--danger);
+        color: var(--red) !important;
         font-size: 14px;
-        margin-top: -9px;
         margin-bottom: 15px;
       }
       .btn-row {
@@ -116,30 +118,14 @@
           margin-left: auto;
         }
       }
-      .back {
-        cursor: pointer;
-        display: block;
-        width: 100%;
-        padding: 13px;
-        font-size: 16px;
-        border-radius: 3px;
-        color: var(--gray);
-        background-color: #ececec;
-        transition: all 0.1s linear;
-        // Hover effect
-        &:hover {
-          background-color: #dededeb1;
-        }
-
-      }
       // Button
       .btn {
         cursor: pointer;
         display: block;
         width: 100%;
-        padding: 13px;
+        padding: 9px 13px;
         font-size: 16px;
-        border-radius: 3px;
+        border-radius: 2px;
         color: var(--light);
         background-color: var(--cyan);
         transition: all 0.1s linear;
@@ -149,8 +135,16 @@
         }
         // Disable
         &:disabled {
-          background-color: #939393b7;
-          cursor: not-allowed;
+          background-color: #939393b7 !important;
+          cursor: not-allowed !important;
+        }
+      }
+      .back {
+        background-color: inherit !important;
+        color: var(--red) !important;
+        &:hover {
+          background-color: var(--gray-light) !important;
+          color: #d24040c1 !important;
         }
       }
     }
@@ -170,19 +164,5 @@
     &:hover {
       background-color: #343a40c1;
     }
-  }
-}
-
-// Image banner in the left
-.img-container {
-  visibility: var(--show-img);
-  grid-column-start: 2;
-  overflow: hidden;
-
-  // Image
-  .img {
-    width: 350px;
-    margin: 10px;
-    user-select: none;
   }
 }

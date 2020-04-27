@@ -1,0 +1,14 @@
+:host {
+  // Component's variable
+  --nav-height: 59.97px;
+  --footer-height: 63.5px;
+  // Default values for all the authentication steps
+  display: block;
+  padding-top: var(--nav-height);
+  // Authentication container
+  .auth-container {
+    display: block;
+    // Keep footer below all the time
+    min-height: calc(100vh - var(--footer-height) - var(--nav-height));
+  }
+}

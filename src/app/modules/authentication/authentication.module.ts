@@ -16,6 +16,7 @@ import { AccountComponent } from './signup/account/account.component';
 import { AboutComponent } from './signup/about/about.component';
 import { SubscriptionComponent } from './signup/subscription/subscription.component';
 import { AppearanceComponent } from './signup/appearance/appearance.component';
+import { AuthenticationComponent } from './authentication.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AppearanceComponent } from './signup/appearance/appearance.component';
     AccountComponent,
     AboutComponent,
     AppearanceComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    AuthenticationComponent
   ],
   imports: [
     CommonModule,

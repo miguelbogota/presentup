@@ -1,9 +1,5 @@
-/*-----------------------------------------------------------*/
-/*                     Sign Up - Personal                    */
-/*-----------------------------------------------------------*/
-
 // Component's Variables
-.container {
+:host {
   --form-width-offset: 50%;
   --show-img: visible;
   --form-margin: 10px;
@@ -24,13 +20,16 @@
 }
 
 // sign up page container for the personal data set up
-.container {
+:host {
   width: 100%;
-  display: grid;
   max-width: 935px;
-  margin: 68.83px auto 20px;
-  min-height: calc(100vh - 63.5px - 68.83px - 30px);
+  display: grid;
+  padding: 10px 0px;
+  margin: 0px auto;
   grid-template-columns: auto var(--form-width-offset);
+  @media only screen and (max-width: 830px) {
+    padding: 10px 0px 50px;
+  }
 
   // Container for the form
   .form-container {
@@ -94,7 +93,7 @@
           }
           // Error messages
           .error {
-            color: var(--danger);
+            color: var(--red) !important;
           }
         }
 
@@ -105,7 +104,7 @@
           display: block;
           font-size: 16px;
           cursor: pointer;
-          border-radius: 3px;
+          border-radius: 2px;
           color: var(--light);
           transition: all 0.1s linear;
           background-color: var(--cyan);
@@ -163,6 +162,7 @@
         display: inline-block;
         // Link in the terms and conditions
         &-link {
+          display: inline-block;
           cursor: pointer;
           color: var(--cyan);
         }
@@ -206,11 +206,13 @@
   // Image banner in the left
   .img-container {
     margin: 10px;
-    width: var(--width-img);
-    overflow: hidden;
+    width: 350px;
     grid-column-start: 2;
     justify-self: flex-start;
     visibility: var(--show-img);
+    @media only screen and (max-width: 830px) {
+      display: none;
+    }
     // Image
     .img {
       width: 100%;

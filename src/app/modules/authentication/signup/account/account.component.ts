@@ -15,6 +15,7 @@ import { IUserForm } from 'src/app/shared/models/user.model';
 export class AccountComponent implements OnInit {
 
   firstName: string; // Name of the user
+  isPasswordDiferrent = false; // Check if the password is diferrent
 
   // User passed from the state in the app
   @Select(SignupState) signupState: Observable<IUserForm>;
@@ -28,7 +29,8 @@ export class AccountComponent implements OnInit {
       gender: [null, [ Validators.required ]]
     }),
     password: ['', [ Validators.required ]],
-    confirmPassword: ['', [ Validators.required ]]
+    confirmPassword: ['', [ Validators.required ]],
+    area: [null]
   });
 
   constructor(
@@ -40,10 +42,29 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
     this.stateChanges();
     this.updateState();
+    // Check if the passwords match
+    this.confirmPassword.valueChanges.subscribe((pass: string) => {
+      if (this.password.value === pass) { this.isPasswordDiferrent = false; }
+      else { this.isPasswordDiferrent = true; }
+    });
+    // Check password field if confirmPassword was already touched
+    this.password.valueChanges.subscribe((pass: string) => {
+      if (this.confirmPassword.touched) {
+        if (this.confirmPassword.value === pass) { this.isPasswordDiferrent = false; }
+        else { this.isPasswordDiferrent = true; }
+      }
+    });
   }
 
-  submit() {
+  // Back function will only return to the signup step before
+  back() {
     this.router.navigate(['/signup']);
+  }
+
+  // Submit action will only re-direct since the data is been
+  // save in the state of the signup component
+  submit() {
+    this.router.navigate(['/signup/about']);
   }
 
   // Function updates the state in the store
@@ -70,6 +91,7 @@ export class AccountComponent implements OnInit {
       this.validateChanges(u.user.username, this.username);
       this.validateChanges(u.password, this.password);
       this.validateChanges(u.confirmPassword, this.confirmPassword);
+      this.validateChanges(u.area, this.area);
       this.validateChanges(u.user.phone, this.phone);
       this.validateChanges(u.user.recoveryEmail, this.recoveryEmail);
       this.validateChanges(u.user.location, this.location);
@@ -95,6 +117,7 @@ export class AccountComponent implements OnInit {
   get username(): AbstractControl { return this.signupForm.get('user.username'); }
   get password(): AbstractControl { return this.signupForm.get('password'); }
   get confirmPassword(): AbstractControl { return this.signupForm.get('confirmPassword'); }
+  get area(): AbstractControl { return this.signupForm.get('area'); }
   get phone(): AbstractControl { return this.signupForm.get('user.phone'); }
   get recoveryEmail(): AbstractControl { return this.signupForm.get('user.recoveryEmail'); }
   get location(): AbstractControl { return this.signupForm.get('user.location'); }

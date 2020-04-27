@@ -48,6 +48,7 @@ export interface IUserForm  {
   user?: IUser;
   password?: string;
   confirmPassword?: string;
+  area?: string;
 }
 
 // Function return a new user form blank
@@ -55,7 +56,8 @@ export const newUserForm = (): IUserForm => {
   return {
     user: newUser(),
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    area: ''
   };
 };
 

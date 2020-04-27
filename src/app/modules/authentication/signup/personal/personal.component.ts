@@ -35,6 +35,8 @@ export class PersonalComponent implements OnInit {
     this.updateState();
   }
 
+  // Submit action will only re-direct since the data is been
+  // save in the state of the signup component
   submit() {
     this.router.navigate(['/signup/account']);
   }

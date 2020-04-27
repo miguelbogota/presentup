@@ -1,0 +1,33 @@
+<!-- Sign in form -->
+<div class="form">
+
+  <!-- Short description / slogan -->
+  <div class="information">Cuentanos un poco mas de tí</div>
+  <!-- Inputs for the sign up -->
+  <div class="form-content">
+    <form (ngSubmit)="submit()">
+      
+      <!-- Descriontions -->
+      <textarea
+        [(ngModel)]="description"
+        [ngModelOptions]="{standalone: true}"
+        (ngModelChange)="toArray($event)"
+        class="form-control"
+        placeholder="Ingresa una breve descripción de tí..."
+      >
+      </textarea>
+
+      <div class="btn-row">
+        <!-- Button to confir everything -->
+        <button class="btn back" (click)="back()">Atras</button>
+        <!-- Button to confir everything -->
+        <button class="btn" type="submit">Siguiente</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+
+<!-- Download the app -->
+<a class="get">¡Instala la app!</a>
