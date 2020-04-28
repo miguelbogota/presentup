@@ -21,6 +21,7 @@ export class AboutComponent implements OnInit {
   // Form for the component
   signupForm = this.fb.group({
     user: this.fb.group({
+      title: [''],
       descriptions: [['']]
     })
   });
@@ -72,6 +73,7 @@ export class AboutComponent implements OnInit {
   private stateChanges() {
     this.signupState.subscribe((u: IUserForm) => {
       // Update the form with data
+      this.validateChanges(u.user.title, this.title);
       this.validateChanges(u.user.descriptions, this.descriptions);
     });
   }
@@ -91,6 +93,7 @@ export class AboutComponent implements OnInit {
   }
 
   // Getters & setters for the form
+  get title(): AbstractControl { return this.signupForm.get('user.title'); }
   get descriptions(): AbstractControl { return this.signupForm.get('user.descriptions'); }
 
 }

@@ -82,7 +82,7 @@ export class PersonalComponent implements OnInit {
     this.signupForm.markAllAsTouched(); // Mark The whole form as touched
   }
 
-  // Getters
+  // Getters & setters for the form
   get email(): AbstractControl { return this.signupForm.get('user.email'); }
   get name(): AbstractControl { return this.signupForm.get('user.name'); }
 
