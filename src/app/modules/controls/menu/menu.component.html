@@ -1,5 +1,5 @@
 <!-- This will be the toggler to show the links in the responsive screen -->
-<input class="nav-toggler" type="checkbox" [(ngModel)]="menuState" />
+<input class="nav-toggler" type="checkbox" [(ngModel)]="menuState" (ngModelChange)="lockScroll($event)" />
 <!-- Hamburger button -->
 <div class="nav-ham" [style.background-image]="'url(' + buttonImage + ')'">
   <!-- Hamburger lines -->
@@ -20,7 +20,6 @@
       [routerLink]="link.url"
       routerLinkActive="nav-link-active"
       [routerLinkActiveOptions]="{ exact: true }"
-      (click)="menuState = false"
       (click)="sendClickEvent($event)"
       [attr.id]="link.id ? link.id : null"
     >
@@ -32,3 +31,5 @@
   </div>
 
 </div>
+<!-- Shadow in the background -->
+<div class="nav-shadow" #shadow></div>

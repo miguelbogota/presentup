@@ -96,9 +96,22 @@
           right: 0px;
         }
       }
+      & ~ .pop {
+        & ~ .nav-shadow {
+          @media only screen and (max-width: 830px) {
+            background-color: #00000000;
+            display: block;
+            visibility: visible;
+          }
+        }
+      }
       & ~ .fixed {
-        @media only screen and (max-width: 830px) {
-          box-shadow: 0px 0px 0px 100vw #00000075;
+        & ~ .nav-shadow {
+          @media only screen and (max-width: 830px) {
+            background-color: #00000075;
+            display: block;
+            visibility: visible;
+          }
         }
       }
     }
@@ -272,6 +285,20 @@
           background-color: var(--light);
         }
       }
+    }
+  }
+  // Shadow when the menu is open
+  .nav-shadow {
+    @media only screen and (max-width: 830px) {
+      display: block;
+      position: fixed;
+      display: none;
+      visibility: hidden;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      z-index: 800;
     }
   }
 }

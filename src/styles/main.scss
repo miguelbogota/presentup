@@ -11,6 +11,15 @@
 /* Minimun width the app can go */
 html {
   min-width: 320px;
+  body {
+    /**
+     * This class will be added when a modal or the menu is
+     * open not allowing the scroll bar to move
+     */
+    &.modal-open {
+      overflow: hidden;
+    }
+  }
 }
 
 /* Max width to make a little smaller */
