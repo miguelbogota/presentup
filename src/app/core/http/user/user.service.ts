@@ -31,7 +31,7 @@ export class UserService {
   getUsers(): Observable<IUser[]> {
     // Return an observable with all the users
     return this.collection
-      .valueChanges({ idField: 'id' });
+      .valueChanges();
   }
 
   // Returns only one user by id
@@ -43,8 +43,7 @@ export class UserService {
           // Map the user to have the id
           map(a => {
             return {
-              ...a.payload.data() as IUser,
-              id: a.payload.id
+              ...a.payload.data() as IUser
             };
           })
         );
@@ -54,7 +53,7 @@ export class UserService {
   getUserWithProperty(type: string, property: any): Observable<IUser> {
     // Return one user with the custom property
     return this.afs.collection<IUser>(this.collectionName, ref => ref.where(type, '==', property))
-      .valueChanges({ idField: 'id' })
+      .valueChanges()
         // Return the first element since will only have one
         .pipe(map(b => b[0]));
   }

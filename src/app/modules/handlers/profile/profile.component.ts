@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     // Keep listening for changes in the server
     this.userService.getUserWithProperty('username', this.username).subscribe((user: IUser) => {
-      // If there's an user change update it in sessionStorage
+      // If there's an user change update it in localStorage
       if (user) {
         // If the user locally is diferrent from the one in the server update it
         if (JSON.stringify(user) !== JSON.stringify(this.user)) {

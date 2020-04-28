@@ -69,7 +69,8 @@ export class NavigationComponent implements OnInit {
 
   // Function stores the user in the sessionStorage
   private storeUser(user: IUser): void {
-    sessionStorage.setItem(this.SESSION_CACHE, JSON.stringify(user));
+    // Only store needed information
+    sessionStorage.setItem(this.SESSION_CACHE, JSON.stringify({ email: user.email, img: user.img, name: user.name }));
   }
 
   // Get user from the sessionStorage
