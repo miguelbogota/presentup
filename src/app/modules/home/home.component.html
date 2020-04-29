@@ -1,12 +1,11 @@
-<div class="home-container">
-  <!-- Navigation bar -->
-  <app-navigation></app-navigation>
-  <!-- Header -->
-  <app-header></app-header>
-
+<!-- Navigation will be across in all the home pages -->
+<app-navigation></app-navigation>
+<!-- Header will be across in all the home pages -->
+<app-header></app-header>
+<!-- Container to keep the footer below -->
+<div class="home-container container">
+  <!-- Router to show the different parts of home -->
   <router-outlet></router-outlet>
-
-  <!-- Footer -->
-  <app-footer></app-footer>
-
 </div>
+<!-- Footer will be across in all the home pages -->
+<app-footer></app-footer>

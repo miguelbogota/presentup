@@ -6,7 +6,7 @@
   --width-form: 350px;
   --width-img: 350px;
   // Screen change
-  @media only screen and (max-width: 825px) {
+  @media only screen and (max-width: 830px) {
     --form-width-offset: 0px;
     --show-img: hidden;
     --form-margin: auto;
@@ -21,8 +21,6 @@
 
 // sign up page container for the personal data set up
 :host {
-  width: 100%;
-  max-width: 935px;
   display: grid;
   padding: 10px 0px;
   margin: 0px auto;
