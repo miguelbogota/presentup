@@ -1,12 +1,14 @@
-<!-- Container for the header -->
-<div class="header-container" style="background-image: url('./assets/images/lp-banner.jpg');">
-  <!-- Title for the header -->
-  <h2 class="header-title">presentup.me</h2>
-  <!-- Short description of the product -->
-  <div class="header-content">
-    <!-- Text in the header -->
-    <p class="header-content-text">¡Creá una cuenta completamente gratis!</p>
-    <!-- Header button -->
-    <a class="header-content-btn" [routerLink]="['/signup']">Crear Cuenta</a>
+<!-- Text with the information -->
+<div class="content">
+  <h3 class="title">¡Presentate! Que el mundo te conozca</h3>
+  <div class="desc-container">
+    <p class="desc">Con presentup.me podrás mostrar quien eres, que haces y todos tus proyectos desde un solo link.</p>
+    <p class="desc">Crea una cuenta completamente gratis y empieza a promoverte.</p>
   </div>
+  <a [routerLink]="['/signup']" class="btn">Registrarse</a>
+</div>
+
+<!-- Image -->
+<div class="image-container">
+  <img class="image" src="assets/images/header-banner.png">
 </div>
