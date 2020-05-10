@@ -1,72 +1,131 @@
-/*-----------------------------------------------------------*/
-/*                        Contact                            */
-/*-----------------------------------------------------------*/
-
-// Component's Variables
-.contact-container {
-  // Screen change
-  @media only screen and (max-width: 825px) {
-  }
-}
-
 // Contact container
-.contact-container {
-  padding: 150px 20px 20px;
-
-  // Contact form title
-  .contact-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
+:host {
+  display: block;
+  display: grid;
+  grid-template-columns: 66% auto;
+  // Smaller screens
+  @media only screen and (max-width: 830px) {
+    display: block;
   }
 
-  // Form group of controls
-  .forms-group {
-    padding: 4px;
-    margin-bottom: 12px;
-
-    // Control title
-    label {
+  // Header container
+  .basic-header {
+    width: 66%;
+    height: 100vh;
+    position: fixed;
+    // Smaller screens
+    @media only screen and (max-width: 830px) {
       width: 100%;
-      display: block;
-      margin-bottom: 5px;
+      height: 66vh;
+      position: relative;
+    }
+  }
+  // Contact section
+  .basic-content {
+    grid-column-start: 2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Smaller screens
+    @media only screen and (max-width: 830px) {
+      min-height: 0px;
     }
 
-    // Group control
-    .form-control {
-      box-sizing: border-box;
+    // Contact form container
+    .contact-container {
       width: 100%;
-      display: block;
-      border-radius: 5px;
-      background-color: var(--light);
-      border: 1px solid #0000001e;
-      margin-bottom: 5px;
-      padding: 6px 6px;
-      font-size: 16px;
-      color: var(--dark);
-    }
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 30px 20px;
+      max-width: 380px;
 
-    // All inputs for this forms will have this style
-    input {
-      height: 32px;
-    }
+      // Contact form title
+      .title-container {
+        margin-bottom: 30px;
+        text-align: center;
 
-    // Text areas
-    textarea {
-      resize: none;
-      height: 160px;
-    }
+        // Short description
+        .desc {
+          font-size: 1.05rem;
+          margin-bottom: 0.3rem;
+        }
+        // User name to be contacted
+        .name {
+          font-size: 2rem;
+          line-height: 2.2rem;
+          font-weight: 400;
+          margin-bottom: 0.3rem;
+          color: var(--gray-dark);
+          margin-bottom: 0.9rem;
+        }
+        // Information from the user
+        .user-desc {
+          font-size: 0.9rem;
+          line-height: 1.2rem;
+          padding: 0px 16px;
+        }
+      }
 
-    // Text for the input
-    .form-text {
-      width: 100%;
-      display: block;
-      color: var(--gray);
-      font-size: 14px;
+      // Form
+      .contact-form {
+        // Inputs
+        .form-group {
+          margin-bottom: 15px;
+          // Form group control
+          .form-control {
+            width: 100%;
+            height: 35px;
+            display: block;
+            font-size: 16px;
+            padding: 0px 10px;
+            line-height: 35px;
+            box-sizing: border-box;
+            border: 1px solid var(--gray-light);
+          }
+          // Form group text/hint
+          .form-text {
+            display: block;
+            font-size: 14px;
+            text-align: left;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            color: var(--gray);
+          }
+          // Error messages
+          .error {
+            color: var(--red) !important;
+          }
+          // Textarea
+          textarea {
+            padding: 10px !important;
+            resize: vertical;
+            min-height: 210px;
+            line-height: 1.5rem !important;
+          }
+        }
 
-      // Error class
-      &.error {
-        color: var(--danger) !important;
+        // Button
+        .form-btn {
+          width: 100%;
+          padding: 8px;
+          display: block;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 2px;
+          color: var(--light);
+          transition: all 0.1s linear;
+          background-color: var(--cyan);
+          // Hover effect
+          &:hover {
+            background-color: #17a3b8c1;
+          }
+          // Disable
+          &:disabled {
+            cursor: not-allowed;
+            background-color: #939393b7;
+          }
+        }
       }
     }
   }

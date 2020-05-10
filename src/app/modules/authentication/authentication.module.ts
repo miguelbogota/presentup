@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // State manehment
+import { environment } from 'src/environments/environment';
 import { NgxsModule } from '@ngxs/store';
 import { SignupState } from './signup/signup.state';
 // Modules
@@ -34,7 +35,7 @@ import { AuthenticationComponent } from './authentication.component';
     CommonModule,
     RouterModule,
     FormsModule,
-    NgxsModule.forRoot([SignupState]),
+    NgxsModule.forRoot([SignupState], { developmentMode: !environment.production }),
     ReactiveFormsModule,
     ControlsModule,
     LoadersModule

@@ -1,76 +1,104 @@
-// Component's Variables
-:host {
-  // Screen change
-  @media only screen and (max-width: 830px) {
-  }
-}
-
 // About container
 :host {
   display: block;
-  padding: 200px 40px 40px;
+  display: grid;
+  grid-template-columns: 66% auto;
   // Smaller screens
   @media only screen and (max-width: 830px) {
-    padding: 25px 25px 40px;
+    display: block;
   }
 
-  // User's name
-  .name {
-    font-size: 2rem;
-    line-height: 2.2rem;
-    font-weight: 400;
-    margin-bottom: 0.3rem;
-    color: var(--gray-dark);
+  // Header container
+  .basic-header {
+    width: 66%;
+    height: 100vh;
+    position: fixed;
+    // Smaller screens
+    @media only screen and (max-width: 830px) {
+      width: 100%;
+      height: 66vh;
+      position: relative;
+    }
   }
-
-  // User's title
-  .title {
-    margin-bottom: 0.8rem;
-    font-weight: 400;
-    color: var(--gray-dark);
-    font-size: 1.3rem;
-    line-height: 1.6rem;
-  }
-
-  // User's descriptions
-  .description {
-    margin-bottom: 1.1rem;
-    color: var(--gray-dark);
-    line-height: 1.4rem;
-    font-size: 1.05rem;
-    font-weight: 300;
-  }
-
-  // Contact button
-  .contact-btn {
+  // About section
+  .basic-content {
+    grid-column-start: 2;
+    min-height: 100vh;
     display: flex;
-    padding: 11px;
-    cursor: pointer;
-    margin-top: 2rem;
-    border-radius: 2px;
-    transition: all 0.2s linear;
-    background-color: #2fbacf;
+    align-items: center;
     justify-content: center;
-    color: var(--light);
-    font-weight: 300;
-    font-size: 1.1rem;
-    
-    // Effect when hover will change the background color
-    &:hover {
-      background-color: var(--cyan);
-    }
-    // Icon for the button
-    &-icon {
-      margin-right: 0.6rem;
-      font-size: inherit;
-      color: inherit !important;
-    }
-    // Text for the button
-    &-text {
-      font-weight: inherit;
-      font-size: inherit;
-      color: inherit;
+    // Smaller screens
+    @media only screen and (max-width: 830px) {
+      min-height: 0px;
     }
 
+    // Container for the about page
+    .about-container {
+      width: 100%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 30px 20px;
+      max-width: 380px;
+
+      // User's name
+      .name {
+        font-size: 2rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 0.3rem;
+        color: var(--gray-dark);
+      }
+
+      // User's title
+      .title {
+        margin-bottom: 1.3rem;
+        font-weight: 400;
+        color: var(--gray-dark);
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+      }
+
+      // User's descriptions
+      .description {
+        margin-bottom: 1.1rem;
+        color: var(--gray-dark);
+        line-height: 1.4rem;
+        font-size: 1.05rem;
+        font-weight: 300;
+      }
+
+      // Contact button
+      .contact-btn {
+        display: flex;
+        padding: 11px;
+        cursor: pointer;
+        margin-top: 2rem;
+        border-radius: 2px;
+        transition: all 0.2s linear;
+        background-color: #2fbacf;
+        justify-content: center;
+        color: var(--light);
+        font-weight: 300;
+        font-size: 1.1rem;
+        
+        // Effect when hover will change the background color
+        &:hover {
+          background-color: var(--cyan);
+        }
+        // Icon for the button
+        &-icon {
+          margin-right: 0.6rem;
+          font-size: inherit;
+          color: inherit !important;
+        }
+        // Text for the button
+        &-text {
+          font-weight: inherit;
+          font-size: inherit;
+          color: inherit;
+        }
+      }
+
+    }
   }
 }

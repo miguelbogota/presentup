@@ -1,24 +1,2 @@
-<!-- Design container -->
-<div class="basic-container">
-
-  <!-- Validation to show only once the user is loaded -->
-  <ng-container *ngIf="user">
-
-    <!-- Floating navigation -->
-    <app-navigation [user]="user"></app-navigation>
-    
-    <!-- Header -->
-    <div class="header-basic">
-      <app-header [imgUrl]="user.img"></app-header>
-    </div>
-
-  </ng-container>
-    
-  <!-- Body for the app -->
-  <div class="content-container">
-    <div class="app-content">
-      <ng-container #router></ng-container>
-    </div>
-  </div>
-
-</div>
+<!-- Body for the app -->
+<ng-container #router></ng-container>

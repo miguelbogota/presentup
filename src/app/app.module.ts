@@ -21,11 +21,9 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 // Modules folder
 import { AuthenticationModule } from './modules/authentication/authentication.module';
-import { ControlsModule } from './modules/controls/controls.module';
 import { HandlersModule } from './modules/handlers/handlers.module';
 import { HomeModule } from './modules/home/home.module';
 import { LegalModule } from './modules/legal/legal.module';
-import { LoadersModule } from './modules/loaders/loaders.module';
 import { SettingsModule } from './modules/settings/settings.module';
 
 @NgModule({

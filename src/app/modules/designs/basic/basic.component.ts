@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ChatComponent } from './messages/chat/chat.component';
 
 @Component({
   selector: 'app-basic',
@@ -38,18 +36,12 @@ export class BasicComponent implements OnInit, AfterViewInit {
     if (this.router.url.endsWith('/contact')) {
       const factory = this.resolver.resolveComponentFactory(ContactComponent);
       const componentRef = this.content.createComponent(factory);
+      componentRef.instance.user = this.user;
     }
     else if (this.router.url.endsWith('/portfolio')) {
       const factory = this.resolver.resolveComponentFactory(PortfolioComponent);
       const componentRef = this.content.createComponent(factory);
-    }
-    else if (this.router.url.endsWith('/messages')) {
-      const factory = this.resolver.resolveComponentFactory(MessagesComponent);
-      const componentRef = this.content.createComponent(factory);
-    }
-    else if (this.router.url.includes('/messages/')) {
-      const factory = this.resolver.resolveComponentFactory(ChatComponent);
-      const componentRef = this.content.createComponent(factory);
+      componentRef.instance.user = this.user;
     }
     else {
       const factory = this.resolver.resolveComponentFactory(AboutComponent);
