@@ -14,9 +14,6 @@ export class SignedGuard implements CanActivate {
     private router: Router
   ) { }
 
-  /**
-   * This service 
-   */
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.authService.currentUser.pipe(
       map(user => {

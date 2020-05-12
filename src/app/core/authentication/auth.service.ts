@@ -1,29 +1,39 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { IUser } from '../../shared/models/user.model';
 import { UserService } from '../http/user/user.service';
-import { Observable, of } from 'rxjs';
-import { switchMap, first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
+import { Storage, IStorageConfig } from '../classes/storage/storage';
+import { IUser } from '../../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  currentUser: Observable<IUser>; // Property store the current user logged
+  private user: Observable<IUser>; // Property store the current user logged
+  // Storage configuration and service
+  s: IStorageConfig = { key: '1jK9uhkJgLY0MYnfYTOTtpWsy4l4', type: 'local' };
+  private storage = new Storage(this.s);
 
   constructor(
     private afa: AngularFireAuth,
     private userService: UserService
   ) {
-    this.currentUser = this.afa.authState.pipe(
-      switchMap(user => {
-        // If user is logged get data from db
-        if (user) { return this.userService.getUserWithId(user.uid); }
-        // Otherwise send a null observable
-        return of(null);
-      })
-    );
+    // The current user is the one in the localstorage
+    this.user = this.storage.watch;
+    // Check for changes in the authentication state
+    this.afa.authState.subscribe(user =>  {
+      // If user is logged get data from db and cache it, otherwise delete it
+      if (user) {
+        this.userService.getUserWithId(user.uid).subscribe(u => {
+          // Check the info is different and update it
+          const isDifferent = JSON.stringify(u) !== JSON.stringify(this.storage.get());
+          if (isDifferent) { this.storage.set({data: u, ...this.s}); }
+        });
+      }
+      else { this.storage.delete(); }
+    });
   }
 
   // Function store a user and save it
@@ -48,6 +58,7 @@ export class AuthService {
     return await this.afa.signInWithEmailAndPassword(email, password)
       .then((user) => {
         if (user.user) {
+          this.storage.set(user);
           return this.userService.getUserWithId(user.user.uid).pipe(first()).toPromise();
         }
         return null;
@@ -57,38 +68,43 @@ export class AuthService {
   // Function sign in a user with the username
   async signInWithUserName(username: string, password: string): Promise<IUser> {
     // Get the user with the username to get the email to check
-    return this.userService.getUserWithProperty('username', username).pipe(first()).toPromise()
-      .then((user: IUser) => {
-        // Try to sign in the user
-        return this.afa.signInWithEmailAndPassword(user?.email || '', password).then((uc: firebase.auth.UserCredential) => {
-          return user || null; // Return the user logged
-        });
+    const user = await this.userService.getUserWithProperty('username', username).pipe(first()).toPromise();
+    // Try to sign in the user
+    return this.afa.signInWithEmailAndPassword(user?.email || '', password)
+      .then((uc: firebase.auth.UserCredential) => {
+        this.storage.set(user);
+        return user; // Return the user logged
       });
   }
 
   // Function sign in a user with the phone
   async signInWithPhone(phone: number, password: string): Promise<IUser> {
     // Get the user with the phone number to get the email to check
-    return this.userService.getUserWithProperty('phone', phone).pipe(first()).toPromise()
-      .then((user: IUser) => {
-        // Try to sign in the user
-        return this.afa.signInWithEmailAndPassword(user?.email || '', password).then((uc: firebase.auth.UserCredential) => {
-          return user || null; // Return the user logged
-        });
+    const user = await this.userService.getUserWithProperty('phone', phone).pipe(first()).toPromise();
+    // Try to sign in the user
+    return this.afa.signInWithEmailAndPassword(user?.email || '', password)
+      .then((uc: firebase.auth.UserCredential) => {
+        this.storage.set(user);
+        return user; // Return the user logged
       });
   }
 
   // Function sign out the user from the app
   signOut(): void {
+    this.storage.delete();
     this.afa.signOut();
   }
 
   // Function deletes a sign in user, is required the email and password in order to delete it
   deleteUser(email: string, password: string): void {
-    this.afa.signInWithEmailAndPassword(email, password).then(async (user) => {
-      await this.userService.deleteUser(user.user.uid);
-      await user.user.delete(); // Delete signin
-    });
+    this.afa.signInWithEmailAndPassword(email, password)
+      .then(async (user) => {
+        await this.userService.deleteUser(user.user.uid);
+        await user.user.delete(); // Delete signin
+      });
   }
+
+  // Getters & Setters
+  get currentUser(): Observable<IUser> { return this.user; }
 
 }
