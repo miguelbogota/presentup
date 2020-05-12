@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from '../http/user/user.service';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { Storage, IStorageConfig } from '../classes/storage/storage';
+import { StorageLS, IStorageSLConfig } from '../classes/storage/storagels';
 import { IUser } from '../../shared/models/user.model';
 
 @Injectable({
@@ -13,8 +13,8 @@ export class AuthService {
 
   private user: Observable<IUser>; // Property store the current user logged
   // Storage configuration and service
-  s: IStorageConfig = { key: '1jK9uhkJgLY0MYnfYTOTtpWsy4l4', type: 'local' };
-  private storage = new Storage(this.s);
+  s: IStorageSLConfig = { key: '1jK9uhkJgLY0MYnfYTOTtpWsy4l4', type: 'local' };
+  private storage = new StorageLS(this.s);
 
   constructor(
     private afa: AngularFireAuth,

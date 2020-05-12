@@ -8,8 +8,6 @@ export const HandlersRoutes: Routes = [
   { path: ':username', component: ProfileComponent },
   { path: ':username/contact', component: ProfileComponent },
   { path: ':username/portfolio', component: ProfileComponent },
-  { path: ':username/messages', component: ProfileComponent }, // Auth in this component
-  { path: ':username/messages/:id', component: ProfileComponent },  // Auth in this component
   // Error handler in case no navigation available
   { path: '**', component: NotFoundComponent }
 ];

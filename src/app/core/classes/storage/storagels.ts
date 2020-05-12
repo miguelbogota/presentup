@@ -3,7 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 /**
  * Interface for the configuration of the Storage class
  */
-export interface IStorageConfig {
+export interface IStorageSLConfig {
   key: string;
   type: 'local' | 'session';
 }
@@ -12,10 +12,10 @@ export interface IStorageConfig {
  * This class will allow to set up the local and session storage as an
  * observable to listen for changes
  */
-export class Storage {
+export class StorageLS {
 
   private logger: BehaviorSubject<{}> = new BehaviorSubject<{}>(null);
-  private config: IStorageConfig = null;
+  private config: IStorageSLConfig = null;
 
   /**
    * In order to use this class the initial setup needs to be provide
@@ -23,7 +23,7 @@ export class Storage {
    *
    * @param config Initial configuration to be searched in the storage.
    */
-  constructor(config: IStorageConfig) {
+  constructor(config: IStorageSLConfig) {
     this.config = config;
     this.logger = new BehaviorSubject<{}>(this.get());
   }
