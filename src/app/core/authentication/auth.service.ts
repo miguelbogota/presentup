@@ -29,7 +29,7 @@ export class AuthService {
         this.userService.getUserWithId(user.uid).subscribe(u => {
           // Check the info is different and update it
           const isDifferent = JSON.stringify(u) !== JSON.stringify(this.storage.get());
-          if (isDifferent) { this.storage.set({data: u, ...this.s}); }
+          if (isDifferent) { this.storage.set(u); }
         });
       }
       else { this.storage.delete(); }
