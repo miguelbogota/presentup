@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// Routes
-import { BasicRoutes } from './basic.routes';
 
 // Components
 import { BasicComponent } from './basic.component';
@@ -24,7 +22,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(BasicRoutes),
+    RouterModule,
     FormsModule,
     ReactiveFormsModule
   ],
