@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { SetSignupForm } from './signup.actions';
-import { newUserForm, IUserForm } from 'src/app/shared/models/user.model';
+import { newUserForm, IUserForm } from '@app-models/user.model';
 
 @State<IUserForm>({
   name: 'signup',

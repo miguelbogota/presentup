@@ -1,4 +1,4 @@
-import { IUserForm } from 'src/app/shared/models/user.model';
+import { IUserForm } from '@app-models/user.model';
 
 export class SetSignupForm {
   static readonly type = '[signup] set user';

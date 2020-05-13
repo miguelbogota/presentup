@@ -3,9 +3,9 @@ import {
   ComponentFactoryResolver, ChangeDetectorRef, ComponentFactory, ComponentRef
 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { StorageLS, IStorageSLConfig } from 'src/app/core/classes/storage/storagels';
-import { UserService } from 'src/app/core/http/user/user.service';
-import { IUser } from 'src/app/shared/models/user.model';
+import { StorageLS, IStorageSLConfig } from '@app-core/classes/storage/storagels';
+import { UserService } from '@app-core/http/user/user.service';
+import { IUser } from '@app-models/user.model';
 
 // Designs
 import { BasicComponent } from 'src/app/modules/designs/basic/basic.component';

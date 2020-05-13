@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
-import { IUser } from 'src/app/shared/models/user.model';
+import { IUser } from '@app-models/user.model';
 
 @Component({
   selector: 'app-nav-account',

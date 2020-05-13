@@ -7,9 +7,9 @@
  */
 
 import { Component, OnInit, Input } from '@angular/core';
-import { IUser } from 'src/app/shared/models/user.model';
 import { FormGroup, FormBuilder, AbstractControl, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/core/authentication/auth.service';
+import { AuthService } from '@app-core/authentication/auth.service';
+import { IUser } from '@app-models/user.model';
 
 @Component({
   selector: 'app-contact',

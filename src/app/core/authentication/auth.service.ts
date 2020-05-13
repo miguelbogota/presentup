@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { UserService } from '../http/user/user.service';
+import { UserService } from '@app-core/http/user/user.service';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { StorageLS, IStorageSLConfig } from '../classes/storage/storagels';
-import { IUser } from '../../shared/models/user.model';
+import { StorageLS, IStorageSLConfig } from '@app-core/classes/storage/storagels';
+import { IUser } from '@app-models/user.model';
 
 @Injectable({
   providedIn: 'root'

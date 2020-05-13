@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener, ElementRef, HostBinding, Output, EventEmitter, ViewChild } from '@angular/core';
-import { ILink } from 'src/app/shared/models/link.model';
+import { ILink } from '@app-models/link.model';
 
 @Component({
   selector: 'app-menu',

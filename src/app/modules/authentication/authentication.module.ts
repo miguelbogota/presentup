@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // State manehment
-import { environment } from 'src/environments/environment';
+import { environment } from '@app-env/environment';
 import { NgxsModule } from '@ngxs/store';
 import { SignupState } from './signup/signup.state';
 // Modules
-import { ControlsModule } from '../controls/controls.module';
-import { LoadersModule } from '../loaders/loaders.module';
+import { ControlsModule } from '@app-module/controls/controls.module';
+import { LoadersModule } from '@app-module/loaders/loaders.module';
 // Components
 import { ForgotComponent } from './forgot/forgot.component';
 import { SigninComponent } from './signin/signin.component';

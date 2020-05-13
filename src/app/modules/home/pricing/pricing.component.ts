@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlan, IFeature } from 'src/app/shared/models/plan.model';
+import { IPlan, IFeature } from '@app-models/plan.model';
 
 @Component({
   selector: 'app-pricing',

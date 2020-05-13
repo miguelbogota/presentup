@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 // Modules
-import { ControlsModule } from '../controls/controls.module';
+import { ControlsModule } from '@app-module/controls/controls.module';
 // Components
 import { PrivacyComponent } from './privacy/privacy.component';
 import { TermsComponent } from './terms/terms.component';

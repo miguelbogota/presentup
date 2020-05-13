@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // Modules
-import { ControlsModule } from '../controls/controls.module';
+import { ControlsModule } from '@app-module/controls/controls.module';
 // Components
 import { SettingsComponent } from './settings.component';
 import { AccountComponent } from './account/account.component';

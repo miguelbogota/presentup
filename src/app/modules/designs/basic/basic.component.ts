@@ -2,7 +2,7 @@ import {
   Component, OnInit, AfterViewInit, Input, ChangeDetectorRef,
   ComponentFactoryResolver, ViewChild, ViewContainerRef
 } from '@angular/core';
-import { IUser } from '../../../shared/models/user.model';
+import { IUser } from '@app-models/user.model';
 import { Router } from '@angular/router';
 
 // Components

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { SignupState } from '../signup.state';
 import { SetSignupForm } from '../signup.actions';
-import { IUserForm } from 'src/app/shared/models/user.model';
+import { IUserForm } from '@app-models/user.model';
 
 @Component({
   selector: 'app-account',

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { AuthService } from 'src/app/core/authentication/auth.service';
-import { IUser } from 'src/app/shared/models/user.model';
-import { ILink } from 'src/app/shared/models/link.model';
+import { AuthService } from '@app-core/authentication/auth.service';
+import { IUser } from '@app-models/user.model';
+import { ILink } from '@app-models/link.model';
 
 @Component({
   selector: 'app-navigation',
