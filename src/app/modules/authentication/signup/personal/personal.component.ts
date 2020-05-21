@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { SignupState } from '../signup.state';
 import { SetSignupForm } from '../signup.actions';
-import { IUserForm } from '@app-models/user.model';
 
 @Component({
   selector: 'app-personal',
@@ -15,7 +14,7 @@ import { IUserForm } from '@app-models/user.model';
 export class PersonalComponent implements OnInit {
 
   // User passed from the state in the app
-  @Select(SignupState) signupState: Observable<IUserForm>;
+  @Select(SignupState) signupState: Observable<any>;
   // Form for the component
   signupForm = this.fb.group({
     user: this.fb.group({
@@ -44,7 +43,7 @@ export class PersonalComponent implements OnInit {
   // Function updates the state in the store
   private updateState(): void {
     // The state will update with the changes of the form
-    this.signupForm.valueChanges.subscribe((u: IUserForm) => {
+    this.signupForm.valueChanges.subscribe((u: any) => {
       this.store.dispatch([new SetSignupForm(u)]);
     });
   }
@@ -61,7 +60,7 @@ export class PersonalComponent implements OnInit {
 
   // Functions validates the current form with the state
   private stateChanges() {
-    this.signupState.subscribe((u: IUserForm) => {
+    this.signupState.subscribe((u: any) => {
       // Update the form with data
       this.validateChanges(u.user.email, this.email);
       this.validateChanges(u.user.name, this.name);

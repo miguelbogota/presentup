@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "presentup-me"
+    "dev": "presentup-me-dev",
+    "prod": "presentup-me-prod"
   }
 }

@@ -1,9 +1,21 @@
+/**
+ * Link to use in the navigations.
+ */
 export interface ILink {
-  name: string;
+  id?: string;
+  displayName: string;
   url?: string;
   icon?: string;
-  id?: string;
+  /**
+   * Color for the text and the icon.
+   */
   color?: string;
+  /**
+   * Overrides the color property.
+   */
   textColor?: string;
+  /**
+   * Overrides the color property.
+   */
   iconColor?: string;
 }

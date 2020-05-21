@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { SignupState } from '../signup.state';
 import { SetSignupForm } from '../signup.actions';
-import { IUserForm } from '@app-models/user.model';
 
 @Component({
   selector: 'app-about',
@@ -14,15 +13,13 @@ import { IUserForm } from '@app-models/user.model';
 })
 export class AboutComponent implements OnInit {
 
-  description = ''; // Description will be binded with this property
-
   // User passed from the state in the app
-  @Select(SignupState) signupState: Observable<IUserForm>;
+  @Select(SignupState) signupState: Observable<any>;
   // Form for the component
   signupForm = this.fb.group({
     user: this.fb.group({
       title: [''],
-      descriptions: [['']]
+      description: ['']
     })
   });
 
@@ -45,18 +42,14 @@ export class AboutComponent implements OnInit {
   // Submit action will only re-direct since the data is been
   // save in the state of the signup component
   submit() {
+    this.signupState.subscribe(console.log);
     this.router.navigate(['/signup/appearance']);
-  }
-
-  // Splits the descriptions to the array
-  toArray(value: string): void {
-    this.descriptions.setValue(value.split(/[\r\n]+/));
   }
 
   // Function updates the state in the store
   private updateState(): void {
     // The state will update with the changes of the form
-    this.signupForm.valueChanges.subscribe((u: IUserForm) => {
+    this.signupForm.valueChanges.subscribe((u: any) => {
       this.store.dispatch([new SetSignupForm(u)]);
     });
   }
@@ -71,10 +64,10 @@ export class AboutComponent implements OnInit {
 
   // Functions validates the current form with the state
   private stateChanges() {
-    this.signupState.subscribe((u: IUserForm) => {
+    this.signupState.subscribe((u: any) => {
       // Update the form with data
       this.validateChanges(u.user.title, this.title);
-      this.validateChanges(u.user.descriptions, this.descriptions);
+      this.validateChanges(u.user.description, this.description);
     });
   }
 
@@ -94,6 +87,6 @@ export class AboutComponent implements OnInit {
 
   // Getters & setters for the form
   get title(): AbstractControl { return this.signupForm.get('user.title'); }
-  get descriptions(): AbstractControl { return this.signupForm.get('user.descriptions'); }
+  get description(): AbstractControl { return this.signupForm.get('user.description'); }
 
 }

@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { SignupState } from '../signup.state';
 import { SetSignupForm } from '../signup.actions';
-import { IUserForm } from '@app-models/user.model';
 
 @Component({
   selector: 'app-account',
@@ -18,7 +17,7 @@ export class AccountComponent implements OnInit {
   isPasswordDiferrent = false; // Check if the password is diferrent
 
   // User passed from the state in the app
-  @Select(SignupState) signupState: Observable<IUserForm>;
+  @Select(SignupState) signupState: Observable<any>;
   // Form for the component
   signupForm = this.fb.group({
     user: this.fb.group({
@@ -70,7 +69,7 @@ export class AccountComponent implements OnInit {
   // Function updates the state in the store
   private updateState(): void {
     // The state will update with the changes of the form
-    this.signupForm.valueChanges.subscribe((u: IUserForm) => {
+    this.signupForm.valueChanges.subscribe((u: any) => {
       this.store.dispatch([new SetSignupForm(u)]);
     });
   }
@@ -85,7 +84,7 @@ export class AccountComponent implements OnInit {
 
   // Functions validates the current form with the state
   private stateChanges() {
-    this.signupState.subscribe((u: IUserForm) => {
+    this.signupState.subscribe((u: any) => {
       this.firstName = u.user.name ? u.user.name.split(' ')[0] : ''; // Get first name
       // Update the form with data
       this.validateChanges(u.user.username, this.username);

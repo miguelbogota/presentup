@@ -10,10 +10,10 @@ export class SettingsComponent implements OnInit {
 
   // Links to show in the menu
   menuLinks: ILink[] = [
-    { name: 'Cuenta', url: '/settings/account', icon: 'fas fa-user' },
-    { name: 'Apariencia', url: '/settings/appearance', icon: 'fas fa-palette' },
-    { name: 'Estadísticas', url: '/settings/statistics', icon: 'fas fa-chart-bar' },
-    { name: 'Suscripción', url: '/settings/subscription', icon: 'fas fa-credit-card' }
+    { displayName: 'Cuenta', url: '/settings/account', icon: 'fas fa-user' },
+    { displayName: 'Apariencia', url: '/settings/appearance', icon: 'fas fa-palette' },
+    { displayName: 'Estadísticas', url: '/settings/statistics', icon: 'fas fa-chart-bar' },
+    { displayName: 'Suscripción', url: '/settings/subscription', icon: 'fas fa-credit-card' }
   ];
 
   constructor() { }

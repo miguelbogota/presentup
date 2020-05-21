@@ -12,25 +12,6 @@ presentup.me seeks to present who you are and what you do to your clients by int
 * [Angular 9](https://angular.io/) - The web framework used
 * [Firebase](https://firebase.google.com/) - The database used
 
-## To Do
-
-- [ ] Generate the designs for the differents pages in the platform
-   - [ ] Home
-   - [ ] Features
-   - [ ] Pricing
-   - [ ] Privacy
-   - [ ] Terms & Conditions
-   - [ ] Sign In
-   - [ ] Sign Up
-   - [ ] Forgot Password
-   - [ ] Settings
-   - [ ] Not Found
-- [ ] Generate the design of the components to be used
-   - [ ] Navigation
-   - [ ] Header
-   - [ ] Footer
-   - [ ] Image Cropper
-
 ## Author
 
 *Miguel Bogota*

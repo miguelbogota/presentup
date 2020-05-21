@@ -18,12 +18,10 @@
         <div class="form-group">
           <!-- Description input -->
           <textarea
-            [(ngModel)]="description"
-            [ngModelOptions]="{standalone: true}"
-            (ngModelChange)="toArray($event)"
+            formControlName="description"
             class="form-control textarea"
             placeholder="Ingresa una breve descripción de tí..."
-            >
+          >
           </textarea>
         </div>
         

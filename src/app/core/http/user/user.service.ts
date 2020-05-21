@@ -31,7 +31,7 @@ export class UserService {
   getUsers(): Observable<IUser[]> {
     // Return an observable with all the users
     return this.collection
-      .valueChanges();
+      .valueChanges({ idField: 'uid' });
   }
 
   // Returns only one user by id
@@ -39,23 +39,19 @@ export class UserService {
     // Return one user with the id
     return this.collection.doc(id)
       .snapshotChanges()
-        .pipe(
-          // Map the user to have the id
-          map(a => {
-            return {
-              ...a.payload.data() as IUser
-            };
-          })
-        );
+      // Map the user to have the id
+      .pipe(
+        map(a => ({ uid: a.payload.id, ...a.payload.data() as IUser }))
+      );
   }
 
   // Returns only one user by a property in the object
   getUserWithProperty(type: string, property: any): Observable<IUser> {
     // Return one user with the custom property
     return this.afs.collection<IUser>(this.collectionName, ref => ref.where(type, '==', property))
-      .valueChanges()
-        // Return the first element since will only have one
-        .pipe(map(b => b[0]));
+      .valueChanges({ idField: 'uid' })
+      // Return the first element since will only have one
+      .pipe(map(b => b[0]));
   }
 
   // Function deletes an user by id

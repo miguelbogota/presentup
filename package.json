@@ -4,7 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-prod": "ng serve --prod",
+    "open": "ng serve -o",
+    "open-prod": "ng serve -o --prod",
     "build": "ng build",
+    "build-prod": "ng build --prod",
+    "deploy": "firebase deploy -P dev",
+    "deploy-prod": "firebase deploy -P prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -14,13 +14,13 @@ export class NavigationComponent implements OnInit {
   width: number = window.innerWidth;
   // Links to show in the menu
   links: ILink[] = [
-    { name: 'Inicio', url: '/' },
-    { name: 'Precios', url: '/pricing' },
-    { name: 'Caracteristicas', url: '/features' }
+    { displayName: 'Inicio', url: '/' },
+    { displayName: 'Precios', url: '/pricing' },
+    { displayName: 'Caracteristicas', url: '/features' }
   ];
   account: ILink[] = [
-    { name: 'Iniciar sesión', url: '/signin' },
-    { name: 'Crear cuenta', url: '/signup' }
+    { displayName: 'Iniciar sesión', url: '/signin' },
+    { displayName: 'Crear cuenta', url: '/signup' }
   ];
   logged: ILink[];
   // Default image if user is not logged
@@ -41,9 +41,9 @@ export class NavigationComponent implements OnInit {
       this.user = u;
       // Set in here to load data stored
       this.logged = [
-        { name: 'Ver perfil', url: '/' + (u ? u.username : '') },
-        { name: 'Configuración', url: '/settings' },
-        { name: 'Cerrar sesión', color: 'var(--red)', id: 'sign-out' }
+        { displayName: 'Ver perfil', url: '/' + (u ? u.username : '') },
+        { displayName: 'Configuración', url: '/settings' },
+        { displayName: 'Cerrar sesión', color: 'var(--red)', id: 'sign-out' }
       ];
     });
   }

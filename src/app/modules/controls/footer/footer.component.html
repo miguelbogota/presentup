@@ -5,7 +5,7 @@
     <!-- Links container -->
     <div class="links-container">
       <!-- Loop to show all the links -->
-      <a class="link" *ngFor="let link of links" [routerLink]="['/' + link.url]">{{ link.name }}</a>
+      <a class="link" *ngFor="let link of links" [routerLink]="['/' + link.url]">{{ link.displayName }}</a>
     </div>
     <!-- Copyright statement -->
     <p class="copyright">&copy; Presentup.me 2020</p>

@@ -12,8 +12,8 @@
     <h3 class="name">{{ user.name | titlecase }}</h3>
     <!-- User's title -->
     <h5 class="title">{{ user.title | titlecase }}</h5>
-    <!-- User's descriptions loop -->
-    <p class="description" *ngFor="let desc of user.descriptions">{{ desc }}</p>
+    <!-- User's description loop -->
+    <p class="description">{{ user.description }}</p>
     <!-- Contact button -->
     <a class="contact-btn" [routerLink]="['/' + user.username + '/contact']">
       <!-- Icon -->

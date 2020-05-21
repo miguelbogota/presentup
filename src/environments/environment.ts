@@ -5,7 +5,7 @@ import { keys } from './environment.keys';
 
 export const environment = {
   production: false,
-  firebase: keys
+  firebase: keys.dev
 };
 
 /*

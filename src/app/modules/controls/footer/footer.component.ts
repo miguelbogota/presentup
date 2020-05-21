@@ -10,8 +10,8 @@ export class FooterComponent implements OnInit {
 
   // Routes to show in the footer
   links: ILink[] = [
-    { name: 'Privacidad', url: 'legal/privacy' },
-    { name: 'Legal', url: 'legal/terms'  }
+    { displayName: 'Privacidad', url: 'legal/privacy' },
+    { displayName: 'Legal', url: 'legal/terms'  }
   ];
 
   constructor() { }
