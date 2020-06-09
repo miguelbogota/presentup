@@ -15,6 +15,6 @@ export interface IFollow {
   id: string;
   uid: string;
   lastPost?: firestore.FieldValue;
-  recentPosts: IPostPreview[];
-  followedBy: string[];
+  recentPosts: IPostPreview[]; // Array
+  followedBy: string[]; // Array
 }

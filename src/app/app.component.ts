@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 
+import { firestore } from 'firebase/app';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { UserService } from '@app-core/services/user/user.service';
 import { map, switchMap } from 'rxjs/operators';
 import { IFollow, IPostPreview } from '@app-models/follower.model';
 import { IPost } from '@app-models/post.model';
@@ -13,12 +15,20 @@ import { IPost } from '@app-models/post.model';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private swUpdate: SwUpdate, private afs: AngularFirestore) {}
+  constructor(
+    private swUpdate: SwUpdate,
+    private afs: AngularFirestore,
+    private userS: UserService
+  ) {}
 
   ngOnInit(): void {
     this.reloadCache();
+    // pLII1HPZvrXpYaQTZypVtqE0bl83
 
-    // 494 reads
+    this.userS.getUserWithId('pLII1HPZvrXpYaQTZypVtqE0bl83', false).subscribe(u => {
+      console.log(u);
+    });
+
     /*
     // Users are up to 18
     const users = [

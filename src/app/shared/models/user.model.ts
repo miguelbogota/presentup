@@ -1,4 +1,4 @@
-import { IPublicProfile } from './profile.model';
+import { IPublicProfile, IPrivateProfile, IPartialProfile } from './profile.model';
 
 // Logged user
 export interface IUser {
@@ -30,6 +30,9 @@ export interface IUser {
 export interface IBasicUser {
   uid: string;
   isPublic: boolean;
-  public: IPublicProfile[]; // Subcollection
-  private: IPublicProfile[]; // Subcollection
+  profile: {
+    public: IPublicProfile[]; // Subcollection
+    private: IPrivateProfile[]; // Subcollection
+    partial: IPartialProfile[]; // Subcollection
+  };
 }

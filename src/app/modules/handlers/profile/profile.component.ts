@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StorageLS, IStorageSLConfig } from '@app-core/classes/storage/storagels';
-import { UserService } from '@app-core/http/user/user.service';
+import { UserService } from '@app-core/http/user/user-old.service';
 import { IUser } from '@app-models/user.model';
 
 // Designs
