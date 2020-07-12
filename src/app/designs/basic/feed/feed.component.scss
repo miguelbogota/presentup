@@ -2,28 +2,24 @@
 :host {
   display: block;
 
-  // Home button
-  .home-button {
-    background-color: var(--cyan);
-    color: var(--white);
-    display: flex;
-    margin-bottom: 14px;
-  }
-
   // About title
   .feed-title {
     font-size: 1.3rem;
     font-weight: 300;
-    margin-bottom: 10px;
     line-height: 1.6rem;
-    border-bottom: 1px solid var(--gray-light);
-    padding: 0px 0px 0.7rem;
+    margin-bottom: 20px;
+    padding: 10px 0px 0.5rem;
   }
 
   // Posts
   .posts {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 6px;
+    padding-bottom: 20px;
+    // Smaller screens
+    @media only screen and (max-width: 830px) and (min-width: 660px) {
+      padding: 0px 14px 20px;
+    }
   }
 }

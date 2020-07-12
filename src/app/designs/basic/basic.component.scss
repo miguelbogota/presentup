@@ -17,6 +17,7 @@
     @media only screen and (max-width: 830px) {
       margin-top: -90px;
       z-index: 500;
+      padding: 0px;
     }
 
     // Profile head information
@@ -30,6 +31,7 @@
         margin-bottom: 3px;
         padding: 7px;
         background-color: var(--white);
+        user-select: none;
       }
 
       // Personal data
@@ -53,10 +55,9 @@
         }
         // Data
         .name {
+          margin-bottom: 5px;
           font-size: 1.6rem;
           font-weight: 300;
-          line-height: 2rem;
-          margin-bottom: 10px;
         }
         .title {
           font-size: 1.1rem;
@@ -93,7 +94,6 @@
     // Profile body
     .profile-body {
       display: block;
-      padding: 0px 5px 5px;
     }
   }
 }

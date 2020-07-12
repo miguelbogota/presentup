@@ -18,17 +18,5 @@ html {
     &.modal-open {
       overflow: hidden;
     }
-    /* Max width to make a little smaller */
-    .container {
-      $max-width: 1170px; /* Max width the container will go to */
-      $margin: 14px; /* Margin to be apply with the screen is smaller */
-
-      max-width: $max-width;
-      margin: 0px auto;
-      /* Margin will be apply if the screen is lesser than the mex width */
-      @media only screen and (max-width: calc(#{$max-width} + calc(#{$margin} * 2))) {
-        margin: 0px $margin;
-      }
-    }
   }
 }

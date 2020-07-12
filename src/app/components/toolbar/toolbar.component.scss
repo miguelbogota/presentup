@@ -13,15 +13,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0px 7px;
 
     // Brand button to the main page
     .brand-link {
       // Button image
       .brand-image {
         height: 16px;
-        @media only screen and (max-width: 830px) {
-          height: 13px;
-        }
       }
     }
   }
