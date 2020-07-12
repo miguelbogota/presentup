@@ -3,7 +3,7 @@ import { firestore } from 'firebase/app';
 /**
  * Promo code for the check out.
  */
-export interface IPromoCode {
+export interface PromoCode {
   id: string;
   type: 'public' | 'private';
   description: string;
@@ -19,7 +19,7 @@ export interface IPromoCode {
 /**
  * Subcollection of the promo codes of a user.
  */
-export interface IUserPromoCode extends IPromoCode {
+export interface UserPromoCode extends PromoCode {
   isUsed: boolean;
   usedAt?: firestore.FieldValue; // Use serverTimestamp for field
 }

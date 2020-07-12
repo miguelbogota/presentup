@@ -1,0 +1,74 @@
+<!-- Validate if the user is not signed in -->
+<ng-container *ngIf="authService.userStateChanges | async as user; else notSigned">
+  
+  <!--Link to the messages page -->
+  <a class="button menu link" [routerLink]="['/messages']">
+    <i class='bx bx-message link-icon'></i>
+  </a>
+
+  <!-- Menu with all the notification -->
+  <app-menu class="menu" buttonIcon="bx bx-bell">
+
+    <!-- Menu title -->
+    <h3 class="menu-title">Notificaciones</h3>
+
+    <!-- All notifications -->
+    <button class="button" *ngFor="let notification of notifications">
+      
+    </button>
+
+  </app-menu>
+
+  <!-- Menu with all the links for the account -->
+  <app-menu class="menu" buttonIcon="bx bx-user">
+
+    <!-- Profile button -->
+    <button class="button menu-link menu-profile" [routerLink]="['/' + user.username]">
+      <img class="menu-profile-image" [src]="user.photoUrl" />
+      <div class="menu-profile-text">
+        <p class="menu-profile-text-name">Hola {{ user.displayName }}</p>
+        <p class="menu-profile-text-desc">Ver perfil</p>
+      </div>
+    </button>
+
+    <!-- Divider -->
+    <hr class="divider" />
+
+    <!-- Feedback link -->
+    <button class="button menu-link">
+      <i class='bx bxs-message-square-error menu-link-icon'></i>
+      <p class="menu-link-text">Envianos Tus Comentarios</p>
+    </button>
+
+    <!-- Divider -->
+    <hr class="divider" />
+
+    <!-- Settings link -->
+    <button class="button menu-link" [routerLink]="['/settings/account']">
+      <i class='bx bxs-cog menu-link-icon'></i>
+      <p class="menu-link-text">Configuración</p>
+    </button>
+
+    <!-- Help link -->
+    <button class="button menu-link" [routerLink]="['/help']">
+      <i class='bx bxs-help-circle menu-link-icon'></i>
+      <p class="menu-link-text">Ayuda y Soporte</p>
+    </button>
+
+    <!-- Sign out button -->
+    <button class="button menu-link" style="color: var(--red);">
+      <i class='bx bx-log-out menu-link-icon'></i>
+      <p class="menu-link-text">Cerrar Sesión</p>
+    </button>
+
+  </app-menu>
+
+</ng-container>
+
+<!-- User is signed -->
+<ng-template #notSigned>
+  <!--Link to the signin page -->
+  <a class="button menu-link" [routerLink]="['/signin']">
+    <i class='bx bx-user menu-link-icon'></i>
+  </a>
+</ng-template>

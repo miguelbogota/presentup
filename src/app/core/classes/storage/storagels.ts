@@ -3,7 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 /**
  * Interface for the configuration of the Storage class
  */
-export interface IStorageSLConfig {
+export interface StorageSLConfig {
   key: string;
   type: 'local' | 'session';
 }
@@ -15,7 +15,7 @@ export interface IStorageSLConfig {
 export class StorageLS {
 
   private logger: BehaviorSubject<{}> = new BehaviorSubject<{}>(null);
-  private config: IStorageSLConfig = null;
+  private config: StorageSLConfig = null;
 
   /**
    * In order to use this class the initial setup needs to be provide
@@ -23,7 +23,7 @@ export class StorageLS {
    *
    * @param config Initial configuration to be searched in the storage.
    */
-  constructor(config: IStorageSLConfig) {
+  constructor(config: StorageSLConfig) {
     this.config = config;
     this.logger = new BehaviorSubject<{}>(this.get());
   }
@@ -36,7 +36,7 @@ export class StorageLS {
   set<T>(data: T): void {
     // Check where the information will be store
     if (this.config.type === 'local') { localStorage.setItem(this.config.key, JSON.stringify(data)); }
-    else if(this.config.type === 'session'){ sessionStorage.setItem(this.config.key, JSON.stringify(data)); }
+    else if (this.config.type === 'session') { sessionStorage.setItem(this.config.key, JSON.stringify(data)); }
     // Throw error if is not an option
     else { throw new Error('Error with type of storage to store data, can only be of type "session" or "local" storage.'); }
     this.logger.next(data);
@@ -50,12 +50,12 @@ export class StorageLS {
     if (this.config.type === 'local') {
       const theresData = localStorage.getItem(this.config.key) !== null;
       // Return the data
-      return theresData ? JSON.parse(localStorage.getItem(this.config.key)) as T: null;
+      return theresData ? JSON.parse(localStorage.getItem(this.config.key)) as T : null;
     }
-    else if(this.config.type === 'session'){
+    else if (this.config.type === 'session') {
       const theresData = sessionStorage.getItem(this.config.key) !== null;
       // Return the data
-      return theresData ? JSON.parse(sessionStorage.getItem(this.config.key)) as T: null;
+      return theresData ? JSON.parse(sessionStorage.getItem(this.config.key)) as T : null;
     }
     // Throw error if is not an option
     else { throw new Error('Error with type of storage to store data, can only be of type "session" or "local" storage.'); }

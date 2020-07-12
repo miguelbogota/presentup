@@ -1,15 +1,14 @@
-// All the imports to keep everything organized
+/* All the imports to keep everything organized */
 @import 'variables';
 @import 'fonts';
-@import 'material';
 @import 'reset';
 
-/*-----------------------------------------------------------*/
-/*                       Main Styles                         */
-/*-----------------------------------------------------------*/
-
-/* Minimun width the app can go */
+/* Main styles for the app */
 html {
+  /* Toolbar height and margin to be see the content */
+  --toolbar-height: 40px;
+  margin-top: var(--toolbar-height);
+  /* Minimun width the app can go */
   min-width: 320px;
   body {
     /**
@@ -19,39 +18,17 @@ html {
     &.modal-open {
       overflow: hidden;
     }
-  }
-}
+    /* Max width to make a little smaller */
+    .container {
+      $max-width: 1170px; /* Max width the container will go to */
+      $margin: 14px; /* Margin to be apply with the screen is smaller */
 
-/* Max width to make a little smaller */
-.container {
-  $max-width: 1160px; /* Max width the container will go to */
-  $margin: 10px; /* Margin to be apply with the screen is smaller */
-
-  max-width: $max-width;
-  margin: 0px auto;
-  /* Margin will be apply if the screen is lesser than the mex width */
-  @media only screen and (max-width: calc(#{$max-width} + calc(#{$margin} * 2))) {
-    margin: 0px $margin;
-  }
-}
-
-/*-----------------------------------------------------------*/
-/*                         Global                            */
-/*-----------------------------------------------------------*/
-
-#notifications-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  .notification {
-    position: relative;
-    display: block;
-    width: 280px;
-    margin-top: 10px;
-    padding: 20px;
-    background-color: #333333d5;
-    color: var(--light);
-    transition: all .4s ease;
+      max-width: $max-width;
+      margin: 0px auto;
+      /* Margin will be apply if the screen is lesser than the mex width */
+      @media only screen and (max-width: calc(#{$max-width} + calc(#{$margin} * 2))) {
+        margin: 0px $margin;
+      }
+    }
   }
 }

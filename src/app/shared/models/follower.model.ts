@@ -3,7 +3,7 @@ import { firestore } from 'firebase/app';
 /**
  * Preview for the post in the data aggregation for the followers.
  */
-export interface IPostPreview {
+export interface PostPreview {
   id: string;
   createdAt: firestore.FieldValue;
 }
@@ -11,10 +11,10 @@ export interface IPostPreview {
 /**
  * Follower list.
  */
-export interface IFollow {
+export interface Follow {
   id: string;
   uid: string;
   lastPost?: firestore.FieldValue;
-  recentPosts: IPostPreview[]; // Array
+  recentPosts: PostPreview[]; // Array
   followedBy: string[]; // Array
 }

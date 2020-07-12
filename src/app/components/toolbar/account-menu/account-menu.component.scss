@@ -1,0 +1,75 @@
+// Account options
+:host {
+  display: flex;
+
+  // Menu
+  .menu {
+    margin-left: 10px;
+    // Menu link
+    .menu-link {
+      width: 100%;
+      padding: 9px 18px 9px 9px;
+      margin-bottom: 2px;
+      justify-content: start;
+      // Icon
+      &-icon {
+        font-size: 22px;
+        color: inherit;
+      }
+      // Text
+      &-text {
+        margin-left: 12px;
+        color: inherit;
+      }
+    }
+  }
+  // Menu link
+  .link {
+    padding: 7px;
+    // Icon
+    &-icon {
+      font-size: 18px;
+    }
+  }
+
+  // Profile link
+  .menu-profile {
+    display: flex;
+    align-items: center;
+
+    // User photo
+    &-image {
+      height: 58px;
+      width: 58px;
+      border-radius: 50%;
+    }
+
+    // Text of the link
+    &-text {
+      text-align: left;
+      margin-left: 10px;
+      // User name
+      &-name {
+        font-size: 1rem;
+        font-weight: 400;
+        color: inherit;
+        white-space: pre-wrap;
+        width: max-content;
+        max-width: 250px;
+      }
+      // Description
+      &-desc {
+        margin-top: 4px;
+        font-size: 0.8rem;
+        color: inherit;
+      }
+    }
+  }
+
+  // Divider
+  .divider {
+    border: 1px solid var(--gray-light);
+    box-sizing: border-box;
+  }
+
+}

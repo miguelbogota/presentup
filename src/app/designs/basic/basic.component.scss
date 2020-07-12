@@ -1,0 +1,99 @@
+// Profile container component
+:host {
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: calc(63% - 14px) 37%;
+  gap: 14px;
+  // Smaller screens
+  @media only screen and (max-width: 830px) {
+    grid-template-columns: 100%;
+  }
+
+  // Profile information
+  .profile {
+    text-align: center;
+    padding: 11px;
+    // Smaller screens
+    @media only screen and (max-width: 830px) {
+      margin-top: -90px;
+      z-index: 500;
+    }
+
+    // Profile head information
+    &-head {
+      margin-bottom: 14px;
+
+      // Profile image
+      .profile-photo {
+        width: 121px;
+        border-radius: 50%;
+        margin-bottom: 3px;
+        padding: 7px;
+        background-color: var(--white);
+      }
+
+      // Personal data
+      .profile-personal {
+        margin-bottom: 21px;
+        padding: 0px 10px;
+        // Follow button
+        .follow-button {
+          color: var(--white);
+          background-color: var(--cyan);
+          margin-bottom: 12px;
+          .username {
+            font-size: inherit;
+            margin-right: 7px;
+            color: inherit;
+          }
+          .follow-icon {
+            font-size: inherit;
+            color: inherit;
+          }
+        }
+        // Data
+        .name {
+          font-size: 1.6rem;
+          font-weight: 300;
+          line-height: 2rem;
+          margin-bottom: 10px;
+        }
+        .title {
+          font-size: 1.1rem;
+          line-height: 1.5rem;
+          font-weight: 400;
+        }
+      }
+
+      // Counts container
+      .profile-counts {
+        padding: 5px 0px;
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid var(--gray-light);
+        border-bottom: 1px solid var(--gray-light);
+        // Counts button
+        .count {
+          flex-direction: column;
+          margin: 0px 5px;
+          padding: 7px;
+          width: 90px;
+          &-number {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 6px;
+          }
+          &-title {
+            font-size: 0.8rem;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+    // Profile body
+    .profile-body {
+      display: block;
+      padding: 0px 5px 5px;
+    }
+  }
+}

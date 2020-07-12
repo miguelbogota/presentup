@@ -1,0 +1,8 @@
+<!-- Home link -->
+<a class="home-button button" [routerLink]="['/' + user.username]">Inicio</a>
+<!-- Title -->
+<h2 class="feed-title">Publicaciones de {{ user.displayName | titlecase }}</h2>
+<!-- Posts -->
+<div class="posts">
+  <app-card *ngFor="let post of posts" [post]="post"></app-card>
+</div>

@@ -1,0 +1,28 @@
+// Toolbar at the top of the screen
+:host {
+  top: 0px;
+  width: 100%;
+  z-index: 2000;
+  display: block;
+  position: fixed;
+  background-color: var(--white);
+
+  // Content of the toolbar
+  .toolbar-content {
+    height: var(--toolbar-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // Brand button to the main page
+    .brand-link {
+      // Button image
+      .brand-image {
+        height: 16px;
+        @media only screen and (max-width: 830px) {
+          height: 13px;
+        }
+      }
+    }
+  }
+}

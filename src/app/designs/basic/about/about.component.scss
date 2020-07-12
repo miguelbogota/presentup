@@ -1,0 +1,30 @@
+// About section in the profile
+:host {
+  display: block;
+
+  // Contact button
+  .contact-button {
+    background-color: var(--cyan);
+    color: var(--white);
+    display: flex;
+    margin-bottom: 14px;
+  }
+
+  // About title
+  .about-title {
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.6rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--gray-light);
+    padding: 0px 0px 0.7rem;
+  }
+
+  // About text
+  .about-text {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+}

@@ -1,0 +1,12 @@
+<!-- Button trigger the menu -->
+<button class="button button-icon" (click)="toggleMenu()">
+  <i [class]="buttonIcon + ' menu-icon'"></i>
+</button>
+
+<!-- Dropdown menu -->
+<div [ngClass]="{'menu': true, 'menu-shown': isShown}">
+  <ng-content></ng-content>
+</div>
+
+<!-- Shadow in the background -->
+<div class="menu-shadow" (click)="toggleMenu()"></div>

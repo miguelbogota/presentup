@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  position: relative;
+
+  // Search form
+  .search-form {
+    display: flex;
+
+    // Search input
+    .search-input {
+      border: 1px solid var(--gray-light);
+      padding: 6px 48px 6px 8px;
+      background-color: transparent;
+      font-size: 0.97rem;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 200px;
+    }
+
+    // Search button sumbit
+    .search-button {
+      padding:  6px 9px 7.8px 9px;
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      border-radius: 0px 4px 4px 0px;
+    }
+  }
+}

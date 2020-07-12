@@ -4,7 +4,7 @@
  * Product to be sell in the app.
  */
 /*
-export interface IProduct {
+export interface Product {
   id: string;
   displayName: string;
   previewUrl?: string;
@@ -21,8 +21,8 @@ export interface IProduct {
  * User history for the products purchased
  */
 /*
-export interface IUserProduct extends IProduct {
-  includes?: IProduct[]; // Array - Duplicate data
+export interface UserProduct extends IProduct {
+  includes?: Product[]; // Array - Duplicate data
   quantity?: number;
 }
 */

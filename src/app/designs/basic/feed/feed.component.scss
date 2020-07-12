@@ -1,0 +1,29 @@
+// Feed with all the post
+:host {
+  display: block;
+
+  // Home button
+  .home-button {
+    background-color: var(--cyan);
+    color: var(--white);
+    display: flex;
+    margin-bottom: 14px;
+  }
+
+  // About title
+  .feed-title {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+    line-height: 1.6rem;
+    border-bottom: 1px solid var(--gray-light);
+    padding: 0px 0px 0.7rem;
+  }
+
+  // Posts
+  .posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+}

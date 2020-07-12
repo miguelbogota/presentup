@@ -29,7 +29,9 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles/main.scss"
+              "src/styles/main.scss",
+              "node_modules/boxicons/css/boxicons.min.css",
+              "node_modules/@cover-ui/core/dist/cover-ui.min.css"
             ],
             "scripts": []
           },
@@ -96,7 +98,9 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles/main.scss"
+              "src/styles/main.scss",
+              "node_modules/boxicons/css/boxicons.min.css",
+              "node_modules/@cover-ui/core/dist/cover-ui.min.css"
             ],
             "scripts": []
           }
@@ -133,8 +137,5 @@
       }
     }
   },
-  "defaultProject": "presentup-me",
-  "cli": {
-    "analytics": "19c43dc4-04f3-4aba-a516-7fe112b36125"
-  }
+  "defaultProject": "presentup-me"
 }

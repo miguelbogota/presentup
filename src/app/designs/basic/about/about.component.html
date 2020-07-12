@@ -1,0 +1,6 @@
+<!-- Contact link -->
+<a class="contact-button button" [routerLink]="['/' + user.username + '/contact']">Contactar</a>
+<!-- Title -->
+<h2 class="about-title">Acerca de {{ user.displayName | titlecase }}</h2>
+<!-- About text -->
+<p class="about-text" *ngFor="let text of user.about">{{ text }}</p>

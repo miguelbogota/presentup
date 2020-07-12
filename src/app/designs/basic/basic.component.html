@@ -1,0 +1,46 @@
+<!-- Cover photo -->
+<app-cover [imageUrl]="user.coverUrl"></app-cover>
+<!-- Profile information at the top -->
+<div class="profile">
+  <!-- Profile head -->
+  <div class="profile-head">
+
+    <!-- Profile photo -->
+    <img class="profile-photo" [src]="user.photoUrl" alt="Profile photo." *ngIf="user.photoUrl" />
+
+    <!-- Personal information -->
+    <div class="profile-personal">
+      <!-- Username and follow -->
+      <button class="follow-button button">
+        <h1 class="username">{{ user.username }}</h1>
+        <i class='bx bx-user-plus follow-icon'></i>
+      </button>
+      <h2 class="name">{{ user.displayName | titlecase }}</h2>
+      <h3 class="title">{{ user.title | titlecase }}</h3>
+    </div>
+
+    <!-- Data count -->
+    <div class="profile-counts">
+      <!-- Posts/Projects/Polls -->
+      <a class="count button" [routerLink]="['/' + user.username + '/feed']">
+        <h4 class="count-number">{{ user.postCount }}</h4>
+        <h5 class="count-title">Publicaciones</h5>
+      </a>
+      <!-- Followers -->
+      <a class="count button">
+        <h4 class="count-number">{{ user.followerCount }}</h4>
+        <h5 class="count-title">Seguidores</h5>
+      </a>
+      <!-- Following -->
+      <a class="count button">
+        <h4 class="count-number">{{ user.followingCount }}</h4>
+        <h5 class="count-title">Seguidos</h5>
+      </a>
+    </div>
+
+  </div>
+  <!-- Content of the route -->
+  <div class="profile-body">
+    <ng-container #router></ng-container>
+  </div>
+</div>

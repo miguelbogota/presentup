@@ -1,7 +1,7 @@
 /**
  * Link to use in the navigations.
  */
-export interface ILink {
+export interface Link {
   id?: string;
   displayName: string;
   url?: string;

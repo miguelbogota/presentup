@@ -1,7 +1,7 @@
 /**
  * Account stored in Firestore db.
  */
-export interface IAccount {
+export interface Account {
   id: string;
   uid: string;
   subscription: string;
