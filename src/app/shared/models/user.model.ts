@@ -19,7 +19,7 @@ export interface User {
   photoUrl?: string;
   coverUrl?: string;
   title?: string;
-  about: string[]; // Max 3800 characters
+  about: string; // Max 3800 characters
   languages: string[];
   design: string;
   // Data aggregation

@@ -1,5 +1,5 @@
 <!-- Content of the card and link -->
 <a class="card-content" [routerLink]="[post.id]">
   <img class="card-image" [src]="post.media[0].url" alt="Post" *ngIf="post.media" />
-  <div class="card-text" *ngIf="!post.media">{{ post.text[0] }}</div>
+  <div class="card-text" *ngIf="!post.media">{{ post.text }}</div>
 </a>

@@ -13,7 +13,7 @@ export interface Post {
   title?: string;
   isPublic: boolean;
   isPinned: boolean;
-  text: string[]; // Array - Max 3800 characters
+  text: string; // Max 3800 characters
   // location?: firestore.GeoPoint; // Maybe in the future
   media?: Media[]; // Array - Max 8 images
   comments?: Comment[]; // Subcollection
