@@ -1,16 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as marked from 'marked';
+import { parse } from 'marked';
 
 @Pipe({
   name: 'mdToHtml'
 })
 export class MdToHtmlPipe implements PipeTransform {
 
-  transform(value: string, ...args: unknown[]): unknown {
-    // Firestore sanitize the input
-    const newValue = this.replaceAll(value, '\\n', '\n');
+  transform(value: string): string {
+    /**
+     * Firestore sanitize the input send and converts to a string.
+     * In order to have a new line in the fronend the new lines '\\n'
+     * will be converted to '_\\n' to change it with pipe and have them
+     * again without having any conflict with '\\n' in the future.
+     */
+    const newValue = this.replaceAll(value, '_\\n', '\n');
     // With lib marked transform to md
-    return marked(newValue);
+    return parse(newValue);
   }
 
   /**

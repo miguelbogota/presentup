@@ -1,10 +1,42 @@
 /* Markdown content styles */
 .md-content {
   font-size: 1rem;
-  h2 {
-    font-size: 1.2em;
+
+  // Defaults
+  h1 {
+    font-size: 2em;
     font-weight: 300;
-    line-height: 1.4em;
+    line-height: 2.1em;
+    margin-bottom: 0.7em;
+  }
+  h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.6em;
+    margin-bottom: 0.7em;
+  }
+  h3 {
+    font-size: 1.17em;
+    font-weight: 300;
+    line-height: 1.27em;
+    margin-bottom: 0.7em;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 1.1em;
+    margin-bottom: 0.7em;
+  }
+  h5 {
+    font-size: 0.83em;
+    font-weight: 300;
+    line-height: 0.93em;
+    margin-bottom: 0.7em;
+  }
+  h6 {
+    font-size: 0.67em;
+    font-weight: 300;
+    line-height: 0.77em;
     margin-bottom: 0.7em;
   }
   p {
@@ -12,5 +44,16 @@
     font-weight: 300;
     line-height: 1.5em;
     margin-bottom: 0.6em;
+  }
+  strong {
+    font-weight: 400;
+  }
+  em {
+    font-style: italic;
+    vertical-align: top;
+  }
+  img {
+    display: block;
+    width: 100%;
   }
 }
