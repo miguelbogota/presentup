@@ -1,4 +1,2 @@
 <!-- Markdown from firestore -->
-<div>
-  <p class="about-text" *ngFor="let text of user.about">{{ text }}</p>
-</div>
+<div class="md-content" [innerHTML]="user.about | mdToHtml"></div>

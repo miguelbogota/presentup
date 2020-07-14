@@ -33,13 +33,14 @@
     }
     // If there's not an image show the text
     .card-text {
-      box-sizing: border-box;
+      overflow: hidden;
+      cursor: pointer;
       font-size: 0.83rem;
       line-height: 1.1rem;
-      max-height: 100%;
+      max-width: 90%;
+      max-height: 90%;
       text-align: center;
-      padding: 5px;
-      cursor: pointer;
+      box-sizing: border-box;
     }
   }
 }

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// Components
-import { MarkdownComponent } from './markdown.component';
+// Pipes
+import { MdToHtmlPipe } from './md-to-html/md-to-html.pipe';
 
 @NgModule({
   declarations: [
-    MarkdownComponent
+    MdToHtmlPipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    MarkdownComponent
+    MdToHtmlPipe
   ]
 })
-export class MarkdownModule { }
+export class PipesModule { }

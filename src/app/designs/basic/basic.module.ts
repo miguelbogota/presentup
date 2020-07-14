@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+// Pipes
+import { PipesModule } from '@app-shared/pipes/pipes.module';
 // Components
 import { BasicComponent } from './basic.component';
 import { CoverComponent } from './cover/cover.component';
@@ -22,7 +24,8 @@ import { CardComponent } from './card/card.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   exports: [
     BasicComponent

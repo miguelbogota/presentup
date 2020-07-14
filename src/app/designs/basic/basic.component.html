@@ -6,7 +6,7 @@
   <div class="profile-head">
 
     <!-- Profile photo -->
-    <img class="profile-photo" [src]="user.photoUrl" alt="Profile photo." *ngIf="user.photoUrl" />
+    <img class="profile-photo" [src]="user.photoUrl" alt="Profile photo." *ngIf="user.photoUrl" [routerLink]="['/' + user.username]" />
 
     <!-- Personal information -->
     <div class="profile-personal">

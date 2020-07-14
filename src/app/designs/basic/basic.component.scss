@@ -1,18 +1,18 @@
 // Profile container component
 :host {
-  padding-top: 14px;
+  padding: 14px 14px 0px;
   display: grid;
-  grid-template-columns: calc(63% - 14px) 37%;
-  gap: 14px;
+  grid-template-columns: calc(63% - 25px) 37%;
+  gap: 25px;
   // Smaller screens
   @media only screen and (max-width: 830px) {
     grid-template-columns: 100%;
+    padding: 14px 0px 0px;
   }
 
   // Profile information
   .profile {
     text-align: center;
-    padding: 11px;
     // Smaller screens
     @media only screen and (max-width: 830px) {
       margin-top: -90px;
