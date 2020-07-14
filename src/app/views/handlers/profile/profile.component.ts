@@ -48,6 +48,8 @@ export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
     // Get the id from the route
     this.route.paramMap.subscribe(p => {
       this.username = p.get('username'); // Store id from the route
+      // Load changes for the new user
+      this.getChanges();
     });
   }
 
