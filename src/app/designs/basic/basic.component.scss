@@ -24,40 +24,76 @@
     &-head {
       margin-bottom: 14px;
 
-      // Profile image
-      .profile-photo {
-        width: 121px;
+      // Profile image and nav
+      .profile-nav {
+        position: relative;
+        width: 149px;
+        height: 149px;
+        margin: 0px auto 11px;
+        padding: 4px;
         border-radius: 50%;
-        margin-bottom: 3px;
-        padding: 7px;
         background-color: var(--white);
-        user-select: none;
+
+        // Image
+        .profile-photo {
+          cursor: pointer;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 3px;
+          border-radius: 50%;
+          user-select: none;
+          border: 2px solid transparent;
+          transition: border 0.3s linear, filter 0.16s linear;
+          &:hover {
+            filter: brightness(85%);
+          }
+        }
+        .state-active {
+          border: 2px solid #48e1f8;
+        }
+        .icon {
+          color: inherit;
+          font-size: inherit;
+        }
+        .contact-button {
+          position: absolute;
+          top: 15px;
+          left: 0px;
+          padding: 8px;
+          border: 4px solid var(--white);
+          border-radius: 50%;
+          background-color: var(--dark);
+          color: var(--white);
+          font-size: 1.1em;
+        }
+        .follow-button {
+          position: absolute;
+          bottom: 13px;
+          right: -3px;
+          border: 4px solid var(--white);
+          padding: 12px 10px 10px 12px;
+          border-radius: 50%;
+          background-color: var(--dark);
+          color: var(--white);
+          font-size: 1.47em;
+        }
       }
 
       // Personal data
       .profile-personal {
         margin-bottom: 21px;
         padding: 0px 10px;
-        // Follow button
-        .follow-button {
-          color: var(--white);
-          background-color: var(--cyan);
-          margin-bottom: 12px;
-          .username {
-            font-size: inherit;
-            margin-right: 7px;
-            color: inherit;
-          }
-          .follow-icon {
-            font-size: inherit;
-            color: inherit;
-          }
-        }
         // Data
         .name {
-          margin-bottom: 5px;
+          display: inline-block;
+          cursor: pointer;
+          margin-bottom: 9px;
           font-size: 1.6rem;
           font-weight: 300;
+          transition: color 0.1s linear;
+          &:hover {
+            color: var(--cyan);
+          }
         }
         .title {
           font-size: 1.1rem;

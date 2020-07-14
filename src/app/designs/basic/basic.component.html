@@ -5,17 +5,22 @@
   <!-- Profile head -->
   <div class="profile-head">
 
-    <!-- Profile photo -->
-    <img class="profile-photo" [src]="user.photoUrl" alt="Profile photo." *ngIf="user.photoUrl" [routerLink]="['/' + user.username]" />
+    <!-- Profile photo and navigation -->
+    <div class="profile-nav">
+      <img class="profile-photo" [src]="user.photoUrl" alt="Profile photo." [ngClass]="{'state-active': false}" *ngIf="user.photoUrl" />
+      <!-- Contact link -->
+      <a class="button contact-button" [routerLink]="['/' + user.username + '/contact']">
+        <i class='bx bx-message-square-detail icon'></i>
+      </a>
+      <!-- Follow button -->
+      <button class="button follow-button">
+        <i class='bx bx-user-plus icon'></i>
+      </button>
+    </div>
 
     <!-- Personal information -->
     <div class="profile-personal">
-      <!-- Username and follow -->
-      <button class="follow-button button">
-        <h1 class="username">{{ user.username }}</h1>
-        <i class='bx bx-user-plus follow-icon'></i>
-      </button>
-      <h2 class="name">{{ user.displayName | titlecase }}</h2>
+      <a class="name" [routerLink]="['/' + user.username]">{{ user.displayName | titlecase }}</a>
       <h3 class="title">{{ user.title | titlecase }}</h3>
     </div>
 
