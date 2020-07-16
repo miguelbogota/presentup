@@ -3,6 +3,9 @@
   <p align="center">The official site for the platform</p>
 </p>
 
+## Heads Up!
+This repo was move to [GitLab](https://gitlab.com/deft-plus/presentup-me). Follow future update in there.
+
 ## What is PresentUp.me?
 
 PresentUp.me seeks to present who you are and what you do to your clients by interacting with them in the same place, doing so in an ecological way providing comfort to its users and their clients by making communication between them easy and giving them advantages in a increasingly growing market.
